@@ -1,0 +1,2526 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: auto;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   BODY + FONDO
+========================================= */
+
+body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    color:
+        #f5eee0;
+
+    background:
+        #050505;
+}
+
+
+/* FONDO FIJO */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+
+    height: 100vh;
+    height: 100svh;
+
+    background-image:
+        url("img/backgxv.png");
+
+    background-size:
+        cover;
+
+    background-position:
+        center center;
+
+    background-repeat:
+        no-repeat;
+
+    z-index:
+        -2;
+
+    pointer-events:
+        none;
+}
+
+
+/* CAPA OSCURA */
+
+body::after {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+
+    z-index:
+        -1;
+
+    pointer-events:
+        none;
+}
+
+
+/* =========================================
+   PORTADA
+========================================= */
+
+.portada {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    padding:
+
+        max(
+            25px,
+            env(safe-area-inset-top)
+        )
+
+        20px
+
+        max(
+            80px,
+            env(safe-area-inset-bottom)
+        );
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        transparent;
+}
+
+
+/* =========================================
+   CUADRO DE LA PORTADA
+========================================= */
+
+.contenido-portada {
+    position: relative;
+
+    overflow: hidden;
+
+    width:
+        min(
+            92%,
+            430px
+        );
+
+    padding:
+
+        clamp(
+            28px,
+            8vw,
+            45px
+        )
+
+        clamp(
+            18px,
+            6vw,
+            35px
+        );
+
+    background:
+        rgba(
+            5,
+            5,
+            5,
+            0.76
+        );
+
+    border:
+        1px solid
+        rgba(
+            240,
+            209,
+            138,
+            0.50
+        );
+
+    border-radius:
+        clamp(
+            22px,
+            6vw,
+            35px
+        );
+
+    backdrop-filter:
+        blur(8px);
+
+    -webkit-backdrop-filter:
+        blur(8px);
+
+    box-shadow:
+
+        0 15px 40px
+        rgba(
+            0,
+            0,
+            0,
+            0.55
+        ),
+
+        0 0 24px
+        rgba(
+            240,
+            209,
+            138,
+            0.08
+        );
+}
+
+
+/* BRILLO DORADO */
+
+.contenido-portada::before {
+    content: "";
+
+    position: absolute;
+
+    top: -80px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width:
+        260px;
+
+    height:
+        160px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(
+                240,
+                209,
+                138,
+                0.14
+            ),
+            transparent 70%
+        );
+
+    pointer-events:
+        none;
+}
+
+
+/* =========================================
+   MIS XV
+========================================= */
+
+.subtitulo {
+    position: relative;
+
+    z-index: 2;
+
+    font-size:
+        clamp(
+            11px,
+            3.5vw,
+            15px
+        );
+
+    letter-spacing:
+        clamp(
+            4px,
+            1.8vw,
+            8px
+        );
+
+    color:
+        #d8b46a;
+
+    margin-bottom:
+        10px;
+}
+
+
+/* =========================================
+   NOMBRE PORTADA
+========================================= */
+
+.portada h1 {
+    position: relative;
+
+    z-index: 2;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-weight:
+        normal;
+
+    font-size:
+        clamp(
+            48px,
+            15vw,
+            76px
+        );
+
+    line-height:
+        1.05;
+
+    color:
+        #f0d18a;
+
+    margin:
+        10px 0 18px;
+
+    overflow-wrap:
+        anywhere;
+
+    text-shadow:
+
+        0 3px 10px
+        rgba(
+            0,
+            0,
+            0,
+            0.8
+        ),
+
+        0 0 18px
+        rgba(
+            240,
+            209,
+            138,
+            0.15
+        );
+}
+
+
+/* =========================================
+   FECHA PORTADA
+========================================= */
+
+.fecha-portada {
+    position: relative;
+
+    z-index: 2;
+
+    font-size:
+        clamp(
+            15px,
+            4vw,
+            19px
+        );
+
+    line-height:
+        1.5;
+
+    color:
+        #f5eee0;
+
+    margin-bottom:
+        28px;
+}
+
+
+/* =========================================
+   BOTONES
+========================================= */
+
+button,
+a {
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+.boton,
+.boton-principal {
+    position: relative;
+
+    z-index: 2;
+
+    display:
+        inline-flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    min-height:
+        48px;
+
+    max-width:
+        100%;
+
+    padding:
+        13px 24px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            238,
+            195,
+            0.55
+        );
+
+    border-radius:
+        50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0d18a,
+            #c89545
+        );
+
+    color:
+        #17120b;
+
+    font-family:
+        inherit;
+
+    font-size:
+        clamp(
+            14px,
+            4vw,
+            16px
+        );
+
+    font-weight:
+        600;
+
+    line-height:
+        1.3;
+
+    text-decoration:
+        none;
+
+    text-align:
+        center;
+
+    box-shadow:
+        0 8px 22px
+        rgba(
+            201,
+            154,
+            72,
+            0.28
+        );
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+
+.boton:active,
+.boton-principal:active {
+    transform:
+        scale(0.96);
+}
+
+
+@media (hover: hover) {
+
+    .boton:hover,
+    .boton-principal:hover {
+
+        transform:
+            translateY(-3px);
+
+        filter:
+            brightness(1.06);
+
+        box-shadow:
+            0 12px 28px
+            rgba(
+                201,
+                154,
+                72,
+                0.35
+            );
+    }
+}
+
+
+/* =========================================
+   OCULTAR INVITACIÓN
+========================================= */
+
+.oculto {
+    display:
+        none;
+}
+
+
+/* =========================================
+   SECCIONES
+========================================= */
+
+.seccion {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    padding:
+
+        max(
+            50px,
+            env(safe-area-inset-top)
+        )
+
+        clamp(
+            16px,
+            5vw,
+            30px
+        )
+
+        max(
+            105px,
+            env(safe-area-inset-bottom)
+        );
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    text-align:
+        center;
+
+    overflow:
+        hidden;
+
+    background:
+        transparent;
+}
+
+
+/* =========================================
+   CONTENIDO CENTRAL
+========================================= */
+
+.contenido-seccion {
+    position: relative;
+
+    width:
+        min(
+            92%,
+            520px
+        );
+
+    padding:
+
+        clamp(
+            22px,
+            6vw,
+            35px
+        )
+
+        clamp(
+            16px,
+            5vw,
+            28px
+        );
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        rgba(
+            5,
+            5,
+            5,
+            0.68
+        );
+
+    border:
+        1px solid
+        rgba(
+            240,
+            209,
+            138,
+            0.28
+        );
+
+    border-radius:
+        clamp(
+            20px,
+            6vw,
+            30px
+        );
+
+    backdrop-filter:
+        blur(7px);
+
+    -webkit-backdrop-filter:
+        blur(7px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(
+            0,
+            0,
+            0,
+            0.42
+        );
+}
+
+
+/* =========================================
+   TÍTULOS
+========================================= */
+
+.seccion h2 {
+    font-family:
+        Georgia,
+        serif;
+
+    font-weight:
+        normal;
+
+    font-size:
+        clamp(
+            31px,
+            9vw,
+            46px
+        );
+
+    line-height:
+        1.15;
+
+    color:
+        #f0d18a;
+
+    margin-bottom:
+        18px;
+
+    max-width:
+        100%;
+
+    overflow-wrap:
+        anywhere;
+
+    text-shadow:
+        0 3px 10px
+        rgba(
+            0,
+            0,
+            0,
+            0.75
+        );
+}
+
+
+.seccion h3 {
+    font-size:
+        clamp(
+            18px,
+            5vw,
+            23px
+        );
+
+    line-height:
+        1.4;
+
+    color:
+        #efd9a7;
+
+    margin:
+        8px 0;
+}
+
+
+/* =========================================
+   TEXTOS
+========================================= */
+
+.seccion p {
+    width:
+        100%;
+
+    max-width:
+        470px;
+
+    font-size:
+        clamp(
+            15px,
+            4.2vw,
+            17px
+        );
+
+    line-height:
+        1.7;
+
+    margin:
+        7px 0;
+
+    color:
+        #f5eee0;
+}
+
+
+/* =========================================
+   FOTO PRINCIPAL
+========================================= */
+
+.foto-principal {
+    width:
+        clamp(
+            185px,
+            61vw,
+            280px
+        );
+
+    height:
+        auto;
+
+    aspect-ratio:
+        3 / 4;
+
+    object-fit:
+        cover;
+
+    border-radius:
+        50% 50% 24px 24px;
+
+    margin-bottom:
+        clamp(
+            20px,
+            6vw,
+            32px
+        );
+
+    border:
+        3px solid
+        rgba(
+            240,
+            209,
+            138,
+            0.70
+        );
+
+    box-shadow:
+
+        0 15px 35px
+        rgba(
+            0,
+            0,
+            0,
+            0.60
+        ),
+
+        0 0 20px
+        rgba(
+            240,
+            209,
+            138,
+            0.10
+        );
+}
+
+
+/* =========================================
+   MINI TÍTULO
+========================================= */
+
+.mini-titulo {
+    font-size:
+        clamp(
+            10px,
+            3vw,
+            13px
+        ) !important;
+
+    letter-spacing:
+        clamp(
+            2px,
+            1.2vw,
+            4px
+        );
+
+    color:
+        #d8b46a !important;
+
+    margin-bottom:
+        14px !important;
+}
+
+
+/* =========================================
+   TARJETAS FECHA / HORA
+========================================= */
+
+.datos {
+    width:
+        100%;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        clamp(
+            10px,
+            3vw,
+            18px
+        );
+
+    margin-top:
+        24px;
+}
+
+
+.tarjeta-dato {
+    width:
+        100%;
+
+    min-width:
+        0;
+
+    padding:
+        clamp(
+            18px,
+            5vw,
+            28px
+        )
+        10px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    background:
+        rgba(
+            8,
+            8,
+            8,
+            0.80
+        );
+
+    border:
+        1px solid
+        rgba(
+            240,
+            209,
+            138,
+            0.38
+        );
+
+    border-radius:
+        22px;
+
+    backdrop-filter:
+        blur(5px);
+
+    -webkit-backdrop-filter:
+        blur(5px);
+
+    color:
+        #f5eee0;
+
+    box-shadow:
+        0 10px 25px
+        rgba(
+            0,
+            0,
+            0,
+            0.35
+        );
+}
+
+
+.numero {
+    font-size:
+        clamp(
+            31px,
+            9vw,
+            42px
+        );
+
+    line-height:
+        1;
+
+    font-weight:
+        bold;
+
+    color:
+        #f0d18a;
+
+    margin-bottom:
+        7px;
+}
+
+
+/* =========================================
+   CONTADOR
+========================================= */
+
+.contador {
+    width:
+        100%;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        clamp(
+            6px,
+            2vw,
+            12px
+        );
+
+    margin-top:
+        22px;
+}
+
+
+.contador div {
+    min-width:
+        0;
+
+    padding:
+        clamp(
+            12px,
+            4vw,
+            20px
+        )
+        3px;
+
+    background:
+        rgba(
+            8,
+            8,
+            8,
+            0.82
+        );
+
+    border:
+        1px solid
+        rgba(
+            240,
+            209,
+            138,
+            0.34
+        );
+
+    border-radius:
+        clamp(
+            13px,
+            4vw,
+            20px
+        );
+
+    backdrop-filter:
+        blur(5px);
+
+    -webkit-backdrop-filter:
+        blur(5px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(
+            0,
+            0,
+            0,
+            0.35
+        );
+}
+
+
+.contador span {
+    display:
+        block;
+
+    font-size:
+        clamp(
+            20px,
+            6vw,
+            31px
+        );
+
+    line-height:
+        1;
+
+    font-weight:
+        bold;
+
+    color:
+        #f0d18a;
+}
+
+
+.contador p {
+    font-size:
+        clamp(
+            9px,
+            2.8vw,
+            13px
+        );
+
+    line-height:
+        1.2;
+
+    margin-top:
+        6px;
+
+    color:
+        #f5eee0;
+}
+
+
+/* =========================================
+   ICONOS
+========================================= */
+
+.icono {
+    font-size:
+        clamp(
+            45px,
+            15vw,
+            62px
+        );
+
+    margin:
+        14px 0;
+
+    animation:
+        flotar
+        3s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes flotar {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-7px);
+    }
+}
+
+
+/* =========================================
+   IMAGEN PIN - UBICACIÓN
+========================================= */
+
+.imagen-pin {
+    display:
+        block;
+
+    width:
+        clamp(
+            90px,
+            28vw,
+            135px
+        );
+
+    max-width:
+        100%;
+
+    max-height:
+        170px;
+
+    height:
+        auto;
+
+    object-fit:
+        contain;
+
+    margin:
+        4px
+        auto
+        14px;
+
+    filter:
+        drop-shadow(
+            0
+            10px
+            16px
+            rgba(
+                0,
+                0,
+                0,
+                0.55
+            )
+        );
+
+    animation:
+        flotarPin
+        3s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes flotarPin {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-7px);
+    }
+}
+
+
+/* =========================================
+   IMAGEN DRESS CODE
+========================================= */
+
+.imagen-dresscode {
+    display:
+        block;
+
+    width:
+        clamp(
+            125px,
+            40vw,
+            195px
+        );
+
+    max-width:
+        100%;
+
+    max-height:
+        240px;
+
+    height:
+        auto;
+
+    object-fit:
+        contain;
+
+    margin:
+        6px
+        auto
+        16px;
+
+    filter:
+        drop-shadow(
+            0
+            10px
+            16px
+            rgba(
+                0,
+                0,
+                0,
+                0.55
+            )
+        );
+
+    animation:
+        flotarDressCode
+        3.2s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes flotarDressCode {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-7px);
+    }
+}
+
+
+/* =========================================
+   IMAGEN REGALOS
+========================================= */
+
+.imagen-gift {
+    display:
+        block;
+
+    width:
+        clamp(
+            125px,
+            40vw,
+            195px
+        );
+
+    max-width:
+        100%;
+
+    max-height:
+        240px;
+
+    height:
+        auto;
+
+    object-fit:
+        contain;
+
+    margin:
+        6px
+        auto
+        18px;
+
+    filter:
+        drop-shadow(
+            0
+            10px
+            16px
+            rgba(
+                0,
+                0,
+                0,
+                0.55
+            )
+        );
+
+    animation:
+        flotarGift
+        3.2s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes flotarGift {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-7px)
+            rotate(-1deg);
+    }
+}
+
+
+/* =========================================
+   MUESCAS
+========================================= */
+
+.muesca {
+    position:
+        absolute;
+
+    bottom:
+        0;
+
+    width:
+        clamp(
+            68px,
+            19vw,
+            88px
+        );
+
+    height:
+        clamp(
+            68px,
+            19vw,
+            88px
+        );
+
+    padding:
+        0;
+
+    border:
+        none;
+
+    z-index:
+        100;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    cursor:
+        pointer;
+
+    overflow:
+        hidden;
+
+    box-shadow:
+        0 0 24px
+        rgba(
+            0,
+            0,
+            0,
+            0.35
+        );
+
+    transition:
+        transform
+        0.2s
+        ease;
+}
+
+
+/* =========================================
+   AVANZAR
+========================================= */
+
+.avanzar {
+    right:
+        0;
+
+    border-radius:
+        100% 0 0 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0d18a,
+            #b77d2f
+        );
+}
+
+
+/* =========================================
+   BOTÓN INICIO
+========================================= */
+
+.inicio {
+    right:
+        0;
+
+    border-radius:
+        100% 0 0 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0d18a,
+            #b77d2f
+        );
+
+    color:
+        #17120b;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        clamp(
+            9px,
+            2.7vw,
+            12px
+        );
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.4px;
+
+    padding:
+        24px
+        5px
+        5px
+        22px;
+}
+
+
+/* =========================================
+   VOLVER
+========================================= */
+
+.volver {
+    left:
+        0;
+
+    border-radius:
+        0 100% 0 0;
+
+    background:
+        linear-gradient(
+            225deg,
+            #e7c678,
+            #a66f29
+        );
+}
+
+
+.muesca:active {
+    transform:
+        scale(0.92);
+}
+
+
+/* =========================================
+   FLECHAS
+========================================= */
+
+.muesca span {
+    font-size:
+        0;
+
+    width:
+        17px;
+
+    height:
+        17px;
+
+    border-right:
+        3px solid
+        #17120b;
+
+    border-bottom:
+        3px solid
+        #17120b;
+
+    position:
+        absolute;
+}
+
+
+.avanzar span {
+    left:
+        50%;
+
+    top:
+        50%;
+
+    animation:
+        flechaAbajo
+        1.5s
+        ease-in-out
+        infinite;
+}
+
+
+.volver span {
+    left:
+        50%;
+
+    top:
+        50%;
+
+    animation:
+        flechaArriba
+        1.5s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes flechaAbajo {
+
+    0%,
+    100% {
+        transform:
+            translate(-15%, -35%)
+            rotate(45deg);
+    }
+
+    50% {
+        transform:
+            translate(-15%, -5%)
+            rotate(45deg);
+    }
+}
+
+
+@keyframes flechaArriba {
+
+    0%,
+    100% {
+        transform:
+            translate(-80%, -10%)
+            rotate(225deg);
+    }
+
+    50% {
+        transform:
+            translate(-80%, -40%)
+            rotate(225deg);
+    }
+}
+
+
+/* =========================================
+   PARTÍCULAS
+========================================= */
+
+#contenedor-particulas {
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    pointer-events:
+        none;
+
+    z-index:
+        9999;
+
+    overflow:
+        hidden;
+}
+
+
+/* =========================================
+   DESTELLOS
+========================================= */
+
+.destello {
+    position:
+        fixed;
+
+    color:
+        #f9dc91;
+
+    text-shadow:
+
+        0 0 6px
+        #fff1bd,
+
+        0 0 14px
+        #dba94f,
+
+        0 0 22px
+        #c58c35;
+
+    animation:
+        particula
+        1s
+        ease-out
+        forwards;
+}
+
+
+@keyframes particula {
+
+    from {
+        opacity:
+            1;
+
+        transform:
+            translate(
+                0,
+                0
+            )
+            scale(
+                0.4
+            )
+            rotate(
+                0deg
+            );
+    }
+
+    to {
+        opacity:
+            0;
+
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
+            scale(
+                1.4
+            )
+            rotate(
+                180deg
+            );
+    }
+}
+
+
+/* =========================================
+   TRANSICIÓN
+========================================= */
+
+#transicion {
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    z-index:
+        9000;
+
+    pointer-events:
+        none;
+
+    overflow:
+        hidden;
+}
+
+
+.onda {
+    position:
+        absolute;
+
+    width:
+        165vmax;
+
+    height:
+        165vmax;
+
+    top:
+        50%;
+
+    left:
+        50%;
+
+    border-radius:
+        43%
+        57%
+        58%
+        42%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d0b08,
+            #b9893f,
+            #f0d18a
+        );
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        )
+        scale(
+            0
+        );
+
+    opacity:
+        0;
+}
+
+
+#transicion.activo
+.onda1 {
+    animation:
+        ondaEntrada
+        1s
+        ease-in-out
+        forwards;
+}
+
+
+#transicion.activo
+.onda2 {
+    animation:
+        ondaEntrada
+        1.08s
+        0.05s
+        ease-in-out
+        forwards;
+
+    opacity:
+        0.55;
+}
+
+
+#transicion.activo
+.onda3 {
+    animation:
+        ondaEntrada
+        1.15s
+        0.10s
+        ease-in-out
+        forwards;
+
+    opacity:
+        0.30;
+}
+
+
+@keyframes ondaEntrada {
+
+    0% {
+        opacity:
+            0;
+
+        transform:
+            translate(
+                -50%,
+                -50%
+            )
+            scale(
+                0.03
+            )
+            rotate(
+                0deg
+            );
+    }
+
+    43% {
+        opacity:
+            1;
+
+        transform:
+            translate(
+                -50%,
+                -50%
+            )
+            scale(
+                1.15
+            )
+            rotate(
+                35deg
+            );
+    }
+
+    65% {
+        opacity:
+            1;
+
+        transform:
+            translate(
+                -50%,
+                -50%
+            )
+            scale(
+                1.3
+            )
+            rotate(
+                65deg
+            );
+    }
+
+    100% {
+        opacity:
+            0;
+
+        transform:
+            translate(
+                -50%,
+                -50%
+            )
+            scale(
+                1.7
+            )
+            rotate(
+                110deg
+            );
+    }
+}
+
+
+/* =========================================
+   ANIMACIÓN CONTENIDO
+========================================= */
+
+.seccion.animar-entrada
+.contenido-seccion {
+    animation:
+        contenidoEntrada
+        0.85s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+}
+
+
+@keyframes contenidoEntrada {
+
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(
+                28px
+            )
+            scale(
+                0.96
+            );
+
+        filter:
+            blur(
+                4px
+            );
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(
+                0
+            )
+            scale(
+                1
+            );
+
+        filter:
+            blur(
+                0
+            );
+    }
+}
+
+
+/* =========================================
+   FINAL
+========================================= */
+
+.final h2 {
+    font-size:
+        clamp(
+            45px,
+            15vw,
+            66px
+        );
+
+    margin-top:
+        20px;
+
+    color:
+        #f0d18a;
+}
+
+
+.final-xv {
+    font-size:
+        clamp(
+            15px,
+            5vw,
+            21px
+        ) !important;
+
+    letter-spacing:
+        clamp(
+            2px,
+            1.5vw,
+            5px
+        );
+
+    color:
+        #d8b46a
+        !important;
+}
+
+
+/* =========================================
+   PANTALLA FINAL
+========================================= */
+
+.grupo-final {
+    width:
+        min(
+            92%,
+            520px
+        );
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        18px;
+
+    transform:
+        translateY(-22px);
+}
+
+
+.final-mensaje {
+    width:
+        100%;
+
+    padding:
+
+        clamp(
+            22px,
+            6vw,
+            34px
+        )
+
+        clamp(
+            18px,
+            5vw,
+            28px
+        );
+}
+
+
+.final-mensaje h2 {
+    margin-top:
+        15px;
+
+    margin-bottom:
+        10px;
+}
+
+
+/* =========================================
+   CUENTA REGRESIVA FINAL
+========================================= */
+
+.contador-final {
+    width:
+        100%;
+
+    padding:
+
+        clamp(
+            15px,
+            4vw,
+            22px
+        )
+
+        clamp(
+            10px,
+            3vw,
+            18px
+        )
+
+        clamp(
+            18px,
+            5vw,
+            25px
+        );
+
+    background:
+        rgba(
+            5,
+            5,
+            5,
+            0.74
+        );
+
+    border:
+        1px solid
+        rgba(
+            240,
+            209,
+            138,
+            0.38
+        );
+
+    border-radius:
+        clamp(
+            18px,
+            5vw,
+            25px
+        );
+
+    backdrop-filter:
+        blur(7px);
+
+    -webkit-backdrop-filter:
+        blur(7px);
+
+    box-shadow:
+
+        0 12px 30px
+        rgba(
+            0,
+            0,
+            0,
+            0.45
+        ),
+
+        0 0 18px
+        rgba(
+            240,
+            209,
+            138,
+            0.06
+        );
+}
+
+
+.titulo-contador-final {
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            21px,
+            6vw,
+            29px
+        );
+
+    font-weight:
+        normal;
+
+    color:
+        #f0d18a;
+
+    margin:
+        0
+        0
+        15px;
+
+    text-align:
+        center;
+
+    text-shadow:
+        0 2px 8px
+        rgba(
+            0,
+            0,
+            0,
+            0.75
+        );
+}
+
+
+.contador-final
+.contador {
+    margin-top:
+        0;
+
+    gap:
+        clamp(
+            5px,
+            2vw,
+            10px
+        );
+}
+
+
+.contador-final
+.contador div {
+    padding:
+
+        clamp(
+            10px,
+            3vw,
+            15px
+        )
+
+        2px;
+
+    background:
+        rgba(
+            15,
+            13,
+            9,
+            0.78
+        );
+
+    border:
+        1px solid
+        rgba(
+            240,
+            209,
+            138,
+            0.32
+        );
+
+    box-shadow:
+        0 5px 15px
+        rgba(
+            0,
+            0,
+            0,
+            0.35
+        );
+}
+
+
+.contador-final
+.contador span {
+    font-size:
+        clamp(
+            19px,
+            5.5vw,
+            28px
+        );
+
+    color:
+        #f0d18a;
+}
+
+
+.contador-final
+.contador p {
+    font-size:
+        clamp(
+            8px,
+            2.5vw,
+            11px
+        );
+
+    color:
+        #f5eee0;
+
+    margin-top:
+        5px;
+}
+
+
+/* =========================================
+   CELULARES MUY PEQUEÑOS
+========================================= */
+
+@media
+(max-width: 350px) {
+
+    .seccion {
+        padding-left:
+            13px;
+
+        padding-right:
+            13px;
+    }
+
+
+    .contenido-portada {
+        width:
+            96%;
+    }
+
+
+    .contenido-seccion {
+        width:
+            96%;
+
+        padding:
+            18px
+            14px;
+    }
+
+
+    .foto-principal {
+        width:
+            160px;
+    }
+
+
+    .imagen-pin {
+        width:
+            90px;
+    }
+
+
+    .imagen-dresscode {
+        width:
+            115px;
+    }
+
+
+    .imagen-gift {
+        width:
+            115px;
+    }
+
+
+    .contador {
+        gap:
+            5px;
+    }
+
+
+    .contador div {
+        padding:
+            12px 1px;
+    }
+
+
+    .datos {
+        gap:
+            8px;
+    }
+
+
+    .grupo-final {
+        width:
+            96%;
+    }
+
+
+    .contador-final {
+        padding-left:
+            6px;
+
+        padding-right:
+            6px;
+    }
+
+
+    .inicio {
+        font-size:
+            9px;
+
+        padding:
+            21px
+            4px
+            4px
+            20px;
+    }
+}
+
+
+/* =========================================
+   CELULARES BAJOS
+   EJ: IPHONE SE
+========================================= */
+
+@media
+(max-height: 700px)
+and
+(orientation: portrait) {
+
+    .contenido-seccion {
+        padding-top:
+            17px;
+
+        padding-bottom:
+            17px;
+    }
+
+
+    .foto-principal {
+        width:
+            clamp(
+                140px,
+                43vw,
+                190px
+            );
+
+        margin-bottom:
+            14px;
+    }
+
+
+    .imagen-pin {
+        width:
+            clamp(
+                80px,
+                25vw,
+                110px
+            );
+
+        margin-bottom:
+            9px;
+    }
+
+
+    .imagen-dresscode {
+        width:
+            clamp(
+                105px,
+                32vw,
+                145px
+            );
+
+        margin-bottom:
+            10px;
+    }
+
+
+    .imagen-gift {
+        width:
+            clamp(
+                105px,
+                32vw,
+                145px
+            );
+
+        margin-bottom:
+            10px;
+    }
+
+
+    .seccion h2 {
+        margin-bottom:
+            12px;
+    }
+
+
+    .seccion p {
+        line-height:
+            1.5;
+    }
+
+
+    .grupo-final {
+        gap:
+            11px;
+
+        transform:
+            translateY(-12px);
+    }
+
+
+    .final-mensaje {
+        padding:
+            17px
+            14px;
+    }
+
+
+    .final-mensaje h2 {
+        font-size:
+            clamp(
+                33px,
+                10vw,
+                45px
+            );
+
+        margin-top:
+            10px;
+
+        margin-bottom:
+            6px;
+    }
+
+
+    .contador-final {
+        padding:
+            12px
+            8px
+            15px;
+    }
+
+
+    .titulo-contador-final {
+        font-size:
+            20px;
+
+        margin-bottom:
+            10px;
+    }
+}
+
+
+/* =========================================
+   CELULARES HORIZONTALES
+========================================= */
+
+@media
+(max-height: 550px)
+and
+(orientation: landscape) {
+
+    .portada,
+    .seccion {
+        min-height:
+            650px;
+    }
+}
+
+
+/* =========================================
+   TABLETS Y PC
+========================================= */
+
+@media
+(min-width: 700px) {
+
+    .contenido-portada {
+        max-width:
+            500px;
+    }
+
+
+    .contenido-seccion {
+        max-width:
+            600px;
+    }
+
+
+    .seccion p {
+        max-width:
+            550px;
+    }
+
+
+    .foto-principal {
+        max-width:
+            290px;
+    }
+
+
+    .imagen-pin {
+        max-width:
+            135px;
+    }
+
+
+    .imagen-dresscode {
+        max-width:
+            200px;
+    }
+
+
+    .imagen-gift {
+        max-width:
+            200px;
+    }
+
+
+    .datos {
+        max-width:
+            420px;
+    }
+
+
+    .contador {
+        max-width:
+            460px;
+    }
+}
+
+
+/* =========================================
+   PERSONAS QUE DESACTIVAN ANIMACIONES
+========================================= */
+
+@media
+(prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+}

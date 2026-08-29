@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>Mis XV - Maria Alejandra</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ============================= -->
+    <!-- PORTADA -->
+    <!-- ============================= -->
+
+    <section class="portada" id="portada">
+
+        <div class="contenido-portada">
+
+            <p class="subtitulo">
+                MIS XV
+            </p>
+
+            <h1>
+                Maria Alejandra
+            </h1>
+
+            <p class="fecha-portada">
+                26 de septiembre de 2026
+            </p>
+
+            <button
+                class="boton-principal"
+                onclick="abrirInvitacion()"
+            >
+                Abrir invitación
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- INVITACIÓN -->
+    <!-- ============================= -->
+
+    <main
+        id="invitacion"
+        class="oculto"
+    >
+
+
+        <!-- ========================= -->
+        <!-- SECCIÓN 1 -->
+        <!-- FOTO -->
+        <!-- ========================= -->
+
+        <section
+            class="seccion"
+            id="seccion1"
+        >
+
+            <div class="contenido-seccion">
+
+                <img
+                    src="img/chikita.jpg"
+                    alt="Foto de la quinceañera"
+                    class="foto-principal"
+                >
+
+                <h2>
+                    Mis XV años
+                </h2>
+
+                <p>
+                    Hay momentos en la vida que son especiales,
+                    pero compartirlos con las personas que quiero
+                    los hace inolvidables.
+                </p>
+
+                <p>
+                    Quiero que seas parte de este día
+                    tan importante para mí.
+                </p>
+
+            </div>
+
+
+            <!-- VOLVER -->
+
+            <button
+                class="muesca volver"
+                onclick="cambiarSeccion('portada', 'volver', this)"
+                aria-label="Volver"
+            >
+                <span>⌃</span>
+            </button>
+
+
+            <!-- AVANZAR -->
+
+            <button
+                class="muesca avanzar"
+                onclick="cambiarSeccion('seccion2', 'avanzar', this)"
+                aria-label="Avanzar"
+            >
+                <span>⌄</span>
+            </button>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- SECCIÓN 2 -->
+        <!-- FECHA Y HORA -->
+        <!-- ========================= -->
+
+        <section
+            class="seccion"
+            id="seccion2"
+        >
+
+            <div class="contenido-seccion">
+
+                <p class="mini-titulo">
+                    ACOMPÁÑAME A CELEBRAR
+                </p>
+
+                <h2>
+                    MIS XV
+                </h2>
+
+
+                <div class="datos">
+
+
+                    <div class="tarjeta-dato">
+
+                        <span class="numero">
+                            26
+                        </span>
+
+                        <span>
+                            septiembre
+                        </span>
+
+                    </div>
+
+
+                    <div class="tarjeta-dato">
+
+                        <span class="numero">
+                            6:00
+                        </span>
+
+                        <span>
+                            PM
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="muesca volver"
+                onclick="cambiarSeccion('seccion1', 'volver', this)"
+                aria-label="Volver"
+            >
+                <span>⌃</span>
+            </button>
+
+
+            <button
+                class="muesca avanzar"
+                onclick="cambiarSeccion('seccion4', 'avanzar', this)"
+                aria-label="Avanzar"
+            >
+                <span>⌄</span>
+            </button>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- SECCIÓN 4 -->
+        <!-- RECEPCIÓN -->
+        <!-- ========================= -->
+
+        <section
+            class="seccion"
+            id="seccion4"
+        >
+
+            <div class="contenido-seccion">
+
+                <h2>
+                    Recepción
+                </h2>
+
+              <img
+                src="img/pin.png"
+                alt="Ubicación de la recepción"
+                class="imagen-pin"
+                >
+
+                <h3>
+                    Mi casa
+                </h3>
+
+                <p>
+                    Vereda el tablón
+                    <br>
+                    San Agustin, Huila
+                </p>
+
+
+                <a
+                    href="https://maps.app.goo.gl/uE6gi8BTUpvzQjvu8"
+                    target="_blank"
+                    class="boton"
+                >
+                    Cómo llegar
+                </a>
+
+            </div>
+
+
+            <button
+                class="muesca volver"
+                onclick="cambiarSeccion('seccion2', 'volver', this)"
+                aria-label="Volver"
+            >
+                <span>⌃</span>
+            </button>
+
+
+            <button
+                class="muesca avanzar"
+                onclick="cambiarSeccion('seccion5', 'avanzar', this)"
+                aria-label="Avanzar"
+            >
+                <span>⌄</span>
+            </button>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- SECCIÓN 5 -->
+        <!-- DRESS CODE -->
+        <!-- ========================= -->
+
+        <section
+            class="seccion"
+            id="seccion5"
+        >
+
+            <div class="contenido-seccion">
+
+                <h2>
+                    Dress Code
+                </h2>
+
+
+                <img
+                    src="img/dresscode.png"
+                    alt="Dress Code elegante"
+                    class="imagen-dresscode"
+                >
+
+
+                <h3>
+                    Elegante
+                </h3>
+
+
+                <p>
+                    Queremos que disfrutes esta noche
+                    con tu mejor estilo.
+                </p>
+
+
+                <p>
+                    El color azul oscuro está reservado
+                    para la quinceañera.
+                </p>
+
+            </div>
+
+
+            <button
+                class="muesca volver"
+                onclick="cambiarSeccion('seccion4', 'volver', this)"
+                aria-label="Volver"
+            >
+                <span>⌃</span>
+            </button>
+
+
+            <button
+                class="muesca avanzar"
+                onclick="cambiarSeccion('seccion6', 'avanzar', this)"
+                aria-label="Avanzar"
+            >
+                <span>⌄</span>
+            </button>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- SECCIÓN 6 -->
+        <!-- REGALOS -->
+        <!-- ========================= -->
+
+        <section
+            class="seccion"
+            id="seccion6"
+        >
+
+            <div class="contenido-seccion">
+
+                <h2>
+                    Regalos
+                </h2>
+
+
+                <img
+                    src="img/gift.png"
+                    alt="Lluvia de sobres"
+                    class="imagen-gift"
+                >
+
+
+                <p>
+                    Tu presencia es mi mejor regalo.
+                </p>
+
+
+                <p>
+                    Si deseas tener un detalle conmigo,
+                    habrá lluvia de sobres.
+                </p>
+
+            </div>
+
+
+            <button
+                class="muesca volver"
+                onclick="cambiarSeccion('seccion5', 'volver', this)"
+                aria-label="Volver"
+            >
+                <span>⌃</span>
+            </button>
+
+
+            <button
+                class="muesca avanzar"
+                onclick="cambiarSeccion('seccion7', 'avanzar', this)"
+                aria-label="Avanzar"
+            >
+                <span>⌄</span>
+            </button>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- SECCIÓN 7 -->
+        <!-- CONFIRMAR ASISTENCIA -->
+        <!-- ========================= -->
+
+        <section
+            class="seccion"
+            id="seccion7"
+        >
+
+            <div class="contenido-seccion">
+
+                <h2>
+                    Confirmar asistencia
+                </h2>
+
+
+                <p>
+                    Espero poder compartir este
+                    momento contigo.
+                </p>
+
+
+                <a
+                    href="https://wa.me/573025170355?text=Hola,%20confirmo%20mi%20asistencia%20a%20los%20XV%20de%20Maria%20Alejandra"
+                    target="_blank"
+                    class="boton"
+                >
+                    Confirmar por WhatsApp
+                </a>
+
+            </div>
+
+
+            <button
+                class="muesca volver"
+                onclick="cambiarSeccion('seccion6', 'volver', this)"
+                aria-label="Volver"
+            >
+                <span>⌃</span>
+            </button>
+
+
+            <button
+                class="muesca avanzar"
+                onclick="cambiarSeccion('seccion8', 'avanzar', this)"
+                aria-label="Avanzar"
+            >
+                <span>⌄</span>
+            </button>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- SECCIÓN FINAL -->
+        <!-- AGRADECIMIENTO + CONTADOR -->
+        <!-- ========================= -->
+
+        <section
+            class="seccion final"
+            id="seccion8"
+        >
+
+
+            <div class="grupo-final">
+
+
+                <!-- =====================
+                     CUADRO PRINCIPAL
+                ====================== -->
+
+                <div class="contenido-seccion final-mensaje">
+
+                    <p>
+                        Gracias por ser parte de
+                        este momento tan especial.
+                    </p>
+
+
+                    <h2>
+                        Maria Alejandra
+                    </h2>
+
+
+                    <p class="final-xv">
+                        MIS XV ✨
+                    </p>
+
+                </div>
+
+
+
+                <!-- =====================
+                     CUENTA REGRESIVA
+                ====================== -->
+
+                <div class="contador-final">
+
+
+                    <h3 class="titulo-contador-final">
+                        Falta muy poco...
+                    </h3>
+
+
+                    <div class="contador">
+
+
+                        <div>
+
+                            <span id="dias">
+                                00
+                            </span>
+
+                            <p>
+                                Días
+                            </p>
+
+                        </div>
+
+
+                        <div>
+
+                            <span id="horas">
+                                00
+                            </span>
+
+                            <p>
+                                Horas
+                            </p>
+
+                        </div>
+
+
+                        <div>
+
+                            <span id="minutos">
+                                00
+                            </span>
+
+                            <p>
+                                Min.
+                            </p>
+
+                        </div>
+
+
+                        <div>
+
+                            <span id="segundos">
+                                00
+                            </span>
+
+                            <p>
+                                Seg.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =====================
+                 VOLVER
+                 ESQUINA IZQUIERDA
+            ====================== -->
+
+            <button
+                class="muesca volver"
+                onclick="cambiarSeccion('seccion7', 'volver', this)"
+                aria-label="Volver"
+            >
+                <span>⌃</span>
+            </button>
+
+
+
+            <!-- =====================
+                 INICIO
+                 ESQUINA DERECHA
+            ====================== -->
+
+            <button
+                class="muesca inicio"
+                onclick="cambiarSeccion('portada', 'volver', this)"
+                aria-label="Ir al inicio"
+            >
+                INICIO
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ============================= -->
+    <!-- PARTÍCULAS -->
+    <!-- ============================= -->
+
+    <div id="contenedor-particulas"></div>
+
+
+
+    <!-- ============================= -->
+    <!-- TRANSICIÓN -->
+    <!-- ============================= -->
+
+    <div id="transicion">
+
+        <div class="onda onda1"></div>
+
+        <div class="onda onda2"></div>
+
+        <div class="onda onda3"></div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
