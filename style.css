@@ -37,7 +37,9 @@ body {
 }
 
 
-/* FONDO FIJO */
+/* =========================================
+   FONDO FIJO
+========================================= */
 
 body::before {
     content: "";
@@ -70,7 +72,9 @@ body::before {
 }
 
 
-/* CAPA OSCURA */
+/* =========================================
+   CAPA OSCURA
+========================================= */
 
 body::after {
     content: "";
@@ -137,7 +141,7 @@ body::after {
 
 
 /* =========================================
-   CUADRO DE LA PORTADA
+   CUADRO PORTADA
 ========================================= */
 
 .contenido-portada {
@@ -215,7 +219,9 @@ body::after {
 }
 
 
-/* BRILLO DORADO */
+/* =========================================
+   BRILLO PORTADA
+========================================= */
 
 .contenido-portada::before {
     content: "";
@@ -253,7 +259,7 @@ body::after {
 
 
 /* =========================================
-   MIS XV
+   MIS XV PORTADA
 ========================================= */
 
 .subtitulo {
@@ -284,7 +290,8 @@ body::after {
 
 
 /* =========================================
-   NOMBRE PORTADA
+   NOMBRE PRINCIPAL
+   GREAT VIBES
 ========================================= */
 
 .portada h1 {
@@ -293,17 +300,17 @@ body::after {
     z-index: 2;
 
     font-family:
-        Georgia,
-        serif;
+        "Great Vibes",
+        cursive;
 
     font-weight:
-        normal;
+        400;
 
     font-size:
         clamp(
-            48px,
-            15vw,
-            76px
+            58px,
+            17vw,
+            90px
         );
 
     line-height:
@@ -313,7 +320,7 @@ body::after {
         #f0d18a;
 
     margin:
-        10px 0 18px;
+        12px 0 20px;
 
     overflow-wrap:
         anywhere;
@@ -325,7 +332,7 @@ body::after {
             0,
             0,
             0,
-            0.8
+            0.80
         ),
 
         0 0 18px
@@ -333,7 +340,7 @@ body::after {
             240,
             209,
             138,
-            0.15
+            0.18
         );
 }
 
@@ -494,7 +501,7 @@ a {
 
 
 /* =========================================
-   OCULTAR INVITACIÓN
+   OCULTAR
 ========================================= */
 
 .oculto {
@@ -635,6 +642,7 @@ a {
 
 /* =========================================
    TÍTULOS
+   SE MANTIENEN COMO ESTABAN
 ========================================= */
 
 .seccion h2 {
@@ -698,7 +706,7 @@ a {
 
 
 /* =========================================
-   TEXTOS
+   TEXTOS GENERALES
 ========================================= */
 
 .seccion p {
@@ -723,6 +731,52 @@ a {
 
     color:
         #f5eee0;
+}
+
+
+/* =========================================
+   PÁRRAFOS BLANCOS ELEGANTES
+   CORMORANT GARAMOND
+========================================= */
+
+.contenido-seccion
+>
+p:not(.mini-titulo):not(.final-xv) {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-style:
+        italic;
+
+    font-weight:
+        500;
+
+    font-size:
+        clamp(
+            20px,
+            5.4vw,
+            27px
+        );
+
+    line-height:
+        1.28;
+
+    letter-spacing:
+        0.15px;
+
+    color:
+        #f5eee0;
+
+    text-shadow:
+        0 2px 6px
+        rgba(
+            0,
+            0,
+            0,
+            0.40
+        );
 }
 
 
@@ -791,6 +845,13 @@ a {
 ========================================= */
 
 .mini-titulo {
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-style:
+        normal;
+
     font-size:
         clamp(
             10px,
@@ -1042,6 +1103,13 @@ a {
 
 
 .contador p {
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-style:
+        normal;
+
     font-size:
         clamp(
             9px,
@@ -1061,45 +1129,7 @@ a {
 
 
 /* =========================================
-   ICONOS
-========================================= */
-
-.icono {
-    font-size:
-        clamp(
-            45px,
-            15vw,
-            62px
-        );
-
-    margin:
-        14px 0;
-
-    animation:
-        flotar
-        3s
-        ease-in-out
-        infinite;
-}
-
-
-@keyframes flotar {
-
-    0%,
-    100% {
-        transform:
-            translateY(0);
-    }
-
-    50% {
-        transform:
-            translateY(-7px);
-    }
-}
-
-
-/* =========================================
-   IMAGEN PIN - UBICACIÓN
+   IMAGEN PIN
 ========================================= */
 
 .imagen-pin {
@@ -1390,7 +1420,7 @@ a {
 
 
 /* =========================================
-   BOTÓN INICIO
+   INICIO
 ========================================= */
 
 .inicio {
@@ -1831,7 +1861,7 @@ a {
 
 
 /* =========================================
-   ANIMACIÓN CONTENIDO
+   ANIMACIÓN DE ENTRADA
 ========================================= */
 
 .seccion.animar-entrada
@@ -1909,6 +1939,13 @@ a {
 
 
 .final-xv {
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-style:
+        normal;
+
     font-size:
         clamp(
             15px,
@@ -2174,6 +2211,13 @@ a {
 
 .contador-final
 .contador p {
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-style:
+        normal;
+
     font-size:
         clamp(
             8px,
@@ -2218,6 +2262,24 @@ a {
         padding:
             18px
             14px;
+    }
+
+
+    .portada h1 {
+        font-size:
+            54px;
+    }
+
+
+    .contenido-seccion
+    >
+    p:not(.mini-titulo):not(.final-xv) {
+
+        font-size:
+            19px;
+
+        line-height:
+            1.25;
     }
 
 
@@ -2310,6 +2372,22 @@ and
     }
 
 
+    .contenido-seccion
+    >
+    p:not(.mini-titulo):not(.final-xv) {
+
+        font-size:
+            clamp(
+                18px,
+                5vw,
+                22px
+            );
+
+        line-height:
+            1.22;
+    }
+
+
     .foto-principal {
         width:
             clamp(
@@ -2365,12 +2443,6 @@ and
     .seccion h2 {
         margin-bottom:
             12px;
-    }
-
-
-    .seccion p {
-        line-height:
-            1.5;
     }
 
 
@@ -2463,6 +2535,15 @@ and
     .seccion p {
         max-width:
             550px;
+    }
+
+
+    .contenido-seccion
+    >
+    p:not(.mini-titulo):not(.final-xv) {
+
+        font-size:
+            25px;
     }
 
 
