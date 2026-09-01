@@ -1,12 +1,110 @@
-/* =========================================
+/* =========================================================
+   BLOQUEAR DESPLAZAMIENTO MANUAL
+
+   EL USUARIO SOLO PODRÁ CAMBIAR DE ESCENA
+   UTILIZANDO LAS MUESCAS.
+========================================================= */
+
+
+/*
+   Evita el movimiento mediante
+   rueda del mouse / trackpad.
+*/
+
+window.addEventListener(
+
+    "wheel",
+
+    function (evento) {
+
+        evento.preventDefault();
+
+    },
+
+    {
+        passive:
+            false
+    }
+
+);
+
+
+
+/*
+   Evita arrastrar la página
+   con el dedo en celular.
+*/
+
+window.addEventListener(
+
+    "touchmove",
+
+    function (evento) {
+
+        evento.preventDefault();
+
+    },
+
+    {
+        passive:
+            false
+    }
+
+);
+
+
+
+/*
+   Evita teclas que normalmente
+   desplazan una página.
+*/
+
+window.addEventListener(
+
+    "keydown",
+
+    function (evento) {
+
+        const teclasBloqueadas = [
+
+            "ArrowUp",
+
+            "ArrowDown",
+
+            "PageUp",
+
+            "PageDown",
+
+            "Home",
+
+            "End",
+
+            " "
+
+        ];
+
+
+        if (
+            teclasBloqueadas.includes(
+                evento.key
+            )
+        ) {
+
+            evento.preventDefault();
+
+        }
+
+    }
+
+);
+
+
+
+/* =========================================================
    ABRIR INVITACIÓN
-========================================= */
+========================================================= */
 
 function abrirInvitacion() {
-
-    /*
-       OBTENER INVITACIÓN
-    */
 
     const invitacion =
         document.getElementById(
@@ -14,23 +112,15 @@ function abrirInvitacion() {
         );
 
 
-    /*
-       OBTENER CANCIÓN
-    */
+    /* =====================================================
+       MÚSICA
+    ===================================================== */
 
     const musica =
         document.getElementById(
             "musicaFondo"
         );
 
-
-    /* =====================================
-       REPRODUCIR MÚSICA
-
-       IMPORTANTE:
-       LO HACEMOS INMEDIATAMENTE DESPUÉS
-       DEL TOQUE DEL USUARIO.
-    ====================================== */
 
     if (musica) {
 
@@ -43,11 +133,8 @@ function abrirInvitacion() {
 
 
         /*
-           SOLO INTENTAMOS REPRODUCIRLA
-           SI NO ESTÁ SONANDO YA.
-
-           ESTO EVITA QUE SE REINICIE
-           SI VOLVEMOS A INICIO.
+           Si ya está sonando no
+           volvemos a iniciarla.
         */
 
         if (musica.paused) {
@@ -57,8 +144,8 @@ function abrirInvitacion() {
 
 
             /*
-               ALGUNOS NAVEGADORES DEVUELVEN
-               UNA PROMESA EN play()
+               Algunos navegadores devuelven
+               una Promise en play().
             */
 
             if (
@@ -85,9 +172,9 @@ function abrirInvitacion() {
     }
 
 
-    /* =====================================
+    /* =====================================================
        MOSTRAR INVITACIÓN
-    ====================================== */
+    ===================================================== */
 
     invitacion.classList.remove(
         "oculto"
@@ -95,7 +182,9 @@ function abrirInvitacion() {
 
 
     /*
-       IR A SECCIÓN 1
+       Esperamos un momento para permitir
+       que el navegador calcule correctamente
+       las dimensiones del contenido.
     */
 
     setTimeout(() => {
@@ -112,28 +201,35 @@ function abrirInvitacion() {
 
 
 
-/* =========================================
+/* =========================================================
    FECHA DEL EVENTO
 
    26 DE SEPTIEMBRE DE 2026
    6:00 PM
-========================================= */
+========================================================= */
 
 const fechaEvento =
     new Date(
+
         2026,
+
         8,
+
         26,
+
         18,
+
         0,
+
         0
+
     );
 
 
 
-/* =========================================
+/* =========================================================
    ACTUALIZAR CONTADOR
-========================================= */
+========================================================= */
 
 function actualizarContador() {
 
@@ -147,38 +243,60 @@ function actualizarContador() {
         ahora.getTime();
 
 
-    if (diferencia <= 0) {
+
+    /* =====================================================
+       SI YA LLEGÓ LA FECHA
+    ===================================================== */
+
+    if (
+        diferencia <= 0
+    ) {
 
         document
-            .getElementById("dias")
+            .getElementById(
+                "dias"
+            )
             .textContent =
             "00";
 
 
         document
-            .getElementById("horas")
+            .getElementById(
+                "horas"
+            )
             .textContent =
             "00";
 
 
         document
-            .getElementById("minutos")
+            .getElementById(
+                "minutos"
+            )
             .textContent =
             "00";
 
 
         document
-            .getElementById("segundos")
+            .getElementById(
+                "segundos"
+            )
             .textContent =
             "00";
 
 
         return;
+
     }
 
 
+
+    /* =====================================================
+       DÍAS
+    ===================================================== */
+
     const dias =
         Math.floor(
+
             diferencia
             /
             (
@@ -190,11 +308,18 @@ function actualizarContador() {
                 *
                 24
             )
+
         );
 
 
+
+    /* =====================================================
+       HORAS
+    ===================================================== */
+
     const horas =
         Math.floor(
+
             diferencia
             /
             (
@@ -204,13 +329,20 @@ function actualizarContador() {
                 *
                 60
             )
+
         )
         %
         24;
 
 
+
+    /* =====================================================
+       MINUTOS
+    ===================================================== */
+
     const minutos =
         Math.floor(
+
             diferencia
             /
             (
@@ -218,29 +350,46 @@ function actualizarContador() {
                 *
                 60
             )
+
         )
         %
         60;
 
+
+
+    /* =====================================================
+       SEGUNDOS
+    ===================================================== */
 
     const segundos =
         Math.floor(
+
             diferencia
             /
             1000
+
         )
         %
         60;
 
 
+
+    /* =====================================================
+       MOSTRAR DATOS
+    ===================================================== */
+
     document
-        .getElementById("dias")
+        .getElementById(
+            "dias"
+        )
         .textContent =
         dias;
 
 
     document
-        .getElementById("horas")
+        .getElementById(
+            "horas"
+        )
         .textContent =
         horas
             .toString()
@@ -251,7 +400,9 @@ function actualizarContador() {
 
 
     document
-        .getElementById("minutos")
+        .getElementById(
+            "minutos"
+        )
         .textContent =
         minutos
             .toString()
@@ -262,7 +413,9 @@ function actualizarContador() {
 
 
     document
-        .getElementById("segundos")
+        .getElementById(
+            "segundos"
+        )
         .textContent =
         segundos
             .toString()
@@ -275,23 +428,26 @@ function actualizarContador() {
 
 
 
-/* =========================================
+/* =========================================================
    INICIAR CONTADOR
-========================================= */
+========================================================= */
 
 actualizarContador();
 
 
 setInterval(
+
     actualizarContador,
+
     1000
+
 );
 
 
 
-/* =========================================
-   CONTROL DEL CAMBIO DE PANTALLAS
-========================================= */
+/* =========================================================
+   CONTROL DE CAMBIO DE ESCENAS
+========================================================= */
 
 let cambiando =
     false;
@@ -304,11 +460,13 @@ function cambiarSeccion(
 ) {
 
     /*
-       EVITA DOBLE CLICK
-       DURANTE LA TRANSICIÓN
+       Evitar doble toque mientras
+       se realiza la transición.
     */
 
-    if (cambiando) {
+    if (
+        cambiando
+    ) {
 
         return;
 
@@ -319,16 +477,18 @@ function cambiarSeccion(
         true;
 
 
-    /* =====================================
+
+    /* =====================================================
        DESTELLOS
 
-       SE UTILIZAN EN:
-       - AVANZAR
-       - VOLVER
-       - INICIO
-    ====================================== */
+       AVANZAR
+       VOLVER
+       INICIO
+    ===================================================== */
 
-    if (boton) {
+    if (
+        boton
+    ) {
 
         crearDestellos(
             boton
@@ -337,17 +497,18 @@ function cambiarSeccion(
     }
 
 
-    /*
-       INICIAR ONDA
-    */
+
+    /* =====================================================
+       TRANSICIÓN DE ONDA
+    ===================================================== */
 
     iniciarTransicion();
 
 
-    /* =====================================
-       CAMBIAR DE SECCIÓN CUANDO
-       LA ONDA CUBRA LA PANTALLA
-    ====================================== */
+
+    /* =====================================================
+       CAMBIAR ESCENA
+    ===================================================== */
 
     setTimeout(() => {
 
@@ -357,25 +518,88 @@ function cambiarSeccion(
             );
 
 
-        if (!destino) {
+        if (
+            !destino
+        ) {
 
             cambiando =
                 false;
+
 
             return;
 
         }
 
 
-        destino.scrollIntoView({
+
+        /*
+           CALCULAMOS LA POSICIÓN EXACTA
+           DE LA ESCENA.
+
+           Esto es más preciso que depender
+           únicamente de scrollIntoView()
+           en algunos navegadores móviles.
+        */
+
+        const posicionDestino =
+            destino.getBoundingClientRect().top
+            +
+            window.scrollY;
+
+
+
+        /*
+           EL SCROLL MANUAL ESTÁ BLOQUEADO,
+           PERO JAVASCRIPT SÍ PUEDE MOVERLO.
+        */
+
+        window.scrollTo({
+
+            top:
+                posicionDestino,
+
+            left:
+                0,
 
             behavior:
-                "auto",
-
-            block:
-                "start"
+                "auto"
 
         });
+
+
+
+        /*
+           Segundo ajuste después de que
+           el navegador haya recalculado
+           el viewport móvil.
+
+           Esto evita quedar unos píxeles
+           entre dos escenas.
+        */
+
+        requestAnimationFrame(() => {
+
+            const ajuste =
+                destino.getBoundingClientRect().top
+                +
+                window.scrollY;
+
+
+            window.scrollTo({
+
+                top:
+                    ajuste,
+
+                left:
+                    0,
+
+                behavior:
+                    "auto"
+
+            });
+
+        });
+
 
 
         animarContenido(
@@ -386,9 +610,10 @@ function cambiarSeccion(
     }, 460);
 
 
-    /* =====================================
+
+    /* =====================================================
        HABILITAR SIGUIENTE CLICK
-    ====================================== */
+    ===================================================== */
 
     setTimeout(() => {
 
@@ -401,9 +626,9 @@ function cambiarSeccion(
 
 
 
-/* =========================================
+/* =========================================================
    TRANSICIÓN DE ONDA
-========================================= */
+========================================================= */
 
 function iniciarTransicion() {
 
@@ -419,8 +644,8 @@ function iniciarTransicion() {
 
 
     /*
-       FORZAMOS REINICIO
-       DE LA ANIMACIÓN
+       Fuerza el reinicio de
+       la animación CSS.
     */
 
     void transicion.offsetWidth;
@@ -443,17 +668,17 @@ function iniciarTransicion() {
 
 
 
-/* =========================================
+/* =========================================================
    ANIMACIÓN DEL CONTENIDO
-========================================= */
+========================================================= */
 
 function animarContenido(
     seccion
 ) {
 
     /*
-       PORTADA NO TIENE
-       class="seccion"
+       La portada no utiliza
+       class="seccion".
     */
 
     if (
@@ -473,7 +698,7 @@ function animarContenido(
 
 
     /*
-       REINICIAR ANIMACIÓN
+       Reiniciar animación.
     */
 
     void seccion.offsetWidth;
@@ -496,14 +721,9 @@ function animarContenido(
 
 
 
-/* =========================================
+/* =========================================================
    CREAR DESTELLOS
-
-   FUNCIONAN EN:
-   - FLECHA DERECHA
-   - FLECHA IZQUIERDA
-   - BOTÓN INICIO
-========================================= */
+========================================================= */
 
 function crearDestellos(
     boton
@@ -516,7 +736,7 @@ function crearDestellos(
 
 
     /*
-       OBTENER POSICIÓN DEL BOTÓN
+       Posición del botón.
     */
 
     const rect =
@@ -539,9 +759,10 @@ function crearDestellos(
         2;
 
 
+
     /*
-       MENOS PARTÍCULAS EN
-       CELULARES PEQUEÑOS
+       Menos partículas en
+       celulares pequeños.
     */
 
     const cantidad =
@@ -552,9 +773,10 @@ function crearDestellos(
         18;
 
 
-    /*
-       CREAR CADA DESTELLO
-    */
+
+    /* =====================================================
+       CREAR DESTELLOS
+    ===================================================== */
 
     for (
         let i = 0;
@@ -573,7 +795,7 @@ function crearDestellos(
 
 
         /*
-           DOS TIPOS DE ESTRELLA
+           Alternar estrellas.
         */
 
         elemento.textContent =
@@ -584,8 +806,9 @@ function crearDestellos(
             "✧";
 
 
+
         /*
-           ÁNGULO ALEATORIO
+           Ángulo aleatorio.
         */
 
         const angulo =
@@ -596,8 +819,9 @@ function crearDestellos(
             2;
 
 
+
         /*
-           DISTANCIA
+           Distancia aleatoria.
         */
 
         const distancia =
@@ -608,9 +832,10 @@ function crearDestellos(
             85;
 
 
-        /*
+
+        /* =================================================
            POSICIÓN INICIAL
-        */
+        ================================================= */
 
         elemento.style.left =
             centroX
@@ -624,9 +849,10 @@ function crearDestellos(
             "px";
 
 
-        /*
-           TAMAÑO ALEATORIO
-        */
+
+        /* =================================================
+           TAMAÑO
+        ================================================= */
 
         elemento.style.fontSize =
             (
@@ -640,9 +866,10 @@ function crearDestellos(
             "px";
 
 
-        /*
+
+        /* =================================================
            MOVIMIENTO X
-        */
+        ================================================= */
 
         elemento.style.setProperty(
 
@@ -659,9 +886,10 @@ function crearDestellos(
         );
 
 
-        /*
+
+        /* =================================================
            MOVIMIENTO Y
-        */
+        ================================================= */
 
         elemento.style.setProperty(
 
@@ -678,19 +906,20 @@ function crearDestellos(
         );
 
 
-        /*
-           AGREGAR A PANTALLA
-        */
+
+        /* =================================================
+           AGREGAR
+        ================================================= */
 
         contenedor.appendChild(
             elemento
         );
 
 
-        /*
+
+        /* =================================================
            ELIMINAR DESPUÉS
-           DE LA ANIMACIÓN
-        */
+        ================================================= */
 
         setTimeout(() => {
 
@@ -704,9 +933,9 @@ function crearDestellos(
 
 
 
-/* =========================================
-   OPTIMIZACIÓN PARA PANTALLAS TÁCTILES
-========================================= */
+/* =========================================================
+   EVITAR GESTOS DE ARRASTRE DEL NAVEGADOR
+========================================================= */
 
 document.addEventListener(
 

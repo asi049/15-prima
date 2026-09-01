@@ -23,7 +23,7 @@
         #17120b;
 
 
-    /* Ancho máximo de los cuadros principales */
+    /* Ancho máximo de los cuadros */
 
     --ancho-cuadro:
         500px;
@@ -40,9 +40,10 @@
 
 
     /*
-       Este espacio se utiliza arriba y abajo
-       de cada escena para mantener el contenido
-       visualmente centrado.
+       Espacio equilibrado arriba y abajo.
+
+       Sirve para que el cuadro quede
+       realmente centrado visualmente.
     */
 
     --espacio-vertical:
@@ -72,14 +73,29 @@
 
 
 html {
+
     width:
         100%;
 
-    overflow-x:
+    height:
+        100%;
+
+
+    /*
+       BLOQUEAMOS EL SCROLL MANUAL
+    */
+
+    overflow:
         hidden;
+
+
+    overscroll-behavior:
+        none;
+
 
     scroll-behavior:
         auto;
+
 
     -webkit-text-size-adjust:
         100%;
@@ -87,21 +103,35 @@ html {
 
 
 body {
+
     width:
         100%;
 
-    min-height:
+    height:
         100%;
 
-    overflow-x:
+
+    /*
+       BLOQUEAMOS DESPLAZAMIENTO
+       MANUAL DE LA PÁGINA
+    */
+
+    overflow:
         hidden;
+
+
+    overscroll-behavior:
+        none;
+
 
     font-family:
         Arial,
         sans-serif;
 
+
     color:
         var(--marfil);
+
 
     background:
         var(--negro);
@@ -109,6 +139,7 @@ body {
 
 
 main {
+
     width:
         100%;
 }
@@ -120,17 +151,22 @@ main {
 ========================================================= */
 
 body::before {
+
     content:
         "";
+
 
     position:
         fixed;
 
+
     inset:
         0;
 
+
     width:
         100%;
+
 
     height:
         100vh;
@@ -138,15 +174,21 @@ body::before {
     height:
         100svh;
 
+    height:
+        100dvh;
+
 
     background-image:
         url("img/backgxv.png");
 
+
     background-size:
         cover;
 
+
     background-position:
         center center;
+
 
     background-repeat:
         no-repeat;
@@ -155,29 +197,38 @@ body::before {
     z-index:
         -2;
 
+
     pointer-events:
         none;
 }
 
 
 
-/* CAPA OSCURA */
+/* =========================================================
+   CAPA OSCURA SOBRE EL FONDO
+========================================================= */
 
 body::after {
+
     content:
         "";
+
 
     position:
         fixed;
 
+
     inset:
         0;
+
 
     width:
         100%;
 
+
     height:
         100%;
+
 
     background:
         rgba(
@@ -187,8 +238,10 @@ body::after {
             0.08
         );
 
+
     z-index:
         -1;
+
 
     pointer-events:
         none;
@@ -198,20 +251,36 @@ body::after {
 
 /* =========================================================
    PORTADA
+
+   UNA PANTALLA COMPLETA
 ========================================================= */
 
 .portada {
+
     position:
         relative;
+
 
     width:
         100%;
 
-    min-height:
+
+    height:
         100vh;
+
+    height:
+        100svh;
+
+    height:
+        100dvh;
+
 
     min-height:
         100svh;
+
+
+    overflow:
+        hidden;
 
 
     padding-top:
@@ -220,14 +289,17 @@ body::after {
             env(safe-area-inset-top)
         );
 
+
     padding-right:
         18px;
+
 
     padding-bottom:
         max(
             28px,
             env(safe-area-inset-bottom)
         );
+
 
     padding-left:
         18px;
@@ -236,14 +308,18 @@ body::after {
     display:
         flex;
 
+
     justify-content:
         center;
+
 
     align-items:
         center;
 
+
     text-align:
         center;
+
 
     background:
         transparent;
@@ -252,12 +328,14 @@ body::after {
 
 
 /* =========================================================
-   CUADRO PORTADA
+   CUADRO DE PORTADA
 ========================================================= */
 
 .contenido-portada {
+
     position:
         relative;
+
 
     overflow:
         hidden;
@@ -314,6 +392,7 @@ body::after {
     backdrop-filter:
         blur(8px);
 
+
     -webkit-backdrop-filter:
         blur(8px);
 
@@ -339,20 +418,27 @@ body::after {
 
 
 
-/* BRILLO DE PORTADA */
+/* =========================================================
+   BRILLO DEL CUADRO DE PORTADA
+========================================================= */
 
 .contenido-portada::before {
+
     content:
         "";
+
 
     position:
         absolute;
 
+
     top:
         -80px;
 
+
     left:
         50%;
+
 
     transform:
         translateX(-50%);
@@ -360,6 +446,7 @@ body::after {
 
     width:
         260px;
+
 
     height:
         160px;
@@ -389,8 +476,10 @@ body::after {
 ========================================================= */
 
 .subtitulo {
+
     position:
         relative;
+
 
     z-index:
         2;
@@ -399,6 +488,7 @@ body::after {
     font-family:
         Arial,
         sans-serif;
+
 
     font-style:
         normal;
@@ -436,8 +526,10 @@ body::after {
 ========================================================= */
 
 .portada h1 {
+
     position:
         relative;
+
 
     z-index:
         2;
@@ -498,13 +590,15 @@ body::after {
 
 
 /* =========================================================
-   FECHA PORTADA
+   FECHA DE PORTADA
    CORMORANT GARAMOND
 ========================================================= */
 
 .fecha-portada {
+
     position:
         relative;
+
 
     z-index:
         2;
@@ -566,6 +660,7 @@ body::after {
 
 button,
 a {
+
     -webkit-tap-highlight-color:
         transparent;
 }
@@ -573,8 +668,10 @@ a {
 
 .boton,
 .boton-principal {
+
     position:
         relative;
+
 
     z-index:
         2;
@@ -583,8 +680,10 @@ a {
     display:
         inline-flex;
 
+
     justify-content:
         center;
+
 
     align-items:
         center;
@@ -692,10 +791,12 @@ a {
 
 .boton:visited,
 .boton:link {
+
     font-family:
         "Cormorant Garamond",
         serif
         !important;
+
 
     font-style:
         italic
@@ -705,6 +806,7 @@ a {
 
 .boton:active,
 .boton-principal:active {
+
     transform:
         scale(0.96);
 }
@@ -718,8 +820,10 @@ a {
         transform:
             translateY(-3px);
 
+
         filter:
             brightness(1.06);
+
 
         box-shadow:
             0 12px 28px
@@ -735,10 +839,11 @@ a {
 
 
 /* =========================================================
-   OCULTAR
+   OCULTAR INVITACIÓN
 ========================================================= */
 
 .oculto {
+
     display:
         none;
 }
@@ -746,11 +851,13 @@ a {
 
 
 /* =========================================================
-   ESCENAS
-   AJUSTE PRINCIPAL DE PROPORCIONES
+   TODAS LAS ESCENAS
+
+   CADA UNA OCUPA EXACTAMENTE UNA PANTALLA
 ========================================================= */
 
 .seccion {
+
     position:
         relative;
 
@@ -759,19 +866,42 @@ a {
         100%;
 
 
-    min-height:
+    /*
+       vh = respaldo antiguo
+       svh = viewport seguro
+       dvh = viewport visible real
+    */
+
+    height:
         100vh;
+
+    height:
+        100svh;
+
+    height:
+        100dvh;
+
 
     min-height:
         100svh;
 
 
     /*
-       MISMO ESPACIO ARRIBA Y ABAJO.
+       MUY IMPORTANTE:
 
-       Esto evita que el contenido quede
-       desplazado hacia arriba en algunos
-       celulares.
+       No permitimos que el contenido
+       de una escena invada otra.
+    */
+
+    overflow:
+        hidden;
+
+
+    /*
+       ESPACIO SIMÉTRICO ARRIBA Y ABAJO.
+
+       Esto mantiene el cuadro centrado
+       aunque existan las muescas.
     */
 
     padding-top:
@@ -822,10 +952,6 @@ a {
         center;
 
 
-    overflow:
-        hidden;
-
-
     background:
         transparent;
 }
@@ -837,6 +963,7 @@ a {
 ========================================================= */
 
 .contenido-seccion {
+
     position:
         relative;
 
@@ -849,6 +976,10 @@ a {
 
 
     max-width:
+        100%;
+
+
+    max-height:
         100%;
 
 
@@ -912,6 +1043,7 @@ a {
     backdrop-filter:
         blur(7px);
 
+
     -webkit-backdrop-filter:
         blur(7px);
 
@@ -934,6 +1066,7 @@ a {
 ========================================================= */
 
 .seccion h2 {
+
     font-family:
         Georgia,
         serif;
@@ -991,6 +1124,7 @@ a {
 
 
 .seccion h3 {
+
     font-family:
         Arial,
         sans-serif;
@@ -1027,6 +1161,7 @@ a {
 ========================================================= */
 
 .seccion p {
+
     width:
         100%;
 
@@ -1104,6 +1239,7 @@ p:not(.mini-titulo):not(.final-xv) {
 ========================================================= */
 
 .foto-principal {
+
     width:
         clamp(
             170px,
@@ -1172,6 +1308,7 @@ p:not(.mini-titulo):not(.final-xv) {
 ========================================================= */
 
 .mini-titulo {
+
     font-family:
         Arial,
         sans-serif
@@ -1218,6 +1355,7 @@ p:not(.mini-titulo):not(.final-xv) {
 
 #seccion2
 .contenido-seccion {
+
     width:
         min(
             88vw,
@@ -1227,9 +1365,12 @@ p:not(.mini-titulo):not(.final-xv) {
 
 
 
-/* CONTENEDOR DE LAS DOS TARJETAS */
+/* =========================================================
+   CONTENEDOR DE TARJETAS
+========================================================= */
 
 .datos {
+
     width:
         min(
             100%,
@@ -1270,12 +1411,13 @@ p:not(.mini-titulo):not(.final-xv) {
 
 
 /* =========================================================
-   TARJETAS FECHA Y HORA
+   TARJETAS FECHA / HORA
 
-   TODO USA CORMORANT GARAMOND
+   CORMORANT GARAMOND
 ========================================================= */
 
 .tarjeta-dato {
+
     width:
         100%;
 
@@ -1352,6 +1494,7 @@ p:not(.mini-titulo):not(.final-xv) {
     backdrop-filter:
         blur(5px);
 
+
     -webkit-backdrop-filter:
         blur(5px);
 
@@ -1366,11 +1509,6 @@ p:not(.mini-titulo):not(.final-xv) {
         );
 
 
-    /*
-       MISMA TIPOGRAFÍA
-       QUE LOS TEXTOS BLANCOS
-    */
-
     font-family:
         "Cormorant Garamond",
         serif;
@@ -1384,27 +1522,19 @@ p:not(.mini-titulo):not(.final-xv) {
         500;
 
 
-    font-size:
-        clamp(
-            17px,
-            4.5vw,
-            22px
-        );
-
-
-    line-height:
-        1.10;
-
-
     color:
         var(--marfil);
 }
 
 
 
-/* 26 Y 6:00 */
+/* =========================================================
+   26 Y 6:00
+   CORMORANT GARAMOND
+========================================================= */
 
 .numero {
+
     font-family:
         "Cormorant Garamond",
         serif;
@@ -1454,9 +1584,10 @@ p:not(.mini-titulo):not(.final-xv) {
 
 
 
-/*
+/* =========================================================
    SEPTIEMBRE Y PM
-*/
+   CORMORANT GARAMOND
+========================================================= */
 
 .tarjeta-dato
 >
@@ -1502,6 +1633,7 @@ span:not(.numero) {
 ========================================================= */
 
 .contador {
+
     width:
         100%;
 
@@ -1534,6 +1666,7 @@ span:not(.numero) {
 
 
 .contador div {
+
     min-width:
         0;
 
@@ -1577,6 +1710,7 @@ span:not(.numero) {
     backdrop-filter:
         blur(5px);
 
+
     -webkit-backdrop-filter:
         blur(5px);
 
@@ -1593,6 +1727,7 @@ span:not(.numero) {
 
 
 .contador span {
+
     display:
         block;
 
@@ -1628,6 +1763,7 @@ span:not(.numero) {
 
 
 .contador p {
+
     font-family:
         Arial,
         sans-serif
@@ -1666,6 +1802,7 @@ span:not(.numero) {
 ========================================================= */
 
 .imagen-pin {
+
     display:
         block;
 
@@ -1724,11 +1861,14 @@ span:not(.numero) {
 
     0%,
     100% {
+
         transform:
             translateY(0);
     }
 
+
     50% {
+
         transform:
             translateY(-6px);
     }
@@ -1741,6 +1881,7 @@ span:not(.numero) {
 ========================================================= */
 
 .imagen-dresscode {
+
     display:
         block;
 
@@ -1799,11 +1940,14 @@ span:not(.numero) {
 
     0%,
     100% {
+
         transform:
             translateY(0);
     }
 
+
     50% {
+
         transform:
             translateY(-6px);
     }
@@ -1816,6 +1960,7 @@ span:not(.numero) {
 ========================================================= */
 
 .imagen-gift {
+
     display:
         block;
 
@@ -1874,11 +2019,14 @@ span:not(.numero) {
 
     0%,
     100% {
+
         transform:
             translateY(0);
     }
 
+
     50% {
+
         transform:
             translateY(-6px);
     }
@@ -1891,6 +2039,7 @@ span:not(.numero) {
 ========================================================= */
 
 .muesca {
+
     position:
         absolute;
 
@@ -1960,6 +2109,7 @@ span:not(.numero) {
 /* AVANZAR */
 
 .avanzar {
+
     right:
         0;
 
@@ -1981,6 +2131,7 @@ span:not(.numero) {
 /* VOLVER */
 
 .volver {
+
     left:
         0;
 
@@ -1999,9 +2150,12 @@ span:not(.numero) {
 
 
 
-/* BOTÓN INICIO */
+/* =========================================================
+   BOTÓN INICIO
+========================================================= */
 
 .inicio {
+
     right:
         0;
 
@@ -2056,6 +2210,7 @@ span:not(.numero) {
 
 
 .muesca:active {
+
     transform:
         scale(0.92);
 }
@@ -2067,6 +2222,7 @@ span:not(.numero) {
 ========================================================= */
 
 .muesca span {
+
     font-size:
         0;
 
@@ -2095,8 +2251,10 @@ span:not(.numero) {
 
 
 .avanzar span {
+
     left:
         50%;
+
 
     top:
         50%;
@@ -2111,8 +2269,10 @@ span:not(.numero) {
 
 
 .volver span {
+
     left:
         50%;
+
 
     top:
         50%;
@@ -2192,8 +2352,10 @@ span:not(.numero) {
 ========================================================= */
 
 #contenedor-particulas {
+
     position:
         fixed;
+
 
     inset:
         0;
@@ -2221,9 +2383,12 @@ span:not(.numero) {
 
 
 
-/* DESTELLOS */
+/* =========================================================
+   DESTELLOS
+========================================================= */
 
 .destello {
+
     position:
         fixed;
 
@@ -2301,6 +2466,7 @@ span:not(.numero) {
 ========================================================= */
 
 #transicion {
+
     position:
         fixed;
 
@@ -2331,6 +2497,7 @@ span:not(.numero) {
 
 
 .onda {
+
     position:
         absolute;
 
@@ -2581,11 +2748,16 @@ span:not(.numero) {
 ========================================================= */
 
 .grupo-final {
+
     width:
         min(
             88vw,
             500px
         );
+
+
+    max-height:
+        100%;
 
 
     display:
@@ -2613,11 +2785,10 @@ span:not(.numero) {
 
 
     /*
-       IMPORTANTE:
+       SIN translateY.
 
-       Eliminamos translateY porque era una
-       de las cosas que hacía que esta escena
-       se viera diferente según el celular.
+       Así no se desplaza diferente
+       según el tamaño del celular.
     */
 
     transform:
@@ -2626,9 +2797,12 @@ span:not(.numero) {
 
 
 
-/* CUADRO FINAL */
+/* =========================================================
+   CUADRO DEL MENSAJE FINAL
+========================================================= */
 
 .final-mensaje {
+
     width:
         100%;
 
@@ -2770,9 +2944,12 @@ h2 {
 
 
 
-/* MIS XV FINAL */
+/* =========================================================
+   MIS XV FINAL
+========================================================= */
 
 .final-xv {
+
     font-family:
         Arial,
         sans-serif
@@ -2813,6 +2990,7 @@ h2 {
 ========================================================= */
 
 .contador-final {
+
     width:
         100%;
 
@@ -2867,6 +3045,7 @@ h2 {
     backdrop-filter:
         blur(7px);
 
+
     -webkit-backdrop-filter:
         blur(7px);
 
@@ -2892,9 +3071,12 @@ h2 {
 
 
 
-/* FALTA MUY POCO */
+/* =========================================================
+   FALTA MUY POCO
+========================================================= */
 
 .titulo-contador-final {
+
     font-family:
         Georgia,
         serif
@@ -2954,7 +3136,7 @@ h2 {
 
 /* =========================================================
    CELULARES ESTRECHOS
-   APROX. 320 - 375 PX
+   320px - 375px
 ========================================================= */
 
 @media
@@ -3127,7 +3309,7 @@ and
     :root {
 
         --espacio-vertical:
-            64px;
+            62px;
 
 
         --tam-muesca:
@@ -3135,14 +3317,25 @@ and
     }
 
 
-    .contenido-seccion {
+    .contenido-portada {
 
         padding-top:
-            16px;
+            22px;
 
 
         padding-bottom:
-            16px;
+            22px;
+    }
+
+
+    .contenido-seccion {
+
+        padding-top:
+            15px;
+
+
+        padding-bottom:
+            15px;
     }
 
 
@@ -3328,7 +3521,6 @@ and
 
 /* =========================================================
    CELULARES ALTOS
-   800PX O MÁS
 ========================================================= */
 
 @media
@@ -3380,7 +3572,7 @@ and
     :root {
 
         --espacio-vertical:
-            55px;
+            52px;
 
 
         --tam-muesca:
@@ -3388,11 +3580,31 @@ and
     }
 
 
+    /*
+       En horizontal dejamos una altura mínima
+       mayor para evitar que el contenido se corte.
+    */
+
     .portada,
     .seccion {
 
+        height:
+            100dvh;
+
+
         min-height:
-            620px;
+            100dvh;
+    }
+
+
+    .contenido-seccion {
+
+        padding-top:
+            12px;
+
+
+        padding-bottom:
+            12px;
     }
 }
 
