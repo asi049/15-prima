@@ -73,7 +73,7 @@ body::before {
 
 
 /* =========================================
-   CAPA OSCURA
+   CAPA OSCURA SOBRE EL FONDO
 ========================================= */
 
 body::after {
@@ -141,7 +141,7 @@ body::after {
 
 
 /* =========================================
-   CUADRO PORTADA
+   CUADRO DE PORTADA
 ========================================= */
 
 .contenido-portada {
@@ -220,7 +220,7 @@ body::after {
 
 
 /* =========================================
-   BRILLO PORTADA
+   BRILLO DORADO DE PORTADA
 ========================================= */
 
 .contenido-portada::before {
@@ -228,9 +228,11 @@ body::after {
 
     position: absolute;
 
-    top: -80px;
+    top:
+        -80px;
 
-    left: 50%;
+    left:
+        50%;
 
     transform:
         translateX(-50%);
@@ -259,13 +261,21 @@ body::after {
 
 
 /* =========================================
-   MIS XV PORTADA
+   MIS XV - PORTADA
 ========================================= */
 
 .subtitulo {
     position: relative;
 
-    z-index: 2;
+    z-index:
+        2;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-style:
+        normal;
 
     font-size:
         clamp(
@@ -297,7 +307,8 @@ body::after {
 .portada h1 {
     position: relative;
 
-    z-index: 2;
+    z-index:
+        2;
 
     font-family:
         "Great Vibes",
@@ -320,7 +331,7 @@ body::after {
         #f0d18a;
 
     margin:
-        12px 0 20px;
+        12px 0 16px;
 
     overflow-wrap:
         anywhere;
@@ -346,29 +357,53 @@ body::after {
 
 
 /* =========================================
-   FECHA PORTADA
+   FECHA DE LA PORTADA
+   CORMORANT GARAMOND
 ========================================= */
 
 .fecha-portada {
     position: relative;
 
-    z-index: 2;
+    z-index:
+        2;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-style:
+        italic;
+
+    font-weight:
+        500;
 
     font-size:
         clamp(
-            15px,
-            4vw,
-            19px
+            21px,
+            5.5vw,
+            28px
         );
 
     line-height:
-        1.5;
+        1.35;
+
+    letter-spacing:
+        0.2px;
 
     color:
         #f5eee0;
 
     margin-bottom:
         28px;
+
+    text-shadow:
+        0 2px 6px
+        rgba(
+            0,
+            0,
+            0,
+            0.40
+        );
 }
 
 
@@ -387,7 +422,8 @@ a {
 .boton-principal {
     position: relative;
 
-    z-index: 2;
+    z-index:
+        2;
 
     display:
         inline-flex;
@@ -430,7 +466,11 @@ a {
         #17120b;
 
     font-family:
-        inherit;
+        Arial,
+        sans-serif;
+
+    font-style:
+        normal;
 
     font-size:
         clamp(
@@ -501,7 +541,7 @@ a {
 
 
 /* =========================================
-   OCULTAR
+   OCULTAR INVITACIÓN
 ========================================= */
 
 .oculto {
@@ -515,12 +555,17 @@ a {
 ========================================= */
 
 .seccion {
-    position: relative;
+    position:
+        relative;
 
-    width: 100%;
+    width:
+        100%;
 
-    min-height: 100vh;
-    min-height: 100svh;
+    min-height:
+        100vh;
+
+    min-height:
+        100svh;
 
     padding:
 
@@ -565,7 +610,8 @@ a {
 ========================================= */
 
 .contenido-seccion {
-    position: relative;
+    position:
+        relative;
 
     width:
         min(
@@ -641,8 +687,8 @@ a {
 
 
 /* =========================================
-   TÍTULOS
-   SE MANTIENEN COMO ESTABAN
+   TÍTULOS DE LAS SECCIONES
+   SE MANTIENEN EN GEORGIA
 ========================================= */
 
 .seccion h2 {
@@ -651,6 +697,9 @@ a {
         serif;
 
     font-weight:
+        normal;
+
+    font-style:
         normal;
 
     font-size:
@@ -687,6 +736,13 @@ a {
 
 
 .seccion h3 {
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-style:
+        normal;
+
     font-size:
         clamp(
             18px,
@@ -706,7 +762,7 @@ a {
 
 
 /* =========================================
-   TEXTOS GENERALES
+   TEXTOS BASE
 ========================================= */
 
 .seccion p {
@@ -715,16 +771,6 @@ a {
 
     max-width:
         470px;
-
-    font-size:
-        clamp(
-            15px,
-            4.2vw,
-            17px
-        );
-
-    line-height:
-        1.7;
 
     margin:
         7px 0;
@@ -735,7 +781,7 @@ a {
 
 
 /* =========================================
-   PÁRRAFOS BLANCOS ELEGANTES
+   PÁRRAFOS BLANCOS
    CORMORANT GARAMOND
 ========================================= */
 
@@ -842,15 +888,16 @@ p:not(.mini-titulo):not(.final-xv) {
 
 /* =========================================
    MINI TÍTULO
+   ACOMPÁÑAME A CELEBRAR
 ========================================= */
 
 .mini-titulo {
     font-family:
         Arial,
-        sans-serif;
+        sans-serif !important;
 
     font-style:
-        normal;
+        normal !important;
 
     font-size:
         clamp(
@@ -932,6 +979,13 @@ p:not(.mini-titulo):not(.final-xv) {
 
     align-items:
         center;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-style:
+        normal;
 
     background:
         rgba(
@@ -1084,6 +1138,13 @@ p:not(.mini-titulo):not(.final-xv) {
     display:
         block;
 
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-style:
+        normal;
+
     font-size:
         clamp(
             20px,
@@ -1105,10 +1166,10 @@ p:not(.mini-titulo):not(.final-xv) {
 .contador p {
     font-family:
         Arial,
-        sans-serif;
+        sans-serif !important;
 
     font-style:
-        normal;
+        normal !important;
 
     font-size:
         clamp(
@@ -1444,6 +1505,9 @@ p:not(.mini-titulo):not(.final-xv) {
         Arial,
         sans-serif;
 
+    font-style:
+        normal;
+
     font-size:
         clamp(
             9px,
@@ -1611,7 +1675,7 @@ p:not(.mini-titulo):not(.final-xv) {
 
 
 /* =========================================
-   DESTELLOS
+   DESTELLOS DORADOS
 ========================================= */
 
 .destello {
@@ -1919,54 +1983,6 @@ p:not(.mini-titulo):not(.final-xv) {
 
 
 /* =========================================
-   FINAL
-========================================= */
-
-.final h2 {
-    font-size:
-        clamp(
-            45px,
-            15vw,
-            66px
-        );
-
-    margin-top:
-        20px;
-
-    color:
-        #f0d18a;
-}
-
-
-.final-xv {
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-style:
-        normal;
-
-    font-size:
-        clamp(
-            15px,
-            5vw,
-            21px
-        ) !important;
-
-    letter-spacing:
-        clamp(
-            2px,
-            1.5vw,
-            5px
-        );
-
-    color:
-        #d8b46a
-        !important;
-}
-
-
-/* =========================================
    PANTALLA FINAL
 ========================================= */
 
@@ -1997,6 +2013,10 @@ p:not(.mini-titulo):not(.final-xv) {
 }
 
 
+/* =========================================
+   CUADRO DE AGRADECIMIENTO FINAL
+========================================= */
+
 .final-mensaje {
     width:
         100%;
@@ -2017,12 +2037,137 @@ p:not(.mini-titulo):not(.final-xv) {
 }
 
 
-.final-mensaje h2 {
+/* =========================================
+   MENSAJE FINAL
+   CORMORANT GARAMOND
+========================================= */
+
+.final-mensaje
+>
+p:not(.final-xv) {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-style:
+        italic;
+
+    font-weight:
+        500;
+
+    font-size:
+        clamp(
+            21px,
+            5.5vw,
+            27px
+        );
+
+    line-height:
+        1.28;
+
+    letter-spacing:
+        0.15px;
+
+    color:
+        #f5eee0;
+
+    text-shadow:
+        0 2px 6px
+        rgba(
+            0,
+            0,
+            0,
+            0.40
+        );
+}
+
+
+/* =========================================
+   NOMBRE MARIA ALEJANDRA
+   PANTALLA FINAL
+   GREAT VIBES
+========================================= */
+
+.final .final-mensaje h2 {
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-style:
+        normal;
+
+    font-weight:
+        400;
+
+    font-size:
+        clamp(
+            52px,
+            16vw,
+            78px
+        );
+
+    line-height:
+        1.05;
+
     margin-top:
         15px;
 
     margin-bottom:
         10px;
+
+    color:
+        #f0d18a;
+
+    text-shadow:
+
+        0 3px 10px
+        rgba(
+            0,
+            0,
+            0,
+            0.80
+        ),
+
+        0 0 18px
+        rgba(
+            240,
+            209,
+            138,
+            0.18
+        );
+}
+
+
+/* =========================================
+   MIS XV FINAL
+========================================= */
+
+.final-xv {
+    font-family:
+        Arial,
+        sans-serif !important;
+
+    font-style:
+        normal !important;
+
+    font-size:
+        clamp(
+            15px,
+            5vw,
+            21px
+        ) !important;
+
+    letter-spacing:
+        clamp(
+            2px,
+            1.5vw,
+            5px
+        );
+
+    color:
+        #d8b46a
+        !important;
 }
 
 
@@ -2104,10 +2249,17 @@ p:not(.mini-titulo):not(.final-xv) {
 }
 
 
+/* =========================================
+   FALTA MUY POCO
+========================================= */
+
 .titulo-contador-final {
     font-family:
         Georgia,
-        serif;
+        serif !important;
+
+    font-style:
+        normal !important;
 
     font-size:
         clamp(
@@ -2197,6 +2349,13 @@ p:not(.mini-titulo):not(.final-xv) {
 
 .contador-final
 .contador span {
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-style:
+        normal;
+
     font-size:
         clamp(
             19px,
@@ -2213,10 +2372,10 @@ p:not(.mini-titulo):not(.final-xv) {
 .contador p {
     font-family:
         Arial,
-        sans-serif;
+        sans-serif !important;
 
     font-style:
-        normal;
+        normal !important;
 
     font-size:
         clamp(
@@ -2255,6 +2414,18 @@ p:not(.mini-titulo):not(.final-xv) {
     }
 
 
+    .portada h1 {
+        font-size:
+            54px;
+    }
+
+
+    .fecha-portada {
+        font-size:
+            19px;
+    }
+
+
     .contenido-seccion {
         width:
             96%;
@@ -2262,12 +2433,6 @@ p:not(.mini-titulo):not(.final-xv) {
         padding:
             18px
             14px;
-    }
-
-
-    .portada h1 {
-        font-size:
-            54px;
     }
 
 
@@ -2350,12 +2515,18 @@ p:not(.mini-titulo):not(.final-xv) {
             4px
             20px;
     }
+
+
+    .final .final-mensaje h2 {
+        font-size:
+            47px;
+    }
 }
 
 
 /* =========================================
    CELULARES BAJOS
-   EJ: IPHONE SE
+   EJEMPLO: IPHONE SE
 ========================================= */
 
 @media
@@ -2462,19 +2633,19 @@ and
     }
 
 
-    .final-mensaje h2 {
+    .final .final-mensaje h2 {
         font-size:
             clamp(
-                33px,
-                10vw,
-                45px
+                48px,
+                14vw,
+                62px
             );
 
         margin-top:
-            10px;
+            8px;
 
         margin-bottom:
-            6px;
+            5px;
     }
 
 
