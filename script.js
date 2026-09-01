@@ -4,16 +4,99 @@
 
 function abrirInvitacion() {
 
+    /*
+       OBTENER INVITACIÓN
+    */
+
     const invitacion =
         document.getElementById(
             "invitacion"
         );
 
 
+    /*
+       OBTENER CANCIÓN
+    */
+
+    const musica =
+        document.getElementById(
+            "musicaFondo"
+        );
+
+
+    /* =====================================
+       REPRODUCIR MÚSICA
+
+       IMPORTANTE:
+       LO HACEMOS INMEDIATAMENTE DESPUÉS
+       DEL TOQUE DEL USUARIO.
+    ====================================== */
+
+    if (musica) {
+
+        /*
+           VOLUMEN AL 80 %
+        */
+
+        musica.volume =
+            0.8;
+
+
+        /*
+           SOLO INTENTAMOS REPRODUCIRLA
+           SI NO ESTÁ SONANDO YA.
+
+           ESTO EVITA QUE SE REINICIE
+           SI VOLVEMOS A INICIO.
+        */
+
+        if (musica.paused) {
+
+            const reproduccion =
+                musica.play();
+
+
+            /*
+               ALGUNOS NAVEGADORES DEVUELVEN
+               UNA PROMESA EN play()
+            */
+
+            if (
+                reproduccion !== undefined
+            ) {
+
+                reproduccion.catch(
+
+                    function (error) {
+
+                        console.log(
+                            "No se pudo iniciar la música:",
+                            error
+                        );
+
+                    }
+
+                );
+
+            }
+
+        }
+
+    }
+
+
+    /* =====================================
+       MOSTRAR INVITACIÓN
+    ====================================== */
+
     invitacion.classList.remove(
         "oculto"
     );
 
+
+    /*
+       IR A SECCIÓN 1
+    */
 
     setTimeout(() => {
 
@@ -26,6 +109,7 @@ function abrirInvitacion() {
     }, 120);
 
 }
+
 
 
 /* =========================================
@@ -44,6 +128,7 @@ const fechaEvento =
         0,
         0
     );
+
 
 
 /* =========================================
@@ -189,7 +274,10 @@ function actualizarContador() {
 }
 
 
-/* INICIAR CONTADOR */
+
+/* =========================================
+   INICIAR CONTADOR
+========================================= */
 
 actualizarContador();
 
@@ -198,6 +286,7 @@ setInterval(
     actualizarContador,
     1000
 );
+
 
 
 /* =========================================
@@ -220,7 +309,9 @@ function cambiarSeccion(
     */
 
     if (cambiando) {
+
         return;
+
     }
 
 
@@ -231,10 +322,10 @@ function cambiarSeccion(
     /* =====================================
        DESTELLOS
 
-       AHORA SE USAN EN LAS DOS FLECHAS:
-
+       SE UTILIZAN EN:
        - AVANZAR
        - VOLVER
+       - INICIO
     ====================================== */
 
     if (boton) {
@@ -246,7 +337,9 @@ function cambiarSeccion(
     }
 
 
-    /* INICIAR ONDA */
+    /*
+       INICIAR ONDA
+    */
 
     iniciarTransicion();
 
@@ -270,6 +363,7 @@ function cambiarSeccion(
                 false;
 
             return;
+
         }
 
 
@@ -304,6 +398,7 @@ function cambiarSeccion(
     }, 1200);
 
 }
+
 
 
 /* =========================================
@@ -347,6 +442,7 @@ function iniciarTransicion() {
 }
 
 
+
 /* =========================================
    ANIMACIÓN DEL CONTENIDO
 ========================================= */
@@ -367,6 +463,7 @@ function animarContenido(
     ) {
 
         return;
+
     }
 
 
@@ -398,12 +495,14 @@ function animarContenido(
 }
 
 
+
 /* =========================================
    CREAR DESTELLOS
 
    FUNCIONAN EN:
    - FLECHA DERECHA
    - FLECHA IZQUIERDA
+   - BOTÓN INICIO
 ========================================= */
 
 function crearDestellos(
@@ -604,6 +703,7 @@ function crearDestellos(
 }
 
 
+
 /* =========================================
    OPTIMIZACIÓN PARA PANTALLAS TÁCTILES
 ========================================= */
@@ -615,7 +715,8 @@ document.addEventListener(
     function () {},
 
     {
-        passive: true
+        passive:
+            true
     }
 
 );
