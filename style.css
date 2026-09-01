@@ -1,56 +1,143 @@
-/* =========================================
-   CONFIGURACIÓN GENERAL
-========================================= */
+/* =========================================================
+   VARIABLES GENERALES
+========================================================= */
+
+:root {
+
+    --negro:
+        #050505;
+
+    --dorado:
+        #f0d18a;
+
+    --dorado-medio:
+        #d8b46a;
+
+    --dorado-oscuro:
+        #c89545;
+
+    --marfil:
+        #f5eee0;
+
+    --texto-oscuro:
+        #17120b;
+
+
+    /* Ancho máximo de los cuadros principales */
+
+    --ancho-cuadro:
+        500px;
+
+
+    /* Tamaño de las muescas */
+
+    --tam-muesca:
+        clamp(
+            68px,
+            18vw,
+            88px
+        );
+
+
+    /*
+       Este espacio se utiliza arriba y abajo
+       de cada escena para mantener el contenido
+       visualmente centrado.
+    */
+
+    --espacio-vertical:
+        clamp(
+            74px,
+            14vw,
+            92px
+        );
+}
+
+
+
+/* =========================================================
+   REINICIO GENERAL
+========================================================= */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin:
+        0;
+
+    padding:
+        0;
+
+    box-sizing:
+        border-box;
 }
 
 
 html {
-    scroll-behavior: auto;
-    width: 100%;
-    overflow-x: hidden;
+    width:
+        100%;
+
+    overflow-x:
+        hidden;
+
+    scroll-behavior:
+        auto;
+
+    -webkit-text-size-adjust:
+        100%;
 }
 
 
-/* =========================================
-   BODY + FONDO
-========================================= */
-
 body {
-    width: 100%;
-    min-height: 100%;
-    overflow-x: hidden;
+    width:
+        100%;
+
+    min-height:
+        100%;
+
+    overflow-x:
+        hidden;
 
     font-family:
         Arial,
         sans-serif;
 
     color:
-        #f5eee0;
+        var(--marfil);
 
     background:
-        #050505;
+        var(--negro);
 }
 
 
-/* =========================================
+main {
+    width:
+        100%;
+}
+
+
+
+/* =========================================================
    FONDO FIJO
-========================================= */
+========================================================= */
 
 body::before {
-    content: "";
+    content:
+        "";
 
-    position: fixed;
-    inset: 0;
+    position:
+        fixed;
 
-    width: 100%;
+    inset:
+        0;
 
-    height: 100vh;
-    height: 100svh;
+    width:
+        100%;
+
+    height:
+        100vh;
+
+    height:
+        100svh;
+
 
     background-image:
         url("img/backgxv.png");
@@ -64,6 +151,7 @@ body::before {
     background-repeat:
         no-repeat;
 
+
     z-index:
         -2;
 
@@ -72,18 +160,24 @@ body::before {
 }
 
 
-/* =========================================
-   CAPA OSCURA
-========================================= */
+
+/* CAPA OSCURA */
 
 body::after {
-    content: "";
+    content:
+        "";
 
-    position: fixed;
-    inset: 0;
+    position:
+        fixed;
 
-    width: 100%;
-    height: 100%;
+    inset:
+        0;
+
+    width:
+        100%;
+
+    height:
+        100%;
 
     background:
         rgba(
@@ -101,73 +195,94 @@ body::after {
 }
 
 
-/* =========================================
+
+/* =========================================================
    PORTADA
-========================================= */
+========================================================= */
 
 .portada {
-    position: relative;
+    position:
+        relative;
 
-    width: 100%;
+    width:
+        100%;
 
-    min-height: 100vh;
-    min-height: 100svh;
+    min-height:
+        100vh;
 
-    padding:
+    min-height:
+        100svh;
 
+
+    padding-top:
         max(
-            25px,
+            28px,
             env(safe-area-inset-top)
-        )
+        );
 
-        20px
+    padding-right:
+        18px;
 
+    padding-bottom:
         max(
-            80px,
+            28px,
             env(safe-area-inset-bottom)
         );
 
-    display: flex;
+    padding-left:
+        18px;
 
-    justify-content: center;
 
-    align-items: center;
+    display:
+        flex;
 
-    text-align: center;
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    text-align:
+        center;
 
     background:
         transparent;
 }
 
 
-/* =========================================
-   CUADRO DE PORTADA
-========================================= */
+
+/* =========================================================
+   CUADRO PORTADA
+========================================================= */
 
 .contenido-portada {
-    position: relative;
+    position:
+        relative;
 
-    overflow: hidden;
+    overflow:
+        hidden;
+
 
     width:
         min(
-            92%,
+            88vw,
             430px
         );
 
-    padding:
 
+    padding:
         clamp(
             28px,
-            8vw,
-            45px
+            7vw,
+            42px
         )
 
         clamp(
-            18px,
+            20px,
             6vw,
-            35px
+            34px
         );
+
 
     background:
         rgba(
@@ -176,6 +291,7 @@ body::after {
             5,
             0.76
         );
+
 
     border:
         1px solid
@@ -186,18 +302,21 @@ body::after {
             0.50
         );
 
+
     border-radius:
         clamp(
             22px,
-            6vw,
-            35px
+            5vw,
+            32px
         );
+
 
     backdrop-filter:
         blur(8px);
 
     -webkit-backdrop-filter:
         blur(8px);
+
 
     box-shadow:
 
@@ -219,14 +338,15 @@ body::after {
 }
 
 
-/* =========================================
-   BRILLO DE PORTADA
-========================================= */
+
+/* BRILLO DE PORTADA */
 
 .contenido-portada::before {
-    content: "";
+    content:
+        "";
 
-    position: absolute;
+    position:
+        absolute;
 
     top:
         -80px;
@@ -237,11 +357,13 @@ body::after {
     transform:
         translateX(-50%);
 
+
     width:
         260px;
 
     height:
         160px;
+
 
     background:
         radial-gradient(
@@ -255,20 +377,24 @@ body::after {
             transparent 70%
         );
 
+
     pointer-events:
         none;
 }
 
 
-/* =========================================
+
+/* =========================================================
    MIS XV - PORTADA
-========================================= */
+========================================================= */
 
 .subtitulo {
-    position: relative;
+    position:
+        relative;
 
     z-index:
         2;
+
 
     font-family:
         Arial,
@@ -277,64 +403,78 @@ body::after {
     font-style:
         normal;
 
+
     font-size:
         clamp(
             11px,
-            3.5vw,
+            3vw,
             15px
         );
+
 
     letter-spacing:
         clamp(
             4px,
-            1.8vw,
-            8px
+            1.5vw,
+            7px
         );
 
+
     color:
-        #d8b46a;
+        var(--dorado-medio);
+
 
     margin-bottom:
         10px;
 }
 
 
-/* =========================================
+
+/* =========================================================
    MARIA ALEJANDRA - PORTADA
    GREAT VIBES
-========================================= */
+========================================================= */
 
 .portada h1 {
-    position: relative;
+    position:
+        relative;
 
     z-index:
         2;
+
 
     font-family:
         "Great Vibes",
         cursive;
 
+
     font-weight:
         400;
+
 
     font-size:
         clamp(
             58px,
-            17vw,
-            90px
+            16vw,
+            88px
         );
 
+
     line-height:
-        1.05;
+        1.02;
+
 
     color:
-        #f0d18a;
+        var(--dorado);
+
 
     margin:
         12px 0 16px;
 
+
     overflow-wrap:
         anywhere;
+
 
     text-shadow:
 
@@ -356,45 +496,56 @@ body::after {
 }
 
 
-/* =========================================
-   FECHA DE LA PORTADA
+
+/* =========================================================
+   FECHA PORTADA
    CORMORANT GARAMOND
-========================================= */
+========================================================= */
 
 .fecha-portada {
-    position: relative;
+    position:
+        relative;
 
     z-index:
         2;
+
 
     font-family:
         "Cormorant Garamond",
         serif;
 
+
     font-style:
         italic;
+
 
     font-weight:
         500;
 
+
     font-size:
         clamp(
-            21px,
-            5.5vw,
-            28px
+            20px,
+            5vw,
+            27px
         );
 
+
     line-height:
-        1.35;
+        1.30;
+
 
     letter-spacing:
         0.2px;
 
+
     color:
-        #f5eee0;
+        var(--marfil);
+
 
     margin-bottom:
-        28px;
+        26px;
+
 
     text-shadow:
         0 2px 6px
@@ -407,14 +558,11 @@ body::after {
 }
 
 
-/* =========================================
+
+/* =========================================================
    BOTONES PRINCIPALES
    CORMORANT GARAMOND
-
-   ABRIR INVITACIÓN
-   CÓMO LLEGAR
-   CONFIRMAR POR WHATSAPP
-========================================= */
+========================================================= */
 
 button,
 a {
@@ -425,11 +573,12 @@ a {
 
 .boton,
 .boton-principal {
-
-    position: relative;
+    position:
+        relative;
 
     z-index:
         2;
+
 
     display:
         inline-flex;
@@ -440,14 +589,17 @@ a {
     align-items:
         center;
 
+
     min-height:
         48px;
+
 
     max-width:
         100%;
 
+
     padding:
-        11px 27px;
+        10px 26px;
 
 
     border:
@@ -467,72 +619,63 @@ a {
     background:
         linear-gradient(
             135deg,
-            #f0d18a,
-            #c89545
+            var(--dorado),
+            var(--dorado-oscuro)
         );
 
 
     color:
-        #17120b;
+        var(--texto-oscuro);
 
-
-    /* =====================================
-       LETRA ELEGANTE
-    ===================================== */
 
     font-family:
         "Cormorant Garamond",
         serif
         !important;
 
+
     font-style:
         italic
         !important;
+
 
     font-weight:
         600
         !important;
 
+
     font-size:
         clamp(
-            20px,
-            5.2vw,
-            24px
+            19px,
+            4.8vw,
+            23px
         )
         !important;
 
+
     line-height:
-        1.1;
+        1.10;
+
 
     letter-spacing:
-        0.2px;
+        0.15px;
 
 
     text-decoration:
         none;
+
 
     text-align:
         center;
 
 
     box-shadow:
-
         0 8px 22px
         rgba(
             201,
             154,
             72,
             0.28
-        );
-
-
-    text-shadow:
-        0 1px 1px
-        rgba(
-            255,
-            255,
-            255,
-            0.15
         );
 
 
@@ -549,7 +692,6 @@ a {
 
 .boton:visited,
 .boton:link {
-
     font-family:
         "Cormorant Garamond",
         serif
@@ -563,7 +705,6 @@ a {
 
 .boton:active,
 .boton-principal:active {
-
     transform:
         scale(0.96);
 }
@@ -592,9 +733,10 @@ a {
 }
 
 
-/* =========================================
-   OCULTAR INVITACIÓN
-========================================= */
+
+/* =========================================================
+   OCULTAR
+========================================================= */
 
 .oculto {
     display:
@@ -602,16 +744,20 @@ a {
 }
 
 
-/* =========================================
-   SECCIONES
-========================================= */
+
+/* =========================================================
+   ESCENAS
+   AJUSTE PRINCIPAL DE PROPORCIONES
+========================================================= */
 
 .seccion {
     position:
         relative;
 
+
     width:
         100%;
+
 
     min-height:
         100vh;
@@ -619,83 +765,122 @@ a {
     min-height:
         100svh;
 
-    padding:
 
-        max(
-            50px,
+    /*
+       MISMO ESPACIO ARRIBA Y ABAJO.
+
+       Esto evita que el contenido quede
+       desplazado hacia arriba en algunos
+       celulares.
+    */
+
+    padding-top:
+        calc(
+            var(--espacio-vertical)
+            +
             env(safe-area-inset-top)
-        )
+        );
 
+
+    padding-right:
         clamp(
-            16px,
-            5vw,
-            30px
-        )
+            14px,
+            4vw,
+            26px
+        );
 
-        max(
-            105px,
+
+    padding-bottom:
+        calc(
+            var(--espacio-vertical)
+            +
             env(safe-area-inset-bottom)
         );
+
+
+    padding-left:
+        clamp(
+            14px,
+            4vw,
+            26px
+        );
+
 
     display:
         flex;
 
+
     justify-content:
         center;
+
 
     align-items:
         center;
 
+
     text-align:
         center;
 
+
     overflow:
         hidden;
+
 
     background:
         transparent;
 }
 
 
-/* =========================================
-   CONTENIDO CENTRAL
-========================================= */
+
+/* =========================================================
+   CUADRO CENTRAL
+========================================================= */
 
 .contenido-seccion {
     position:
         relative;
 
+
     width:
         min(
-            92%,
-            520px
+            88vw,
+            var(--ancho-cuadro)
         );
 
-    padding:
 
+    max-width:
+        100%;
+
+
+    padding:
         clamp(
             22px,
-            6vw,
-            35px
+            5vw,
+            32px
         )
 
         clamp(
             16px,
-            5vw,
-            28px
+            4vw,
+            26px
         );
+
 
     display:
         flex;
 
+
     flex-direction:
         column;
+
 
     align-items:
         center;
 
+
     justify-content:
         center;
+
 
     background:
         rgba(
@@ -704,6 +889,7 @@ a {
             5,
             0.68
         );
+
 
     border:
         1px solid
@@ -714,18 +900,21 @@ a {
             0.28
         );
 
+
     border-radius:
         clamp(
             20px,
-            6vw,
-            30px
+            5vw,
+            28px
         );
+
 
     backdrop-filter:
         blur(7px);
 
     -webkit-backdrop-filter:
         blur(7px);
+
 
     box-shadow:
         0 15px 35px
@@ -738,43 +927,57 @@ a {
 }
 
 
-/* =========================================
-   TÍTULOS DE LAS SECCIONES
-   SE MANTIENEN EN GEORGIA
-========================================= */
+
+/* =========================================================
+   TÍTULOS
+   GEORGIA
+========================================================= */
 
 .seccion h2 {
     font-family:
         Georgia,
         serif;
 
+
     font-weight:
         normal;
+
 
     font-style:
         normal;
 
+
     font-size:
         clamp(
-            31px,
-            9vw,
-            46px
+            30px,
+            8vw,
+            44px
         );
+
 
     line-height:
         1.15;
 
+
     color:
-        #f0d18a;
+        var(--dorado);
+
 
     margin-bottom:
-        18px;
+        clamp(
+            13px,
+            3.5vw,
+            18px
+        );
+
 
     max-width:
         100%;
 
+
     overflow-wrap:
         anywhere;
+
 
     text-shadow:
         0 3px 10px
@@ -792,50 +995,60 @@ a {
         Arial,
         sans-serif;
 
+
     font-style:
         normal;
+
 
     font-size:
         clamp(
             18px,
-            5vw,
-            23px
+            4.5vw,
+            22px
         );
 
+
     line-height:
-        1.4;
+        1.35;
+
 
     color:
         #efd9a7;
 
+
     margin:
-        8px 0;
+        7px 0;
 }
 
 
-/* =========================================
-   TEXTOS BASE
-========================================= */
+
+/* =========================================================
+   PÁRRAFOS
+========================================================= */
 
 .seccion p {
     width:
         100%;
 
+
     max-width:
-        470px;
+        460px;
+
 
     margin:
-        7px 0;
+        6px 0;
+
 
     color:
-        #f5eee0;
+        var(--marfil);
 }
 
 
-/* =========================================
+
+/* =========================================================
    PÁRRAFOS BLANCOS
    CORMORANT GARAMOND
-========================================= */
+========================================================= */
 
 .contenido-seccion
 >
@@ -845,27 +1058,34 @@ p:not(.mini-titulo):not(.final-xv) {
         "Cormorant Garamond",
         serif;
 
+
     font-style:
         italic;
+
 
     font-weight:
         500;
 
+
     font-size:
         clamp(
-            20px,
-            5.4vw,
-            27px
+            19px,
+            5vw,
+            26px
         );
 
+
     line-height:
-        1.28;
+        1.27;
+
 
     letter-spacing:
         0.15px;
 
+
     color:
-        #f5eee0;
+        var(--marfil);
+
 
     text-shadow:
         0 2px 6px
@@ -878,36 +1098,43 @@ p:not(.mini-titulo):not(.final-xv) {
 }
 
 
-/* =========================================
+
+/* =========================================================
    FOTO PRINCIPAL
-========================================= */
+========================================================= */
 
 .foto-principal {
     width:
         clamp(
-            185px,
-            61vw,
-            280px
+            170px,
+            52vw,
+            265px
         );
+
 
     height:
         auto;
 
+
     aspect-ratio:
         3 / 4;
+
 
     object-fit:
         cover;
 
+
     border-radius:
         50% 50% 24px 24px;
 
+
     margin-bottom:
         clamp(
-            20px,
-            6vw,
-            32px
+            17px,
+            4vw,
+            25px
         );
+
 
     border:
         3px solid
@@ -917,6 +1144,7 @@ p:not(.mini-titulo):not(.final-xv) {
             138,
             0.70
         );
+
 
     box-shadow:
 
@@ -938,9 +1166,10 @@ p:not(.mini-titulo):not(.final-xv) {
 }
 
 
-/* =========================================
+
+/* =========================================================
    MINI TÍTULO
-========================================= */
+========================================================= */
 
 .mini-titulo {
     font-family:
@@ -948,45 +1177,69 @@ p:not(.mini-titulo):not(.final-xv) {
         sans-serif
         !important;
 
+
     font-style:
         normal
         !important;
 
+
     font-size:
         clamp(
             10px,
-            3vw,
+            2.8vw,
             13px
         )
         !important;
 
+
     letter-spacing:
         clamp(
             2px,
-            1.2vw,
+            1vw,
             4px
         );
 
+
     color:
-        #d8b46a
+        var(--dorado-medio)
         !important;
 
+
     margin-bottom:
-        14px
+        12px
         !important;
 }
 
 
-/* =========================================
-   TARJETAS FECHA / HORA
-========================================= */
+
+/* =========================================================
+   SECCIÓN FECHA Y HORA
+========================================================= */
+
+#seccion2
+.contenido-seccion {
+    width:
+        min(
+            88vw,
+            500px
+        );
+}
+
+
+
+/* CONTENEDOR DE LAS DOS TARJETAS */
 
 .datos {
     width:
-        100%;
+        min(
+            100%,
+            420px
+        );
+
 
     display:
         grid;
+
 
     grid-template-columns:
         repeat(
@@ -997,6 +1250,7 @@ p:not(.mini-titulo):not(.final-xv) {
             )
         );
 
+
     gap:
         clamp(
             10px,
@@ -1004,44 +1258,69 @@ p:not(.mini-titulo):not(.final-xv) {
             18px
         );
 
+
     margin-top:
-        24px;
+        clamp(
+            16px,
+            4vw,
+            22px
+        );
 }
 
+
+
+/* =========================================================
+   TARJETAS FECHA Y HORA
+
+   TODO USA CORMORANT GARAMOND
+========================================================= */
 
 .tarjeta-dato {
     width:
         100%;
 
+
     min-width:
         0;
 
+
+    min-height:
+        clamp(
+            115px,
+            29vw,
+            150px
+        );
+
+
     padding:
         clamp(
-            18px,
-            5vw,
-            28px
+            15px,
+            4vw,
+            22px
         )
-        10px;
+
+        6px;
+
 
     display:
         flex;
 
+
     flex-direction:
         column;
+
 
     justify-content:
         center;
 
+
     align-items:
         center;
 
-    font-family:
-        Arial,
-        sans-serif;
 
-    font-style:
-        normal;
+    gap:
+        5px;
+
 
     background:
         rgba(
@@ -1050,6 +1329,7 @@ p:not(.mini-titulo):not(.final-xv) {
             8,
             0.80
         );
+
 
     border:
         1px solid
@@ -1060,8 +1340,14 @@ p:not(.mini-titulo):not(.final-xv) {
             0.38
         );
 
+
     border-radius:
-        22px;
+        clamp(
+            18px,
+            5vw,
+            22px
+        );
+
 
     backdrop-filter:
         blur(5px);
@@ -1069,8 +1355,6 @@ p:not(.mini-titulo):not(.final-xv) {
     -webkit-backdrop-filter:
         blur(5px);
 
-    color:
-        #f5eee0;
 
     box-shadow:
         0 10px 25px
@@ -1080,41 +1364,151 @@ p:not(.mini-titulo):not(.final-xv) {
             0,
             0.35
         );
-}
 
 
-.numero {
-    font-size:
-        clamp(
-            31px,
-            9vw,
-            42px
-        );
+    /*
+       MISMA TIPOGRAFÍA
+       QUE LOS TEXTOS BLANCOS
+    */
 
-    line-height:
-        1;
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+
+    font-style:
+        italic;
+
 
     font-weight:
-        bold;
+        500;
+
+
+    font-size:
+        clamp(
+            17px,
+            4.5vw,
+            22px
+        );
+
+
+    line-height:
+        1.10;
+
 
     color:
-        #f0d18a;
-
-    margin-bottom:
-        7px;
+        var(--marfil);
 }
 
 
-/* =========================================
+
+/* 26 Y 6:00 */
+
+.numero {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+
+    font-style:
+        italic;
+
+
+    font-weight:
+        600;
+
+
+    font-size:
+        clamp(
+            38px,
+            10.5vw,
+            54px
+        );
+
+
+    line-height:
+        0.95;
+
+
+    color:
+        var(--dorado);
+
+
+    margin-bottom:
+        3px;
+
+
+    white-space:
+        nowrap;
+
+
+    text-shadow:
+        0 2px 7px
+        rgba(
+            0,
+            0,
+            0,
+            0.55
+        );
+}
+
+
+
+/*
+   SEPTIEMBRE Y PM
+*/
+
+.tarjeta-dato
+>
+span:not(.numero) {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+
+    font-style:
+        italic;
+
+
+    font-weight:
+        500;
+
+
+    font-size:
+        clamp(
+            17px,
+            4.5vw,
+            22px
+        );
+
+
+    line-height:
+        1.05;
+
+
+    color:
+        var(--marfil);
+
+
+    white-space:
+        nowrap;
+}
+
+
+
+/* =========================================================
    CONTADOR
-========================================= */
+========================================================= */
 
 .contador {
     width:
         100%;
 
+
     display:
         grid;
+
 
     grid-template-columns:
         repeat(
@@ -1125,15 +1519,17 @@ p:not(.mini-titulo):not(.final-xv) {
             )
         );
 
+
     gap:
         clamp(
-            6px,
+            5px,
             2vw,
-            12px
+            10px
         );
 
+
     margin-top:
-        22px;
+        18px;
 }
 
 
@@ -1141,13 +1537,15 @@ p:not(.mini-titulo):not(.final-xv) {
     min-width:
         0;
 
+
     padding:
         clamp(
-            12px,
-            4vw,
-            20px
+            10px,
+            3vw,
+            16px
         )
-        3px;
+        2px;
+
 
     background:
         rgba(
@@ -1156,6 +1554,7 @@ p:not(.mini-titulo):not(.final-xv) {
             8,
             0.82
         );
+
 
     border:
         1px solid
@@ -1166,12 +1565,14 @@ p:not(.mini-titulo):not(.final-xv) {
             0.34
         );
 
+
     border-radius:
         clamp(
-            13px,
-            4vw,
-            20px
+            12px,
+            3.5vw,
+            18px
         );
+
 
     backdrop-filter:
         blur(5px);
@@ -1179,8 +1580,9 @@ p:not(.mini-titulo):not(.final-xv) {
     -webkit-backdrop-filter:
         blur(5px);
 
+
     box-shadow:
-        0 10px 25px
+        0 8px 20px
         rgba(
             0,
             0,
@@ -1194,28 +1596,34 @@ p:not(.mini-titulo):not(.final-xv) {
     display:
         block;
 
+
     font-family:
         Arial,
         sans-serif;
 
+
     font-style:
         normal;
 
+
     font-size:
         clamp(
-            20px,
-            6vw,
-            31px
+            19px,
+            5.5vw,
+            29px
         );
+
 
     line-height:
         1;
 
+
     font-weight:
         bold;
 
+
     color:
-        #f0d18a;
+        var(--dorado);
 }
 
 
@@ -1225,65 +1633,76 @@ p:not(.mini-titulo):not(.final-xv) {
         sans-serif
         !important;
 
+
     font-style:
         normal
         !important;
 
+
     font-size:
         clamp(
-            9px,
-            2.8vw,
-            13px
+            8px,
+            2.5vw,
+            12px
         );
 
+
     line-height:
-        1.2;
+        1.15;
+
 
     margin-top:
-        6px;
+        5px;
+
 
     color:
-        #f5eee0;
+        var(--marfil);
 }
 
 
-/* =========================================
+
+/* =========================================================
    IMAGEN PIN
-========================================= */
+========================================================= */
 
 .imagen-pin {
     display:
         block;
 
+
     width:
         clamp(
-            90px,
-            28vw,
-            135px
+            82px,
+            24vw,
+            125px
         );
+
 
     max-width:
         100%;
 
+
     max-height:
-        170px;
+        160px;
+
 
     height:
         auto;
 
+
     object-fit:
         contain;
 
+
     margin:
-        4px
+        3px
         auto
-        14px;
+        12px;
+
 
     filter:
         drop-shadow(
-            0
-            10px
-            16px
+            0 10px 16px
             rgba(
                 0,
                 0,
@@ -1291,6 +1710,7 @@ p:not(.mini-titulo):not(.final-xv) {
                 0.55
             )
         );
+
 
     animation:
         flotarPin
@@ -1310,48 +1730,54 @@ p:not(.mini-titulo):not(.final-xv) {
 
     50% {
         transform:
-            translateY(-7px);
+            translateY(-6px);
     }
 }
 
 
-/* =========================================
+
+/* =========================================================
    IMAGEN DRESS CODE
-========================================= */
+========================================================= */
 
 .imagen-dresscode {
     display:
         block;
 
+
     width:
         clamp(
-            125px,
-            40vw,
-            195px
+            115px,
+            34vw,
+            180px
         );
+
 
     max-width:
         100%;
 
+
     max-height:
-        240px;
+        220px;
+
 
     height:
         auto;
 
+
     object-fit:
         contain;
 
+
     margin:
-        6px
+        5px
         auto
-        16px;
+        14px;
+
 
     filter:
         drop-shadow(
-            0
-            10px
-            16px
+            0 10px 16px
             rgba(
                 0,
                 0,
@@ -1359,6 +1785,7 @@ p:not(.mini-titulo):not(.final-xv) {
                 0.55
             )
         );
+
 
     animation:
         flotarDressCode
@@ -1378,48 +1805,54 @@ p:not(.mini-titulo):not(.final-xv) {
 
     50% {
         transform:
-            translateY(-7px);
+            translateY(-6px);
     }
 }
 
 
-/* =========================================
+
+/* =========================================================
    IMAGEN REGALOS
-========================================= */
+========================================================= */
 
 .imagen-gift {
     display:
         block;
 
+
     width:
         clamp(
-            125px,
-            40vw,
-            195px
+            115px,
+            34vw,
+            180px
         );
+
 
     max-width:
         100%;
 
+
     max-height:
-        240px;
+        220px;
+
 
     height:
         auto;
 
+
     object-fit:
         contain;
 
+
     margin:
-        6px
+        5px
         auto
-        18px;
+        15px;
+
 
     filter:
         drop-shadow(
-            0
-            10px
-            16px
+            0 10px 16px
             rgba(
                 0,
                 0,
@@ -1427,6 +1860,7 @@ p:not(.mini-titulo):not(.final-xv) {
                 0.55
             )
         );
+
 
     animation:
         flotarGift
@@ -1441,66 +1875,69 @@ p:not(.mini-titulo):not(.final-xv) {
     0%,
     100% {
         transform:
-            translateY(0)
-            rotate(0deg);
+            translateY(0);
     }
 
     50% {
         transform:
-            translateY(-7px)
-            rotate(-1deg);
+            translateY(-6px);
     }
 }
 
 
-/* =========================================
+
+/* =========================================================
    MUESCAS
-========================================= */
+========================================================= */
 
 .muesca {
     position:
         absolute;
 
+
     bottom:
         0;
 
+
     width:
-        clamp(
-            68px,
-            19vw,
-            88px
-        );
+        var(--tam-muesca);
+
 
     height:
-        clamp(
-            68px,
-            19vw,
-            88px
-        );
+        var(--tam-muesca);
+
 
     padding:
         0;
 
+
     border:
         none;
+
 
     z-index:
         100;
 
+
     display:
         flex;
+
 
     justify-content:
         center;
 
+
     align-items:
         center;
+
 
     cursor:
         pointer;
 
+
     overflow:
         hidden;
+
 
     box-shadow:
         0 0 24px
@@ -1511,6 +1948,7 @@ p:not(.mini-titulo):not(.final-xv) {
             0.35
         );
 
+
     transition:
         transform
         0.2s
@@ -1518,85 +1956,38 @@ p:not(.mini-titulo):not(.final-xv) {
 }
 
 
-/* =========================================
-   AVANZAR
-========================================= */
+
+/* AVANZAR */
 
 .avanzar {
     right:
         0;
 
+
     border-radius:
         100% 0 0 0;
+
 
     background:
         linear-gradient(
             135deg,
-            #f0d18a,
+            var(--dorado),
             #b77d2f
         );
 }
 
 
-/* =========================================
-   INICIO
-========================================= */
 
-.inicio {
-    right:
-        0;
-
-    border-radius:
-        100% 0 0 0;
-
-    background:
-        linear-gradient(
-            135deg,
-            #f0d18a,
-            #b77d2f
-        );
-
-    color:
-        #17120b;
-
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-style:
-        normal;
-
-    font-size:
-        clamp(
-            9px,
-            2.7vw,
-            12px
-        );
-
-    font-weight:
-        700;
-
-    letter-spacing:
-        0.4px;
-
-    padding:
-        24px
-        5px
-        5px
-        22px;
-}
-
-
-/* =========================================
-   VOLVER
-========================================= */
+/* VOLVER */
 
 .volver {
     left:
         0;
 
+
     border-radius:
         0 100% 0 0;
+
 
     background:
         linear-gradient(
@@ -1607,33 +1998,96 @@ p:not(.mini-titulo):not(.final-xv) {
 }
 
 
+
+/* BOTÓN INICIO */
+
+.inicio {
+    right:
+        0;
+
+
+    border-radius:
+        100% 0 0 0;
+
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--dorado),
+            #b77d2f
+        );
+
+
+    color:
+        var(--texto-oscuro);
+
+
+    font-family:
+        Arial,
+        sans-serif;
+
+
+    font-style:
+        normal;
+
+
+    font-size:
+        clamp(
+            9px,
+            2.6vw,
+            12px
+        );
+
+
+    font-weight:
+        700;
+
+
+    letter-spacing:
+        0.4px;
+
+
+    padding:
+        23px
+        5px
+        5px
+        21px;
+}
+
+
 .muesca:active {
     transform:
         scale(0.92);
 }
 
 
-/* =========================================
+
+/* =========================================================
    FLECHAS
-========================================= */
+========================================================= */
 
 .muesca span {
     font-size:
         0;
 
+
     width:
         17px;
+
 
     height:
         17px;
 
+
     border-right:
         3px solid
-        #17120b;
+        var(--texto-oscuro);
+
 
     border-bottom:
         3px solid
-        #17120b;
+        var(--texto-oscuro);
+
 
     position:
         absolute;
@@ -1646,6 +2100,7 @@ p:not(.mini-titulo):not(.final-xv) {
 
     top:
         50%;
+
 
     animation:
         flechaAbajo
@@ -1662,6 +2117,7 @@ p:not(.mini-titulo):not(.final-xv) {
     top:
         50%;
 
+
     animation:
         flechaArriba
         1.5s
@@ -1674,15 +2130,28 @@ p:not(.mini-titulo):not(.final-xv) {
 
     0%,
     100% {
+
         transform:
-            translate(-15%, -35%)
-            rotate(45deg);
+            translate(
+                -15%,
+                -35%
+            )
+            rotate(
+                45deg
+            );
     }
 
+
     50% {
+
         transform:
-            translate(-15%, -5%)
-            rotate(45deg);
+            translate(
+                -15%,
+                -5%
+            )
+            rotate(
+                45deg
+            );
     }
 }
 
@@ -1691,22 +2160,36 @@ p:not(.mini-titulo):not(.final-xv) {
 
     0%,
     100% {
+
         transform:
-            translate(-80%, -10%)
-            rotate(225deg);
+            translate(
+                -80%,
+                -10%
+            )
+            rotate(
+                225deg
+            );
     }
 
+
     50% {
+
         transform:
-            translate(-80%, -40%)
-            rotate(225deg);
+            translate(
+                -80%,
+                -40%
+            )
+            rotate(
+                225deg
+            );
     }
 }
 
 
-/* =========================================
+
+/* =========================================================
    PARTÍCULAS
-========================================= */
+========================================================= */
 
 #contenedor-particulas {
     position:
@@ -1715,33 +2198,39 @@ p:not(.mini-titulo):not(.final-xv) {
     inset:
         0;
 
+
     width:
         100%;
+
 
     height:
         100%;
 
+
     pointer-events:
         none;
 
+
     z-index:
         9999;
+
 
     overflow:
         hidden;
 }
 
 
-/* =========================================
-   DESTELLOS DORADOS
-========================================= */
+
+/* DESTELLOS */
 
 .destello {
     position:
         fixed;
 
+
     color:
         #f9dc91;
+
 
     text-shadow:
 
@@ -1754,6 +2243,7 @@ p:not(.mini-titulo):not(.final-xv) {
         0 0 22px
         #c58c35;
 
+
     animation:
         particula
         1s
@@ -1765,8 +2255,10 @@ p:not(.mini-titulo):not(.final-xv) {
 @keyframes particula {
 
     from {
+
         opacity:
             1;
+
 
         transform:
             translate(
@@ -1781,9 +2273,12 @@ p:not(.mini-titulo):not(.final-xv) {
             );
     }
 
+
     to {
+
         opacity:
             0;
+
 
         transform:
             translate(
@@ -1800,28 +2295,35 @@ p:not(.mini-titulo):not(.final-xv) {
 }
 
 
-/* =========================================
+
+/* =========================================================
    TRANSICIÓN
-========================================= */
+========================================================= */
 
 #transicion {
     position:
         fixed;
 
+
     inset:
         0;
+
 
     width:
         100%;
 
+
     height:
         100%;
+
 
     z-index:
         9000;
 
+
     pointer-events:
         none;
+
 
     overflow:
         hidden;
@@ -1832,17 +2334,22 @@ p:not(.mini-titulo):not(.final-xv) {
     position:
         absolute;
 
+
     width:
         165vmax;
+
 
     height:
         165vmax;
 
+
     top:
         50%;
 
+
     left:
         50%;
+
 
     border-radius:
         43%
@@ -1850,13 +2357,15 @@ p:not(.mini-titulo):not(.final-xv) {
         58%
         42%;
 
+
     background:
         linear-gradient(
             135deg,
             #0d0b08,
             #b9893f,
-            #f0d18a
+            var(--dorado)
         );
+
 
     transform:
         translate(
@@ -1867,6 +2376,7 @@ p:not(.mini-titulo):not(.final-xv) {
             0
         );
 
+
     opacity:
         0;
 }
@@ -1874,6 +2384,7 @@ p:not(.mini-titulo):not(.final-xv) {
 
 #transicion.activo
 .onda1 {
+
     animation:
         ondaEntrada
         1s
@@ -1884,12 +2395,14 @@ p:not(.mini-titulo):not(.final-xv) {
 
 #transicion.activo
 .onda2 {
+
     animation:
         ondaEntrada
         1.08s
         0.05s
         ease-in-out
         forwards;
+
 
     opacity:
         0.55;
@@ -1898,12 +2411,14 @@ p:not(.mini-titulo):not(.final-xv) {
 
 #transicion.activo
 .onda3 {
+
     animation:
         ondaEntrada
         1.15s
         0.10s
         ease-in-out
         forwards;
+
 
     opacity:
         0.30;
@@ -1913,8 +2428,10 @@ p:not(.mini-titulo):not(.final-xv) {
 @keyframes ondaEntrada {
 
     0% {
+
         opacity:
             0;
+
 
         transform:
             translate(
@@ -1929,9 +2446,12 @@ p:not(.mini-titulo):not(.final-xv) {
             );
     }
 
+
     43% {
+
         opacity:
             1;
+
 
         transform:
             translate(
@@ -1946,9 +2466,12 @@ p:not(.mini-titulo):not(.final-xv) {
             );
     }
 
+
     65% {
+
         opacity:
             1;
+
 
         transform:
             translate(
@@ -1963,9 +2486,12 @@ p:not(.mini-titulo):not(.final-xv) {
             );
     }
 
+
     100% {
+
         opacity:
             0;
+
 
         transform:
             translate(
@@ -1982,12 +2508,14 @@ p:not(.mini-titulo):not(.final-xv) {
 }
 
 
-/* =========================================
+
+/* =========================================================
    ANIMACIÓN DE ENTRADA
-========================================= */
+========================================================= */
 
 .seccion.animar-entrada
 .contenido-seccion {
+
     animation:
         contenidoEntrada
         0.85s
@@ -2003,26 +2531,32 @@ p:not(.mini-titulo):not(.final-xv) {
 @keyframes contenidoEntrada {
 
     from {
+
         opacity:
             0;
 
+
         transform:
             translateY(
-                28px
+                22px
             )
             scale(
-                0.96
+                0.97
             );
+
 
         filter:
             blur(
-                4px
+                3px
             );
     }
 
+
     to {
+
         opacity:
             1;
+
 
         transform:
             translateY(
@@ -2032,6 +2566,7 @@ p:not(.mini-titulo):not(.final-xv) {
                 1
             );
 
+
         filter:
             blur(
                 0
@@ -2040,65 +2575,84 @@ p:not(.mini-titulo):not(.final-xv) {
 }
 
 
-/* =========================================
+
+/* =========================================================
    PANTALLA FINAL
-========================================= */
+========================================================= */
 
 .grupo-final {
     width:
         min(
-            92%,
-            520px
+            88vw,
+            500px
         );
+
 
     display:
         flex;
 
+
     flex-direction:
         column;
+
 
     align-items:
         center;
 
+
     justify-content:
         center;
 
+
     gap:
-        18px;
+        clamp(
+            12px,
+            3vw,
+            18px
+        );
+
+
+    /*
+       IMPORTANTE:
+
+       Eliminamos translateY porque era una
+       de las cosas que hacía que esta escena
+       se viera diferente según el celular.
+    */
 
     transform:
-        translateY(-22px);
+        none;
 }
 
 
-/* =========================================
-   CUADRO FINAL
-========================================= */
+
+/* CUADRO FINAL */
 
 .final-mensaje {
     width:
         100%;
 
-    padding:
 
+    padding:
         clamp(
-            22px,
-            6vw,
-            34px
+            20px,
+            5vw,
+            30px
         )
 
         clamp(
-            18px,
-            5vw,
-            28px
+            16px,
+            4vw,
+            26px
         );
 }
 
 
-/* =========================================
+
+/* =========================================================
    MENSAJE FINAL
    CORMORANT GARAMOND
-========================================= */
+========================================================= */
 
 .final-mensaje
 >
@@ -2108,27 +2662,34 @@ p:not(.final-xv) {
         "Cormorant Garamond",
         serif;
 
+
     font-style:
         italic;
+
 
     font-weight:
         500;
 
+
     font-size:
         clamp(
-            21px,
-            5.5vw,
-            27px
+            20px,
+            5vw,
+            26px
         );
 
+
     line-height:
-        1.28;
+        1.27;
+
 
     letter-spacing:
         0.15px;
 
+
     color:
-        #f5eee0;
+        var(--marfil);
+
 
     text-shadow:
         0 2px 6px
@@ -2141,10 +2702,11 @@ p:not(.final-xv) {
 }
 
 
-/* =========================================
-   MARIA ALEJANDRA FINAL
+
+/* =========================================================
+   MARIA ALEJANDRA - FINAL
    GREAT VIBES
-========================================= */
+========================================================= */
 
 .final
 .final-mensaje
@@ -2154,30 +2716,38 @@ h2 {
         "Great Vibes",
         cursive;
 
+
     font-style:
         normal;
+
 
     font-weight:
         400;
 
+
     font-size:
         clamp(
-            52px,
-            16vw,
-            78px
+            50px,
+            14vw,
+            72px
         );
 
+
     line-height:
-        1.05;
+        1.02;
+
 
     margin-top:
-        15px;
-
-    margin-bottom:
         10px;
 
+
+    margin-bottom:
+        6px;
+
+
     color:
-        #f0d18a;
+        var(--dorado);
+
 
     text-shadow:
 
@@ -2199,69 +2769,73 @@ h2 {
 }
 
 
-/* =========================================
-   MIS XV FINAL
-========================================= */
+
+/* MIS XV FINAL */
 
 .final-xv {
-
     font-family:
         Arial,
         sans-serif
         !important;
 
+
     font-style:
         normal
         !important;
 
+
     font-size:
         clamp(
-            15px,
-            5vw,
-            21px
+            14px,
+            4vw,
+            19px
         )
         !important;
+
 
     letter-spacing:
         clamp(
             2px,
-            1.5vw,
-            5px
+            1vw,
+            4px
         );
 
+
     color:
-        #d8b46a
+        var(--dorado-medio)
         !important;
 }
 
 
-/* =========================================
-   CUENTA REGRESIVA FINAL
-========================================= */
+
+/* =========================================================
+   CUADRO DEL CONTADOR FINAL
+========================================================= */
 
 .contador-final {
     width:
         100%;
 
+
     padding:
+        clamp(
+            13px,
+            3vw,
+            19px
+        )
+
+        clamp(
+            8px,
+            2vw,
+            15px
+        )
 
         clamp(
             15px,
             4vw,
             22px
-        )
-
-        clamp(
-            10px,
-            3vw,
-            18px
-        )
-
-        clamp(
-            18px,
-            5vw,
-            25px
         );
+
 
     background:
         rgba(
@@ -2270,6 +2844,7 @@ h2 {
             5,
             0.74
         );
+
 
     border:
         1px solid
@@ -2280,18 +2855,21 @@ h2 {
             0.38
         );
 
+
     border-radius:
         clamp(
             18px,
-            5vw,
-            25px
+            4vw,
+            24px
         );
+
 
     backdrop-filter:
         blur(7px);
 
     -webkit-backdrop-filter:
         blur(7px);
+
 
     box-shadow:
 
@@ -2313,41 +2891,46 @@ h2 {
 }
 
 
-/* =========================================
-   FALTA MUY POCO
-========================================= */
+
+/* FALTA MUY POCO */
 
 .titulo-contador-final {
-
     font-family:
         Georgia,
         serif
         !important;
 
+
     font-style:
         normal
         !important;
 
+
     font-size:
         clamp(
-            21px,
-            6vw,
-            29px
+            20px,
+            5vw,
+            27px
         );
+
 
     font-weight:
         normal;
 
+
     color:
-        #f0d18a;
+        var(--dorado);
+
 
     margin:
         0
         0
-        15px;
+        12px;
+
 
     text-align:
         center;
+
 
     text-shadow:
         0 2px 8px
@@ -2362,138 +2945,133 @@ h2 {
 
 .contador-final
 .contador {
+
     margin-top:
         0;
-
-    gap:
-        clamp(
-            5px,
-            2vw,
-            10px
-        );
 }
 
 
-.contador-final
-.contador div {
-    padding:
 
-        clamp(
-            10px,
-            3vw,
-            15px
-        )
-
-        2px;
-
-    background:
-        rgba(
-            15,
-            13,
-            9,
-            0.78
-        );
-
-    border:
-        1px solid
-        rgba(
-            240,
-            209,
-            138,
-            0.32
-        );
-
-    box-shadow:
-        0 5px 15px
-        rgba(
-            0,
-            0,
-            0,
-            0.35
-        );
-}
-
-
-.contador-final
-.contador span {
-
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-style:
-        normal;
-
-    font-size:
-        clamp(
-            19px,
-            5.5vw,
-            28px
-        );
-
-    color:
-        #f0d18a;
-}
-
-
-.contador-final
-.contador p {
-
-    font-family:
-        Arial,
-        sans-serif
-        !important;
-
-    font-style:
-        normal
-        !important;
-
-    font-size:
-        clamp(
-            8px,
-            2.5vw,
-            11px
-        );
-
-    color:
-        #f5eee0;
-
-    margin-top:
-        5px;
-}
-
-
-/* =========================================
-   CELULARES MUY PEQUEÑOS
-========================================= */
+/* =========================================================
+   CELULARES ESTRECHOS
+   APROX. 320 - 375 PX
+========================================================= */
 
 @media
-(max-width: 350px) {
+(max-width: 375px) {
 
-    .seccion {
-        padding-left:
-            13px;
+    :root {
 
-        padding-right:
-            13px;
+        --espacio-vertical:
+            72px;
+
+
+        --tam-muesca:
+            72px;
     }
 
 
-    .contenido-portada {
+    .contenido-portada,
+    .contenido-seccion,
+    .grupo-final {
+
         width:
-            96%;
+            91vw;
     }
 
 
     .portada h1 {
+
         font-size:
-            54px;
+            clamp(
+                54px,
+                16vw,
+                64px
+            );
     }
 
 
     .fecha-portada {
+
         font-size:
             19px;
+    }
+
+
+    .contenido-seccion
+    >
+    p:not(.mini-titulo):not(.final-xv) {
+
+        font-size:
+            19px;
+
+
+        line-height:
+            1.24;
+    }
+
+
+    .seccion h2 {
+
+        font-size:
+            clamp(
+                29px,
+                8.5vw,
+                36px
+            );
+    }
+
+
+    .foto-principal {
+
+        width:
+            clamp(
+                155px,
+                48vw,
+                180px
+            );
+    }
+
+
+    .imagen-pin {
+
+        width:
+            82px;
+    }
+
+
+    .imagen-dresscode,
+    .imagen-gift {
+
+        width:
+            110px;
+    }
+
+
+    .tarjeta-dato {
+
+        min-height:
+            112px;
+    }
+
+
+    .numero {
+
+        font-size:
+            clamp(
+                36px,
+                10vw,
+                44px
+            );
+    }
+
+
+    .tarjeta-dato
+    >
+    span:not(.numero) {
+
+        font-size:
+            16px;
     }
 
 
@@ -2504,102 +3082,10 @@ h2 {
             19px
             !important;
 
+
         padding:
-            10px
+            9px
             22px;
-    }
-
-
-    .contenido-seccion {
-
-        width:
-            96%;
-
-        padding:
-            18px
-            14px;
-    }
-
-
-    .contenido-seccion
-    >
-    p:not(.mini-titulo):not(.final-xv) {
-
-        font-size:
-            19px;
-
-        line-height:
-            1.25;
-    }
-
-
-    .foto-principal {
-        width:
-            160px;
-    }
-
-
-    .imagen-pin {
-        width:
-            90px;
-    }
-
-
-    .imagen-dresscode {
-        width:
-            115px;
-    }
-
-
-    .imagen-gift {
-        width:
-            115px;
-    }
-
-
-    .contador {
-        gap:
-            5px;
-    }
-
-
-    .contador div {
-        padding:
-            12px 1px;
-    }
-
-
-    .datos {
-        gap:
-            8px;
-    }
-
-
-    .grupo-final {
-        width:
-            96%;
-    }
-
-
-    .contador-final {
-        padding-left:
-            6px;
-
-        padding-right:
-            6px;
-    }
-
-
-    .inicio {
-
-        font-size:
-            9px;
-
-        padding:
-            21px
-            4px
-            4px
-            20px;
     }
 
 
@@ -2608,28 +3094,62 @@ h2 {
     h2 {
 
         font-size:
-            47px;
+            48px;
+    }
+
+
+    .inicio {
+
+        font-size:
+            9px;
+
+
+        padding:
+            20px
+            4px
+            4px
+            18px;
     }
 }
 
 
-/* =========================================
+
+/* =========================================================
    CELULARES BAJOS
-   IPHONE SE
-========================================= */
+   IPHONE SE Y SIMILARES
+========================================================= */
 
 @media
 (max-height: 700px)
 and
 (orientation: portrait) {
 
+    :root {
+
+        --espacio-vertical:
+            64px;
+
+
+        --tam-muesca:
+            68px;
+    }
+
+
     .contenido-seccion {
 
         padding-top:
-            17px;
+            16px;
+
 
         padding-bottom:
-            17px;
+            16px;
+    }
+
+
+    .seccion h2 {
+
+        margin-bottom:
+            10px;
     }
 
 
@@ -2640,12 +3160,13 @@ and
         font-size:
             clamp(
                 18px,
-                5vw,
-                22px
+                4.8vw,
+                21px
             );
 
+
         line-height:
-            1.22;
+            1.20;
     }
 
 
@@ -2653,13 +3174,14 @@ and
 
         width:
             clamp(
-                140px,
-                43vw,
-                190px
+                135px,
+                39vw,
+                170px
             );
 
+
         margin-bottom:
-            14px;
+            11px;
     }
 
 
@@ -2667,65 +3189,88 @@ and
 
         width:
             clamp(
-                80px,
-                25vw,
-                110px
+                70px,
+                20vw,
+                90px
             );
 
+
         margin-bottom:
-            9px;
+            7px;
     }
 
 
-    .imagen-dresscode {
-
-        width:
-            clamp(
-                105px,
-                32vw,
-                145px
-            );
-
-        margin-bottom:
-            10px;
-    }
-
-
+    .imagen-dresscode,
     .imagen-gift {
 
         width:
             clamp(
-                105px,
-                32vw,
-                145px
+                95px,
+                28vw,
+                125px
             );
 
+
         margin-bottom:
-            10px;
+            8px;
     }
 
 
-    .seccion h2 {
-        margin-bottom:
+    .datos {
+
+        margin-top:
             12px;
+    }
+
+
+    .tarjeta-dato {
+
+        min-height:
+            100px;
+
+
+        padding:
+            12px
+            4px;
+    }
+
+
+    .numero {
+
+        font-size:
+            clamp(
+                34px,
+                9vw,
+                42px
+            );
+    }
+
+
+    .tarjeta-dato
+    >
+    span:not(.numero) {
+
+        font-size:
+            clamp(
+                15px,
+                4vw,
+                18px
+            );
     }
 
 
     .grupo-final {
 
         gap:
-            11px;
-
-        transform:
-            translateY(-12px);
+            9px;
     }
 
 
     .final-mensaje {
 
         padding:
-            17px
-            14px;
+            14px
+            13px;
     }
 
 
@@ -2735,82 +3280,163 @@ and
 
         font-size:
             clamp(
-                48px,
-                14vw,
-                62px
+                44px,
+                12vw,
+                54px
             );
 
+
         margin-top:
-            8px;
+            6px;
+
 
         margin-bottom:
-            5px;
+            3px;
     }
 
 
     .contador-final {
 
         padding:
-            12px
-            8px
-            15px;
+            10px
+            7px
+            12px;
     }
 
 
     .titulo-contador-final {
 
         font-size:
-            20px;
+            19px;
+
 
         margin-bottom:
-            10px;
+            8px;
+    }
+
+
+    .contador-final
+    .contador div {
+
+        padding:
+            8px
+            1px;
     }
 }
 
 
-/* =========================================
-   CELULARES HORIZONTALES
-========================================= */
+
+/* =========================================================
+   CELULARES ALTOS
+   800PX O MÁS
+========================================================= */
+
+@media
+(min-height: 800px)
+and
+(max-width: 699px) {
+
+    :root {
+
+        --espacio-vertical:
+            clamp(
+                78px,
+                16vw,
+                94px
+            );
+    }
+
+
+    .contenido-seccion {
+
+        padding-top:
+            clamp(
+                24px,
+                6vw,
+                32px
+            );
+
+
+        padding-bottom:
+            clamp(
+                24px,
+                6vw,
+                32px
+            );
+    }
+}
+
+
+
+/* =========================================================
+   CELULARES EN HORIZONTAL
+========================================================= */
 
 @media
 (max-height: 550px)
 and
 (orientation: landscape) {
 
+    :root {
+
+        --espacio-vertical:
+            55px;
+
+
+        --tam-muesca:
+            62px;
+    }
+
+
     .portada,
     .seccion {
 
         min-height:
-            650px;
+            620px;
     }
 }
 
 
-/* =========================================
-   TABLETS Y COMPUTADOR
-========================================= */
+
+/* =========================================================
+   TABLETS Y PC
+========================================================= */
 
 @media
 (min-width: 700px) {
 
-    .contenido-portada {
+    :root {
 
-        max-width:
-            500px;
+        --espacio-vertical:
+            92px;
     }
 
 
-    .contenido-seccion {
+    .contenido-portada {
 
-        max-width:
-            600px;
+        width:
+            min(
+                90%,
+                500px
+            );
+    }
+
+
+    .contenido-seccion,
+    .grupo-final {
+
+        width:
+            min(
+                90%,
+                560px
+            );
     }
 
 
     .seccion p {
 
         max-width:
-            550px;
+            520px;
     }
 
 
@@ -2823,40 +3449,25 @@ and
     }
 
 
-    .boton,
-    .boton-principal {
-
-        font-size:
-            23px
-            !important;
-    }
-
-
     .foto-principal {
 
         max-width:
-            290px;
+            270px;
     }
 
 
     .imagen-pin {
 
         max-width:
-            135px;
+            125px;
     }
 
 
-    .imagen-dresscode {
-
-        max-width:
-            200px;
-    }
-
-
+    .imagen-dresscode,
     .imagen-gift {
 
         max-width:
-            200px;
+            185px;
     }
 
 
@@ -2870,14 +3481,24 @@ and
     .contador {
 
         max-width:
-            460px;
+            450px;
+    }
+
+
+    .boton,
+    .boton-principal {
+
+        font-size:
+            23px
+            !important;
     }
 }
 
 
-/* =========================================
+
+/* =========================================================
    PERSONAS QUE DESACTIVAN ANIMACIONES
-========================================= */
+========================================================= */
 
 @media
 (prefers-reduced-motion: reduce) {
@@ -2890,9 +3511,11 @@ and
             0.01ms
             !important;
 
+
         animation-iteration-count:
             1
             !important;
+
 
         transition-duration:
             0.01ms
