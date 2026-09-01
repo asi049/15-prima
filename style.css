@@ -3,57 +3,19 @@
 ========================================================= */
 
 :root {
+    --negro: #050505;
 
-    --negro:
-        #050505;
+    --dorado: #f0d18a;
+    --dorado-medio: #d8b46a;
+    --dorado-oscuro: #c89545;
 
-    --dorado:
-        #f0d18a;
+    --marfil: #f5eee0;
+    --texto-oscuro: #17120b;
 
-    --dorado-medio:
-        #d8b46a;
+    --ancho-cuadro: 500px;
 
-    --dorado-oscuro:
-        #c89545;
-
-    --marfil:
-        #f5eee0;
-
-    --texto-oscuro:
-        #17120b;
-
-
-    /* Ancho máximo de los cuadros */
-
-    --ancho-cuadro:
-        500px;
-
-
-    /* Tamaño de las muescas */
-
-    --tam-muesca:
-        clamp(
-            68px,
-            18vw,
-            88px
-        );
-
-
-    /*
-       Espacio equilibrado arriba y abajo.
-
-       Sirve para que el cuadro quede
-       realmente centrado visualmente.
-    */
-
-    --espacio-vertical:
-        clamp(
-            74px,
-            14vw,
-            92px
-        );
+    --tam-muesca: clamp(68px, 18vw, 88px);
 }
-
 
 
 /* =========================================================
@@ -61,89 +23,38 @@
 ========================================================= */
 
 * {
-    margin:
-        0;
-
-    padding:
-        0;
-
-    box-sizing:
-        border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 
 html {
+    width: 100%;
+    height: 100%;
 
-    width:
-        100%;
+    overflow: hidden;
 
-    height:
-        100%;
+    overscroll-behavior: none;
 
-
-    /*
-       BLOQUEAMOS EL SCROLL MANUAL
-    */
-
-    overflow:
-        hidden;
-
-
-    overscroll-behavior:
-        none;
-
-
-    scroll-behavior:
-        auto;
-
-
-    -webkit-text-size-adjust:
-        100%;
+    -webkit-text-size-adjust: 100%;
 }
 
 
 body {
+    width: 100%;
+    height: 100%;
 
-    width:
-        100%;
+    overflow: hidden;
 
-    height:
-        100%;
+    overscroll-behavior: none;
 
+    font-family: Arial, sans-serif;
 
-    /*
-       BLOQUEAMOS DESPLAZAMIENTO
-       MANUAL DE LA PÁGINA
-    */
+    color: var(--marfil);
 
-    overflow:
-        hidden;
-
-
-    overscroll-behavior:
-        none;
-
-
-    font-family:
-        Arial,
-        sans-serif;
-
-
-    color:
-        var(--marfil);
-
-
-    background:
-        var(--negro);
+    background: var(--negro);
 }
-
-
-main {
-
-    width:
-        100%;
-}
-
 
 
 /* =========================================================
@@ -151,57 +62,29 @@ main {
 ========================================================= */
 
 body::before {
+    content: "";
 
-    content:
-        "";
+    position: fixed;
+    inset: 0;
 
+    width: 100%;
 
-    position:
-        fixed;
+    height: 100vh;
+    height: 100svh;
+    height: 100dvh;
 
+    background-image: url("img/backgxv.png");
 
-    inset:
-        0;
+    background-size: cover;
 
+    background-position: center center;
 
-    width:
-        100%;
+    background-repeat: no-repeat;
 
+    z-index: -2;
 
-    height:
-        100vh;
-
-    height:
-        100svh;
-
-    height:
-        100dvh;
-
-
-    background-image:
-        url("img/backgxv.png");
-
-
-    background-size:
-        cover;
-
-
-    background-position:
-        center center;
-
-
-    background-repeat:
-        no-repeat;
-
-
-    z-index:
-        -2;
-
-
-    pointer-events:
-        none;
+    pointer-events: none;
 }
-
 
 
 /* =========================================================
@@ -209,266 +92,130 @@ body::before {
 ========================================================= */
 
 body::after {
+    content: "";
 
-    content:
-        "";
+    position: fixed;
+    inset: 0;
 
+    width: 100%;
+    height: 100%;
 
-    position:
-        fixed;
+    background: rgba(0, 0, 0, 0.08);
 
+    z-index: -1;
 
-    inset:
-        0;
-
-
-    width:
-        100%;
-
-
-    height:
-        100%;
-
-
-    background:
-        rgba(
-            0,
-            0,
-            0,
-            0.08
-        );
-
-
-    z-index:
-        -1;
-
-
-    pointer-events:
-        none;
+    pointer-events: none;
 }
-
 
 
 /* =========================================================
    PORTADA
-
-   UNA PANTALLA COMPLETA
 ========================================================= */
 
 .portada {
+    position: fixed;
 
-    position:
-        relative;
+    inset: 0;
 
+    width: 100%;
 
-    width:
-        100%;
+    height: 100vh;
+    height: 100svh;
+    height: 100dvh;
 
+    padding:
+        max(28px, env(safe-area-inset-top))
+        18px
+        max(28px, env(safe-area-inset-bottom));
 
-    height:
-        100vh;
+    display: flex;
 
-    height:
-        100svh;
+    justify-content: center;
 
-    height:
-        100dvh;
+    align-items: center;
 
+    text-align: center;
 
-    min-height:
-        100svh;
+    background: transparent;
 
+    overflow: hidden;
 
-    overflow:
-        hidden;
-
-
-    padding-top:
-        max(
-            28px,
-            env(safe-area-inset-top)
-        );
-
-
-    padding-right:
-        18px;
-
-
-    padding-bottom:
-        max(
-            28px,
-            env(safe-area-inset-bottom)
-        );
-
-
-    padding-left:
-        18px;
-
-
-    display:
-        flex;
-
-
-    justify-content:
-        center;
-
-
-    align-items:
-        center;
-
-
-    text-align:
-        center;
-
-
-    background:
-        transparent;
+    z-index: 20;
 }
 
 
+/*
+   CUANDO ABRIMOS LA INVITACIÓN
+   OCULTAMOS LA PORTADA.
+*/
+
+.portada.portada-oculta {
+    display: none;
+}
+
 
 /* =========================================================
-   CUADRO DE PORTADA
+   CUADRO PORTADA
 ========================================================= */
 
 .contenido-portada {
+    position: relative;
 
-    position:
-        relative;
+    overflow: hidden;
 
-
-    overflow:
-        hidden;
-
-
-    width:
-        min(
-            88vw,
-            430px
-        );
-
+    width: min(88vw, 430px);
 
     padding:
-        clamp(
-            28px,
-            7vw,
-            42px
-        )
+        clamp(28px, 7vw, 42px)
+        clamp(20px, 6vw, 34px);
 
-        clamp(
-            20px,
-            6vw,
-            34px
-        );
-
-
-    background:
-        rgba(
-            5,
-            5,
-            5,
-            0.76
-        );
-
+    background: rgba(5, 5, 5, 0.76);
 
     border:
         1px solid
-        rgba(
-            240,
-            209,
-            138,
-            0.50
-        );
-
+        rgba(240, 209, 138, 0.50);
 
     border-radius:
-        clamp(
-            22px,
-            5vw,
-            32px
-        );
+        clamp(22px, 5vw, 32px);
 
+    backdrop-filter: blur(8px);
 
-    backdrop-filter:
-        blur(8px);
-
-
-    -webkit-backdrop-filter:
-        blur(8px);
-
+    -webkit-backdrop-filter: blur(8px);
 
     box-shadow:
-
-        0 15px 40px
-        rgba(
-            0,
-            0,
-            0,
-            0.55
-        ),
-
-        0 0 24px
-        rgba(
-            240,
-            209,
-            138,
-            0.08
-        );
+        0 15px 40px rgba(0, 0, 0, 0.55),
+        0 0 24px rgba(240, 209, 138, 0.08);
 }
 
 
-
 /* =========================================================
-   BRILLO DEL CUADRO DE PORTADA
+   BRILLO DEL CUADRO PORTADA
 ========================================================= */
 
 .contenido-portada::before {
+    content: "";
 
-    content:
-        "";
+    position: absolute;
 
+    top: -80px;
 
-    position:
-        absolute;
+    left: 50%;
 
+    transform: translateX(-50%);
 
-    top:
-        -80px;
+    width: 260px;
 
-
-    left:
-        50%;
-
-
-    transform:
-        translateX(-50%);
-
-
-    width:
-        260px;
-
-
-    height:
-        160px;
-
+    height: 160px;
 
     background:
         radial-gradient(
             circle,
-            rgba(
-                240,
-                209,
-                138,
-                0.14
-            ),
+            rgba(240, 209, 138, 0.14),
             transparent 70%
         );
 
-
-    pointer-events:
-        none;
+    pointer-events: none;
 }
-
 
 
 /* =========================================================
@@ -476,48 +223,24 @@ body::after {
 ========================================================= */
 
 .subtitulo {
+    position: relative;
 
-    position:
-        relative;
+    z-index: 2;
 
+    font-family: Arial, sans-serif;
 
-    z-index:
-        2;
-
-
-    font-family:
-        Arial,
-        sans-serif;
-
-
-    font-style:
-        normal;
-
+    font-style: normal;
 
     font-size:
-        clamp(
-            11px,
-            3vw,
-            15px
-        );
-
+        clamp(11px, 3vw, 15px);
 
     letter-spacing:
-        clamp(
-            4px,
-            1.5vw,
-            7px
-        );
+        clamp(4px, 1.5vw, 7px);
 
+    color: var(--dorado-medio);
 
-    color:
-        var(--dorado-medio);
-
-
-    margin-bottom:
-        10px;
+    margin-bottom: 10px;
 }
-
 
 
 /* =========================================================
@@ -526,194 +249,106 @@ body::after {
 ========================================================= */
 
 .portada h1 {
+    position: relative;
 
-    position:
-        relative;
-
-
-    z-index:
-        2;
-
+    z-index: 2;
 
     font-family:
         "Great Vibes",
         cursive;
 
-
-    font-weight:
-        400;
-
+    font-weight: 400;
 
     font-size:
-        clamp(
-            58px,
-            16vw,
-            88px
-        );
+        clamp(58px, 16vw, 88px);
 
+    line-height: 1.02;
 
-    line-height:
-        1.02;
-
-
-    color:
-        var(--dorado);
-
+    color: var(--dorado);
 
     margin:
-        12px 0 16px;
+        12px
+        0
+        16px;
 
-
-    overflow-wrap:
-        anywhere;
-
+    overflow-wrap: anywhere;
 
     text-shadow:
-
-        0 3px 10px
-        rgba(
-            0,
-            0,
-            0,
-            0.80
-        ),
-
-        0 0 18px
-        rgba(
-            240,
-            209,
-            138,
-            0.18
-        );
+        0 3px 10px rgba(0, 0, 0, 0.80),
+        0 0 18px rgba(240, 209, 138, 0.18);
 }
 
 
-
 /* =========================================================
-   FECHA DE PORTADA
+   FECHA PORTADA
    CORMORANT GARAMOND
 ========================================================= */
 
 .fecha-portada {
+    position: relative;
 
-    position:
-        relative;
-
-
-    z-index:
-        2;
-
+    z-index: 2;
 
     font-family:
         "Cormorant Garamond",
         serif;
 
+    font-style: italic;
 
-    font-style:
-        italic;
-
-
-    font-weight:
-        500;
-
+    font-weight: 500;
 
     font-size:
-        clamp(
-            20px,
-            5vw,
-            27px
-        );
+        clamp(20px, 5vw, 27px);
 
+    line-height: 1.30;
 
-    line-height:
-        1.30;
+    letter-spacing: 0.2px;
 
+    color: var(--marfil);
 
-    letter-spacing:
-        0.2px;
-
-
-    color:
-        var(--marfil);
-
-
-    margin-bottom:
-        26px;
-
+    margin-bottom: 26px;
 
     text-shadow:
         0 2px 6px
-        rgba(
-            0,
-            0,
-            0,
-            0.40
-        );
+        rgba(0, 0, 0, 0.40);
 }
-
 
 
 /* =========================================================
    BOTONES PRINCIPALES
-   CORMORANT GARAMOND
 ========================================================= */
 
 button,
 a {
-
-    -webkit-tap-highlight-color:
-        transparent;
+    -webkit-tap-highlight-color: transparent;
 }
 
 
 .boton,
 .boton-principal {
+    position: relative;
 
-    position:
-        relative;
+    z-index: 2;
 
+    display: inline-flex;
 
-    z-index:
-        2;
+    justify-content: center;
 
+    align-items: center;
 
-    display:
-        inline-flex;
+    min-height: 48px;
 
-
-    justify-content:
-        center;
-
-
-    align-items:
-        center;
-
-
-    min-height:
-        48px;
-
-
-    max-width:
-        100%;
-
+    max-width: 100%;
 
     padding:
-        10px 26px;
-
+        10px
+        26px;
 
     border:
         1px solid
-        rgba(
-            255,
-            238,
-            195,
-            0.55
-        );
+        rgba(255, 238, 195, 0.55);
 
-
-    border-radius:
-        50px;
-
+    border-radius: 50px;
 
     background:
         linear-gradient(
@@ -722,65 +357,40 @@ a {
             var(--dorado-oscuro)
         );
 
-
-    color:
-        var(--texto-oscuro);
-
+    color: var(--texto-oscuro);
 
     font-family:
         "Cormorant Garamond",
         serif
         !important;
 
-
     font-style:
         italic
         !important;
-
 
     font-weight:
         600
         !important;
 
-
     font-size:
-        clamp(
-            19px,
-            4.8vw,
-            23px
-        )
+        clamp(19px, 4.8vw, 23px)
         !important;
 
+    line-height: 1.10;
 
-    line-height:
-        1.10;
+    letter-spacing: 0.15px;
 
+    text-decoration: none;
 
-    letter-spacing:
-        0.15px;
-
-
-    text-decoration:
-        none;
-
-
-    text-align:
-        center;
-
+    text-align: center;
 
     box-shadow:
         0 8px 22px
-        rgba(
-            201,
-            154,
-            72,
-            0.28
-        );
+        rgba(201, 154, 72, 0.28);
 
+    cursor: pointer;
 
-    cursor:
-        pointer;
-
+    touch-action: manipulation;
 
     transition:
         transform 0.25s ease,
@@ -791,12 +401,10 @@ a {
 
 .boton:visited,
 .boton:link {
-
     font-family:
         "Cormorant Garamond",
         serif
         !important;
-
 
     font-style:
         italic
@@ -806,9 +414,7 @@ a {
 
 .boton:active,
 .boton-principal:active {
-
-    transform:
-        scale(0.96);
+    transform: scale(0.96);
 }
 
 
@@ -816,146 +422,97 @@ a {
 
     .boton:hover,
     .boton-principal:hover {
-
         transform:
             translateY(-3px);
-
 
         filter:
             brightness(1.06);
 
-
         box-shadow:
             0 12px 28px
-            rgba(
-                201,
-                154,
-                72,
-                0.35
-            );
+            rgba(201, 154, 72, 0.35);
     }
 }
 
 
-
 /* =========================================================
-   OCULTAR INVITACIÓN
+   INVITACIÓN OCULTA
 ========================================================= */
 
 .oculto {
-
     display:
-        none;
+        none
+        !important;
 }
-
 
 
 /* =========================================================
-   TODAS LAS ESCENAS
+   CONTENEDOR DE INVITACIÓN
+========================================================= */
 
-   CADA UNA OCUPA EXACTAMENTE UNA PANTALLA
+#invitacion {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100vh;
+    height: 100svh;
+    height: 100dvh;
+
+    overflow: hidden;
+
+    z-index: 10;
+}
+
+
+/* =========================================================
+   ESCENAS
+
+   POR DEFECTO TODAS ESTÁN OCULTAS.
+
+   JAVASCRIPT SOLO ACTIVA UNA A LA VEZ.
 ========================================================= */
 
 .seccion {
+    position: fixed;
 
-    position:
-        relative;
+    inset: 0;
 
+    width: 100%;
 
-    width:
-        100%;
+    height: 100vh;
+    height: 100svh;
+    height: 100dvh;
 
+    padding:
+        max(62px, env(safe-area-inset-top))
+        clamp(14px, 4vw, 26px)
+        max(78px, env(safe-area-inset-bottom));
 
-    /*
-       vh = respaldo antiguo
-       svh = viewport seguro
-       dvh = viewport visible real
-    */
+    display: none;
 
-    height:
-        100vh;
+    justify-content: center;
 
-    height:
-        100svh;
+    align-items: center;
 
-    height:
-        100dvh;
+    text-align: center;
 
+    overflow: hidden;
 
-    min-height:
-        100svh;
-
-
-    /*
-       MUY IMPORTANTE:
-
-       No permitimos que el contenido
-       de una escena invada otra.
-    */
-
-    overflow:
-        hidden;
-
-
-    /*
-       ESPACIO SIMÉTRICO ARRIBA Y ABAJO.
-
-       Esto mantiene el cuadro centrado
-       aunque existan las muescas.
-    */
-
-    padding-top:
-        calc(
-            var(--espacio-vertical)
-            +
-            env(safe-area-inset-top)
-        );
-
-
-    padding-right:
-        clamp(
-            14px,
-            4vw,
-            26px
-        );
-
-
-    padding-bottom:
-        calc(
-            var(--espacio-vertical)
-            +
-            env(safe-area-inset-bottom)
-        );
-
-
-    padding-left:
-        clamp(
-            14px,
-            4vw,
-            26px
-        );
-
-
-    display:
-        flex;
-
-
-    justify-content:
-        center;
-
-
-    align-items:
-        center;
-
-
-    text-align:
-        center;
-
-
-    background:
-        transparent;
+    background: transparent;
 }
 
+
+/*
+   SOLO LA ESCENA ACTUAL
+   SE MUESTRA.
+*/
+
+.seccion.activa {
+    display: flex;
+}
 
 
 /* =========================================================
@@ -963,10 +520,7 @@ a {
 ========================================================= */
 
 .contenido-seccion {
-
-    position:
-        relative;
-
+    position: relative;
 
     width:
         min(
@@ -974,210 +528,110 @@ a {
             var(--ancho-cuadro)
         );
 
-
-    max-width:
-        100%;
-
-
-    max-height:
-        100%;
-
+    max-width: 100%;
 
     padding:
-        clamp(
-            22px,
-            5vw,
-            32px
-        )
+        clamp(22px, 5vw, 32px)
+        clamp(16px, 4vw, 26px);
 
-        clamp(
-            16px,
-            4vw,
-            26px
-        );
+    display: flex;
 
+    flex-direction: column;
 
-    display:
-        flex;
+    align-items: center;
 
-
-    flex-direction:
-        column;
-
-
-    align-items:
-        center;
-
-
-    justify-content:
-        center;
-
+    justify-content: center;
 
     background:
-        rgba(
-            5,
-            5,
-            5,
-            0.68
-        );
-
+        rgba(5, 5, 5, 0.68);
 
     border:
         1px solid
-        rgba(
-            240,
-            209,
-            138,
-            0.28
-        );
-
+        rgba(240, 209, 138, 0.28);
 
     border-radius:
-        clamp(
-            20px,
-            5vw,
-            28px
-        );
-
+        clamp(20px, 5vw, 28px);
 
     backdrop-filter:
         blur(7px);
 
-
     -webkit-backdrop-filter:
         blur(7px);
 
-
     box-shadow:
         0 15px 35px
-        rgba(
-            0,
-            0,
-            0,
-            0.42
-        );
+        rgba(0, 0, 0, 0.42);
 }
-
 
 
 /* =========================================================
    TÍTULOS
-   GEORGIA
 ========================================================= */
 
 .seccion h2 {
-
     font-family:
         Georgia,
         serif;
 
+    font-weight: normal;
 
-    font-weight:
-        normal;
-
-
-    font-style:
-        normal;
-
+    font-style: normal;
 
     font-size:
-        clamp(
-            30px,
-            8vw,
-            44px
-        );
+        clamp(30px, 8vw, 44px);
 
+    line-height: 1.15;
 
-    line-height:
-        1.15;
-
-
-    color:
-        var(--dorado);
-
+    color: var(--dorado);
 
     margin-bottom:
-        clamp(
-            13px,
-            3.5vw,
-            18px
-        );
+        clamp(13px, 3.5vw, 18px);
 
+    max-width: 100%;
 
-    max-width:
-        100%;
-
-
-    overflow-wrap:
-        anywhere;
-
+    overflow-wrap: anywhere;
 
     text-shadow:
         0 3px 10px
-        rgba(
-            0,
-            0,
-            0,
-            0.75
-        );
+        rgba(0, 0, 0, 0.75);
 }
 
 
 .seccion h3 {
-
     font-family:
         Arial,
         sans-serif;
 
-
-    font-style:
-        normal;
-
+    font-style: normal;
 
     font-size:
-        clamp(
-            18px,
-            4.5vw,
-            22px
-        );
+        clamp(18px, 4.5vw, 22px);
 
+    line-height: 1.35;
 
-    line-height:
-        1.35;
-
-
-    color:
-        #efd9a7;
-
+    color: #efd9a7;
 
     margin:
-        7px 0;
+        7px
+        0;
 }
-
 
 
 /* =========================================================
-   PÁRRAFOS
+   PÁRRAFOS BASE
 ========================================================= */
 
 .seccion p {
+    width: 100%;
 
-    width:
-        100%;
-
-
-    max-width:
-        460px;
-
+    max-width: 460px;
 
     margin:
-        6px 0;
+        6px
+        0;
 
-
-    color:
-        var(--marfil);
+    color: var(--marfil);
 }
-
 
 
 /* =========================================================
@@ -1188,50 +642,27 @@ a {
 .contenido-seccion
 >
 p:not(.mini-titulo):not(.final-xv) {
-
     font-family:
         "Cormorant Garamond",
         serif;
 
+    font-style: italic;
 
-    font-style:
-        italic;
-
-
-    font-weight:
-        500;
-
+    font-weight: 500;
 
     font-size:
-        clamp(
-            19px,
-            5vw,
-            26px
-        );
+        clamp(19px, 5vw, 26px);
 
+    line-height: 1.27;
 
-    line-height:
-        1.27;
+    letter-spacing: 0.15px;
 
-
-    letter-spacing:
-        0.15px;
-
-
-    color:
-        var(--marfil);
-
+    color: var(--marfil);
 
     text-shadow:
         0 2px 6px
-        rgba(
-            0,
-            0,
-            0,
-            0.40
-        );
+        rgba(0, 0, 0, 0.40);
 }
-
 
 
 /* =========================================================
@@ -1239,68 +670,30 @@ p:not(.mini-titulo):not(.final-xv) {
 ========================================================= */
 
 .foto-principal {
-
     width:
-        clamp(
-            170px,
-            52vw,
-            265px
-        );
+        clamp(170px, 52vw, 265px);
 
-
-    height:
-        auto;
-
+    height: auto;
 
     aspect-ratio:
         3 / 4;
 
-
-    object-fit:
-        cover;
-
+    object-fit: cover;
 
     border-radius:
         50% 50% 24px 24px;
 
-
     margin-bottom:
-        clamp(
-            17px,
-            4vw,
-            25px
-        );
-
+        clamp(17px, 4vw, 25px);
 
     border:
         3px solid
-        rgba(
-            240,
-            209,
-            138,
-            0.70
-        );
-
+        rgba(240, 209, 138, 0.70);
 
     box-shadow:
-
-        0 15px 35px
-        rgba(
-            0,
-            0,
-            0,
-            0.60
-        ),
-
-        0 0 20px
-        rgba(
-            240,
-            209,
-            138,
-            0.10
-        );
+        0 15px 35px rgba(0, 0, 0, 0.60),
+        0 0 20px rgba(240, 209, 138, 0.10);
 }
-
 
 
 /* =========================================================
@@ -1308,39 +701,25 @@ p:not(.mini-titulo):not(.final-xv) {
 ========================================================= */
 
 .mini-titulo {
-
     font-family:
         Arial,
         sans-serif
         !important;
 
-
     font-style:
         normal
         !important;
 
-
     font-size:
-        clamp(
-            10px,
-            2.8vw,
-            13px
-        )
+        clamp(10px, 2.8vw, 13px)
         !important;
 
-
     letter-spacing:
-        clamp(
-            2px,
-            1vw,
-            4px
-        );
-
+        clamp(2px, 1vw, 4px);
 
     color:
         var(--dorado-medio)
         !important;
-
 
     margin-bottom:
         12px
@@ -1348,284 +727,154 @@ p:not(.mini-titulo):not(.final-xv) {
 }
 
 
-
 /* =========================================================
-   SECCIÓN FECHA Y HORA
+   SECCIÓN FECHA / HORA
 ========================================================= */
 
 #seccion2
 .contenido-seccion {
-
     width:
-        min(
-            88vw,
-            500px
-        );
+        min(88vw, 500px);
 }
-
-
-
-/* =========================================================
-   CONTENEDOR DE TARJETAS
-========================================================= */
-
-.datos {
-
-    width:
-        min(
-            100%,
-            420px
-        );
-
-
-    display:
-        grid;
-
-
-    grid-template-columns:
-        repeat(
-            2,
-            minmax(
-                0,
-                1fr
-            )
-        );
-
-
-    gap:
-        clamp(
-            10px,
-            3vw,
-            18px
-        );
-
-
-    margin-top:
-        clamp(
-            16px,
-            4vw,
-            22px
-        );
-}
-
 
 
 /* =========================================================
    TARJETAS FECHA / HORA
+========================================================= */
 
+.datos {
+    width:
+        min(100%, 420px);
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap:
+        clamp(10px, 3vw, 18px);
+
+    margin-top:
+        clamp(16px, 4vw, 22px);
+}
+
+
+/* =========================================================
+   TARJETA
    CORMORANT GARAMOND
 ========================================================= */
 
 .tarjeta-dato {
+    width: 100%;
 
-    width:
-        100%;
-
-
-    min-width:
-        0;
-
+    min-width: 0;
 
     min-height:
-        clamp(
-            115px,
-            29vw,
-            150px
-        );
-
+        clamp(115px, 29vw, 150px);
 
     padding:
-        clamp(
-            15px,
-            4vw,
-            22px
-        )
-
+        clamp(15px, 4vw, 22px)
         6px;
 
+    display: flex;
 
-    display:
-        flex;
+    flex-direction: column;
 
+    justify-content: center;
 
-    flex-direction:
-        column;
+    align-items: center;
 
-
-    justify-content:
-        center;
-
-
-    align-items:
-        center;
-
-
-    gap:
-        5px;
-
+    gap: 5px;
 
     background:
-        rgba(
-            8,
-            8,
-            8,
-            0.80
-        );
-
+        rgba(8, 8, 8, 0.80);
 
     border:
         1px solid
-        rgba(
-            240,
-            209,
-            138,
-            0.38
-        );
-
+        rgba(240, 209, 138, 0.38);
 
     border-radius:
-        clamp(
-            18px,
-            5vw,
-            22px
-        );
-
+        clamp(18px, 5vw, 22px);
 
     backdrop-filter:
         blur(5px);
 
-
     -webkit-backdrop-filter:
         blur(5px);
 
-
     box-shadow:
         0 10px 25px
-        rgba(
-            0,
-            0,
-            0,
-            0.35
-        );
-
+        rgba(0, 0, 0, 0.35);
 
     font-family:
         "Cormorant Garamond",
         serif;
 
+    font-style: italic;
 
-    font-style:
-        italic;
+    font-weight: 500;
 
-
-    font-weight:
-        500;
-
-
-    color:
-        var(--marfil);
+    color: var(--marfil);
 }
-
 
 
 /* =========================================================
    26 Y 6:00
-   CORMORANT GARAMOND
 ========================================================= */
 
 .numero {
-
     font-family:
         "Cormorant Garamond",
         serif;
 
+    font-style: italic;
 
-    font-style:
-        italic;
-
-
-    font-weight:
-        600;
-
+    font-weight: 600;
 
     font-size:
-        clamp(
-            38px,
-            10.5vw,
-            54px
-        );
+        clamp(38px, 10.5vw, 54px);
 
+    line-height: 0.95;
 
-    line-height:
-        0.95;
+    color: var(--dorado);
 
+    margin-bottom: 3px;
 
-    color:
-        var(--dorado);
-
-
-    margin-bottom:
-        3px;
-
-
-    white-space:
-        nowrap;
-
+    white-space: nowrap;
 
     text-shadow:
         0 2px 7px
-        rgba(
-            0,
-            0,
-            0,
-            0.55
-        );
+        rgba(0, 0, 0, 0.55);
 }
-
 
 
 /* =========================================================
    SEPTIEMBRE Y PM
-   CORMORANT GARAMOND
 ========================================================= */
 
 .tarjeta-dato
 >
 span:not(.numero) {
-
     font-family:
         "Cormorant Garamond",
         serif;
 
+    font-style: italic;
 
-    font-style:
-        italic;
-
-
-    font-weight:
-        500;
-
+    font-weight: 500;
 
     font-size:
-        clamp(
-            17px,
-            4.5vw,
-            22px
-        );
+        clamp(17px, 4.5vw, 22px);
 
+    line-height: 1.05;
 
-    line-height:
-        1.05;
+    color: var(--marfil);
 
-
-    color:
-        var(--marfil);
-
-
-    white-space:
-        nowrap;
+    white-space: nowrap;
 }
-
 
 
 /* =========================================================
@@ -1633,168 +882,91 @@ span:not(.numero) {
 ========================================================= */
 
 .contador {
+    width: 100%;
 
-    width:
-        100%;
-
-
-    display:
-        grid;
-
+    display: grid;
 
     grid-template-columns:
         repeat(
             4,
-            minmax(
-                0,
-                1fr
-            )
+            minmax(0, 1fr)
         );
-
 
     gap:
-        clamp(
-            5px,
-            2vw,
-            10px
-        );
+        clamp(5px, 2vw, 10px);
 
-
-    margin-top:
-        18px;
+    margin-top: 18px;
 }
 
 
 .contador div {
-
-    min-width:
-        0;
-
+    min-width: 0;
 
     padding:
-        clamp(
-            10px,
-            3vw,
-            16px
-        )
+        clamp(10px, 3vw, 16px)
         2px;
 
-
     background:
-        rgba(
-            8,
-            8,
-            8,
-            0.82
-        );
-
+        rgba(8, 8, 8, 0.82);
 
     border:
         1px solid
-        rgba(
-            240,
-            209,
-            138,
-            0.34
-        );
-
+        rgba(240, 209, 138, 0.34);
 
     border-radius:
-        clamp(
-            12px,
-            3.5vw,
-            18px
-        );
-
+        clamp(12px, 3.5vw, 18px);
 
     backdrop-filter:
         blur(5px);
 
-
     -webkit-backdrop-filter:
         blur(5px);
 
-
     box-shadow:
         0 8px 20px
-        rgba(
-            0,
-            0,
-            0,
-            0.35
-        );
+        rgba(0, 0, 0, 0.35);
 }
 
 
 .contador span {
-
-    display:
-        block;
-
+    display: block;
 
     font-family:
         Arial,
         sans-serif;
 
-
-    font-style:
-        normal;
-
+    font-style: normal;
 
     font-size:
-        clamp(
-            19px,
-            5.5vw,
-            29px
-        );
+        clamp(19px, 5.5vw, 29px);
 
+    line-height: 1;
 
-    line-height:
-        1;
+    font-weight: bold;
 
-
-    font-weight:
-        bold;
-
-
-    color:
-        var(--dorado);
+    color: var(--dorado);
 }
 
 
 .contador p {
-
     font-family:
         Arial,
         sans-serif
         !important;
 
-
     font-style:
         normal
         !important;
 
-
     font-size:
-        clamp(
-            8px,
-            2.5vw,
-            12px
-        );
+        clamp(8px, 2.5vw, 12px);
 
+    line-height: 1.15;
 
-    line-height:
-        1.15;
+    margin-top: 5px;
 
-
-    margin-top:
-        5px;
-
-
-    color:
-        var(--marfil);
+    color: var(--marfil);
 }
-
 
 
 /* =========================================================
@@ -1802,52 +974,29 @@ span:not(.numero) {
 ========================================================= */
 
 .imagen-pin {
-
-    display:
-        block;
-
+    display: block;
 
     width:
-        clamp(
-            82px,
-            24vw,
-            125px
-        );
+        clamp(82px, 24vw, 125px);
 
+    max-width: 100%;
 
-    max-width:
-        100%;
+    max-height: 160px;
 
+    height: auto;
 
-    max-height:
-        160px;
-
-
-    height:
-        auto;
-
-
-    object-fit:
-        contain;
-
+    object-fit: contain;
 
     margin:
         3px
         auto
         12px;
 
-
     filter:
         drop-shadow(
             0 10px 16px
-            rgba(
-                0,
-                0,
-                0,
-                0.55
-            )
+            rgba(0, 0, 0, 0.55)
         );
-
 
     animation:
         flotarPin
@@ -1861,19 +1010,15 @@ span:not(.numero) {
 
     0%,
     100% {
-
         transform:
             translateY(0);
     }
 
-
     50% {
-
         transform:
             translateY(-6px);
     }
 }
-
 
 
 /* =========================================================
@@ -1881,52 +1026,29 @@ span:not(.numero) {
 ========================================================= */
 
 .imagen-dresscode {
-
-    display:
-        block;
-
+    display: block;
 
     width:
-        clamp(
-            115px,
-            34vw,
-            180px
-        );
+        clamp(115px, 34vw, 180px);
 
+    max-width: 100%;
 
-    max-width:
-        100%;
+    max-height: 220px;
 
+    height: auto;
 
-    max-height:
-        220px;
-
-
-    height:
-        auto;
-
-
-    object-fit:
-        contain;
-
+    object-fit: contain;
 
     margin:
         5px
         auto
         14px;
 
-
     filter:
         drop-shadow(
             0 10px 16px
-            rgba(
-                0,
-                0,
-                0,
-                0.55
-            )
+            rgba(0, 0, 0, 0.55)
         );
-
 
     animation:
         flotarDressCode
@@ -1940,19 +1062,15 @@ span:not(.numero) {
 
     0%,
     100% {
-
         transform:
             translateY(0);
     }
 
-
     50% {
-
         transform:
             translateY(-6px);
     }
 }
-
 
 
 /* =========================================================
@@ -1960,52 +1078,29 @@ span:not(.numero) {
 ========================================================= */
 
 .imagen-gift {
-
-    display:
-        block;
-
+    display: block;
 
     width:
-        clamp(
-            115px,
-            34vw,
-            180px
-        );
+        clamp(115px, 34vw, 180px);
 
+    max-width: 100%;
 
-    max-width:
-        100%;
+    max-height: 220px;
 
+    height: auto;
 
-    max-height:
-        220px;
-
-
-    height:
-        auto;
-
-
-    object-fit:
-        contain;
-
+    object-fit: contain;
 
     margin:
         5px
         auto
         15px;
 
-
     filter:
         drop-shadow(
             0 10px 16px
-            rgba(
-                0,
-                0,
-                0,
-                0.55
-            )
+            rgba(0, 0, 0, 0.55)
         );
-
 
     animation:
         flotarGift
@@ -2019,19 +1114,15 @@ span:not(.numero) {
 
     0%,
     100% {
-
         transform:
             translateY(0);
     }
 
-
     50% {
-
         transform:
             translateY(-6px);
     }
 }
-
 
 
 /* =========================================================
@@ -2039,64 +1130,37 @@ span:not(.numero) {
 ========================================================= */
 
 .muesca {
+    position: absolute;
 
-    position:
-        absolute;
-
-
-    bottom:
-        0;
-
+    bottom: 0;
 
     width:
         var(--tam-muesca);
 
-
     height:
         var(--tam-muesca);
 
+    padding: 0;
 
-    padding:
-        0;
+    border: none;
 
+    z-index: 100;
 
-    border:
-        none;
+    display: flex;
 
+    justify-content: center;
 
-    z-index:
-        100;
+    align-items: center;
 
+    cursor: pointer;
 
-    display:
-        flex;
+    overflow: hidden;
 
-
-    justify-content:
-        center;
-
-
-    align-items:
-        center;
-
-
-    cursor:
-        pointer;
-
-
-    overflow:
-        hidden;
-
+    touch-action: manipulation;
 
     box-shadow:
         0 0 24px
-        rgba(
-            0,
-            0,
-            0,
-            0.35
-        );
-
+        rgba(0, 0, 0, 0.35);
 
     transition:
         transform
@@ -2105,18 +1169,13 @@ span:not(.numero) {
 }
 
 
-
 /* AVANZAR */
 
 .avanzar {
-
-    right:
-        0;
-
+    right: 0;
 
     border-radius:
         100% 0 0 0;
-
 
     background:
         linear-gradient(
@@ -2127,18 +1186,13 @@ span:not(.numero) {
 }
 
 
-
 /* VOLVER */
 
 .volver {
-
-    left:
-        0;
-
+    left: 0;
 
     border-radius:
         0 100% 0 0;
-
 
     background:
         linear-gradient(
@@ -2149,20 +1203,15 @@ span:not(.numero) {
 }
 
 
-
 /* =========================================================
    BOTÓN INICIO
 ========================================================= */
 
 .inicio {
-
-    right:
-        0;
-
+    right: 0;
 
     border-radius:
         100% 0 0 0;
-
 
     background:
         linear-gradient(
@@ -2171,35 +1220,21 @@ span:not(.numero) {
             #b77d2f
         );
 
-
     color:
         var(--texto-oscuro);
-
 
     font-family:
         Arial,
         sans-serif;
 
-
-    font-style:
-        normal;
-
+    font-style: normal;
 
     font-size:
-        clamp(
-            9px,
-            2.6vw,
-            12px
-        );
+        clamp(9px, 2.6vw, 12px);
 
+    font-weight: 700;
 
-    font-weight:
-        700;
-
-
-    letter-spacing:
-        0.4px;
-
+    letter-spacing: 0.4px;
 
     padding:
         23px
@@ -2210,11 +1245,9 @@ span:not(.numero) {
 
 
 .muesca:active {
-
     transform:
         scale(0.92);
 }
-
 
 
 /* =========================================================
@@ -2222,43 +1255,28 @@ span:not(.numero) {
 ========================================================= */
 
 .muesca span {
+    font-size: 0;
 
-    font-size:
-        0;
+    width: 17px;
 
-
-    width:
-        17px;
-
-
-    height:
-        17px;
-
+    height: 17px;
 
     border-right:
         3px solid
         var(--texto-oscuro);
 
-
     border-bottom:
         3px solid
         var(--texto-oscuro);
 
-
-    position:
-        absolute;
+    position: absolute;
 }
 
 
 .avanzar span {
+    left: 50%;
 
-    left:
-        50%;
-
-
-    top:
-        50%;
-
+    top: 50%;
 
     animation:
         flechaAbajo
@@ -2269,14 +1287,9 @@ span:not(.numero) {
 
 
 .volver span {
+    left: 50%;
 
-    left:
-        50%;
-
-
-    top:
-        50%;
-
+    top: 50%;
 
     animation:
         flechaArriba
@@ -2290,28 +1303,15 @@ span:not(.numero) {
 
     0%,
     100% {
-
         transform:
-            translate(
-                -15%,
-                -35%
-            )
-            rotate(
-                45deg
-            );
+            translate(-15%, -35%)
+            rotate(45deg);
     }
 
-
     50% {
-
         transform:
-            translate(
-                -15%,
-                -5%
-            )
-            rotate(
-                45deg
-            );
+            translate(-15%, -5%)
+            rotate(45deg);
     }
 }
 
@@ -2320,31 +1320,17 @@ span:not(.numero) {
 
     0%,
     100% {
-
         transform:
-            translate(
-                -80%,
-                -10%
-            )
-            rotate(
-                225deg
-            );
+            translate(-80%, -10%)
+            rotate(225deg);
     }
-
 
     50% {
-
         transform:
-            translate(
-                -80%,
-                -40%
-            )
-            rotate(
-                225deg
-            );
+            translate(-80%, -40%)
+            rotate(225deg);
     }
 }
-
 
 
 /* =========================================================
@@ -2352,35 +1338,20 @@ span:not(.numero) {
 ========================================================= */
 
 #contenedor-particulas {
+    position: fixed;
 
-    position:
-        fixed;
+    inset: 0;
 
+    width: 100%;
 
-    inset:
-        0;
+    height: 100%;
 
+    pointer-events: none;
 
-    width:
-        100%;
+    z-index: 9999;
 
-
-    height:
-        100%;
-
-
-    pointer-events:
-        none;
-
-
-    z-index:
-        9999;
-
-
-    overflow:
-        hidden;
+    overflow: hidden;
 }
-
 
 
 /* =========================================================
@@ -2388,26 +1359,14 @@ span:not(.numero) {
 ========================================================= */
 
 .destello {
+    position: fixed;
 
-    position:
-        fixed;
-
-
-    color:
-        #f9dc91;
-
+    color: #f9dc91;
 
     text-shadow:
-
-        0 0 6px
-        #fff1bd,
-
-        0 0 14px
-        #dba94f,
-
-        0 0 22px
-        #c58c35;
-
+        0 0 6px #fff1bd,
+        0 0 14px #dba94f,
+        0 0 22px #c58c35;
 
     animation:
         particula
@@ -2420,45 +1379,26 @@ span:not(.numero) {
 @keyframes particula {
 
     from {
-
-        opacity:
-            1;
-
+        opacity: 1;
 
         transform:
-            translate(
-                0,
-                0
-            )
-            scale(
-                0.4
-            )
-            rotate(
-                0deg
-            );
+            translate(0, 0)
+            scale(0.4)
+            rotate(0deg);
     }
 
-
     to {
-
-        opacity:
-            0;
-
+        opacity: 0;
 
         transform:
             translate(
                 var(--x),
                 var(--y)
             )
-            scale(
-                1.4
-            )
-            rotate(
-                180deg
-            );
+            scale(1.4)
+            rotate(180deg);
     }
 }
-
 
 
 /* =========================================================
@@ -2466,64 +1406,38 @@ span:not(.numero) {
 ========================================================= */
 
 #transicion {
+    position: fixed;
 
-    position:
-        fixed;
+    inset: 0;
 
+    width: 100%;
 
-    inset:
-        0;
+    height: 100%;
 
+    z-index: 9000;
 
-    width:
-        100%;
+    pointer-events: none;
 
-
-    height:
-        100%;
-
-
-    z-index:
-        9000;
-
-
-    pointer-events:
-        none;
-
-
-    overflow:
-        hidden;
+    overflow: hidden;
 }
 
 
 .onda {
+    position: absolute;
 
-    position:
-        absolute;
+    width: 165vmax;
 
+    height: 165vmax;
 
-    width:
-        165vmax;
+    top: 50%;
 
-
-    height:
-        165vmax;
-
-
-    top:
-        50%;
-
-
-    left:
-        50%;
-
+    left: 50%;
 
     border-radius:
         43%
         57%
         58%
         42%;
-
 
     background:
         linear-gradient(
@@ -2533,25 +1447,16 @@ span:not(.numero) {
             var(--dorado)
         );
 
-
     transform:
-        translate(
-            -50%,
-            -50%
-        )
-        scale(
-            0
-        );
+        translate(-50%, -50%)
+        scale(0);
 
-
-    opacity:
-        0;
+    opacity: 0;
 }
 
 
 #transicion.activo
 .onda1 {
-
     animation:
         ondaEntrada
         1s
@@ -2562,7 +1467,6 @@ span:not(.numero) {
 
 #transicion.activo
 .onda2 {
-
     animation:
         ondaEntrada
         1.08s
@@ -2570,15 +1474,12 @@ span:not(.numero) {
         ease-in-out
         forwards;
 
-
-    opacity:
-        0.55;
+    opacity: 0.55;
 }
 
 
 #transicion.activo
 .onda3 {
-
     animation:
         ondaEntrada
         1.15s
@@ -2586,94 +1487,48 @@ span:not(.numero) {
         ease-in-out
         forwards;
 
-
-    opacity:
-        0.30;
+    opacity: 0.30;
 }
 
 
 @keyframes ondaEntrada {
 
     0% {
-
-        opacity:
-            0;
-
+        opacity: 0;
 
         transform:
-            translate(
-                -50%,
-                -50%
-            )
-            scale(
-                0.03
-            )
-            rotate(
-                0deg
-            );
+            translate(-50%, -50%)
+            scale(0.03)
+            rotate(0deg);
     }
-
 
     43% {
-
-        opacity:
-            1;
-
+        opacity: 1;
 
         transform:
-            translate(
-                -50%,
-                -50%
-            )
-            scale(
-                1.15
-            )
-            rotate(
-                35deg
-            );
+            translate(-50%, -50%)
+            scale(1.15)
+            rotate(35deg);
     }
-
 
     65% {
-
-        opacity:
-            1;
-
+        opacity: 1;
 
         transform:
-            translate(
-                -50%,
-                -50%
-            )
-            scale(
-                1.3
-            )
-            rotate(
-                65deg
-            );
+            translate(-50%, -50%)
+            scale(1.3)
+            rotate(65deg);
     }
-
 
     100% {
-
-        opacity:
-            0;
-
+        opacity: 0;
 
         transform:
-            translate(
-                -50%,
-                -50%
-            )
-            scale(
-                1.7
-            )
-            rotate(
-                110deg
-            );
+            translate(-50%, -50%)
+            scale(1.7)
+            rotate(110deg);
     }
 }
-
 
 
 /* =========================================================
@@ -2681,8 +1536,9 @@ span:not(.numero) {
 ========================================================= */
 
 .seccion.animar-entrada
-.contenido-seccion {
-
+.contenido-seccion,
+.seccion.animar-entrada
+.grupo-final {
     animation:
         contenidoEntrada
         0.85s
@@ -2698,49 +1554,27 @@ span:not(.numero) {
 @keyframes contenidoEntrada {
 
     from {
-
-        opacity:
-            0;
-
+        opacity: 0;
 
         transform:
-            translateY(
-                22px
-            )
-            scale(
-                0.97
-            );
-
+            translateY(22px)
+            scale(0.97);
 
         filter:
-            blur(
-                3px
-            );
+            blur(3px);
     }
-
 
     to {
-
-        opacity:
-            1;
-
+        opacity: 1;
 
         transform:
-            translateY(
-                0
-            )
-            scale(
-                1
-            );
-
+            translateY(0)
+            scale(1);
 
         filter:
-            blur(
-                0
-            );
+            blur(0);
     }
 }
-
 
 
 /* =========================================================
@@ -2748,200 +1582,99 @@ span:not(.numero) {
 ========================================================= */
 
 .grupo-final {
-
     width:
-        min(
-            88vw,
-            500px
-        );
+        min(88vw, 500px);
 
+    display: flex;
 
-    max-height:
-        100%;
+    flex-direction: column;
 
+    align-items: center;
 
-    display:
-        flex;
-
-
-    flex-direction:
-        column;
-
-
-    align-items:
-        center;
-
-
-    justify-content:
-        center;
-
+    justify-content: center;
 
     gap:
-        clamp(
-            12px,
-            3vw,
-            18px
-        );
+        clamp(12px, 3vw, 18px);
 
-
-    /*
-       SIN translateY.
-
-       Así no se desplaza diferente
-       según el tamaño del celular.
-    */
-
-    transform:
-        none;
+    transform: none;
 }
-
 
 
 /* =========================================================
-   CUADRO DEL MENSAJE FINAL
+   CUADRO MENSAJE FINAL
 ========================================================= */
 
 .final-mensaje {
-
-    width:
-        100%;
-
+    width: 100%;
 
     padding:
-        clamp(
-            20px,
-            5vw,
-            30px
-        )
-
-        clamp(
-            16px,
-            4vw,
-            26px
-        );
+        clamp(20px, 5vw, 30px)
+        clamp(16px, 4vw, 26px);
 }
-
 
 
 /* =========================================================
    MENSAJE FINAL
-   CORMORANT GARAMOND
 ========================================================= */
 
 .final-mensaje
 >
 p:not(.final-xv) {
-
     font-family:
         "Cormorant Garamond",
         serif;
 
+    font-style: italic;
 
-    font-style:
-        italic;
-
-
-    font-weight:
-        500;
-
+    font-weight: 500;
 
     font-size:
-        clamp(
-            20px,
-            5vw,
-            26px
-        );
+        clamp(20px, 5vw, 26px);
 
+    line-height: 1.27;
 
-    line-height:
-        1.27;
-
-
-    letter-spacing:
-        0.15px;
-
+    letter-spacing: 0.15px;
 
     color:
         var(--marfil);
 
-
     text-shadow:
         0 2px 6px
-        rgba(
-            0,
-            0,
-            0,
-            0.40
-        );
+        rgba(0, 0, 0, 0.40);
 }
-
 
 
 /* =========================================================
    MARIA ALEJANDRA - FINAL
-   GREAT VIBES
 ========================================================= */
 
 .final
 .final-mensaje
 h2 {
-
     font-family:
         "Great Vibes",
         cursive;
 
+    font-style: normal;
 
-    font-style:
-        normal;
-
-
-    font-weight:
-        400;
-
+    font-weight: 400;
 
     font-size:
-        clamp(
-            50px,
-            14vw,
-            72px
-        );
+        clamp(50px, 14vw, 72px);
 
+    line-height: 1.02;
 
-    line-height:
-        1.02;
+    margin-top: 10px;
 
-
-    margin-top:
-        10px;
-
-
-    margin-bottom:
-        6px;
-
+    margin-bottom: 6px;
 
     color:
         var(--dorado);
 
-
     text-shadow:
-
-        0 3px 10px
-        rgba(
-            0,
-            0,
-            0,
-            0.80
-        ),
-
-        0 0 18px
-        rgba(
-            240,
-            209,
-            138,
-            0.18
-        );
+        0 3px 10px rgba(0, 0, 0, 0.80),
+        0 0 18px rgba(240, 209, 138, 0.18);
 }
-
 
 
 /* =========================================================
@@ -2949,34 +1682,21 @@ h2 {
 ========================================================= */
 
 .final-xv {
-
     font-family:
         Arial,
         sans-serif
         !important;
 
-
     font-style:
         normal
         !important;
 
-
     font-size:
-        clamp(
-            14px,
-            4vw,
-            19px
-        )
+        clamp(14px, 4vw, 19px)
         !important;
 
-
     letter-spacing:
-        clamp(
-            2px,
-            1vw,
-            4px
-        );
-
+        clamp(2px, 1vw, 4px);
 
     color:
         var(--dorado-medio)
@@ -2984,91 +1704,38 @@ h2 {
 }
 
 
-
 /* =========================================================
-   CUADRO DEL CONTADOR FINAL
+   CONTADOR FINAL
 ========================================================= */
 
 .contador-final {
-
-    width:
-        100%;
-
+    width: 100%;
 
     padding:
-        clamp(
-            13px,
-            3vw,
-            19px
-        )
-
-        clamp(
-            8px,
-            2vw,
-            15px
-        )
-
-        clamp(
-            15px,
-            4vw,
-            22px
-        );
-
+        clamp(13px, 3vw, 19px)
+        clamp(8px, 2vw, 15px)
+        clamp(15px, 4vw, 22px);
 
     background:
-        rgba(
-            5,
-            5,
-            5,
-            0.74
-        );
-
+        rgba(5, 5, 5, 0.74);
 
     border:
         1px solid
-        rgba(
-            240,
-            209,
-            138,
-            0.38
-        );
-
+        rgba(240, 209, 138, 0.38);
 
     border-radius:
-        clamp(
-            18px,
-            4vw,
-            24px
-        );
-
+        clamp(18px, 4vw, 24px);
 
     backdrop-filter:
         blur(7px);
 
-
     -webkit-backdrop-filter:
         blur(7px);
 
-
     box-shadow:
-
-        0 12px 30px
-        rgba(
-            0,
-            0,
-            0,
-            0.45
-        ),
-
-        0 0 18px
-        rgba(
-            240,
-            209,
-            138,
-            0.06
-        );
+        0 12px 30px rgba(0, 0, 0, 0.45),
+        0 0 18px rgba(240, 209, 138, 0.06);
 }
-
 
 
 /* =========================================================
@@ -3076,62 +1743,40 @@ h2 {
 ========================================================= */
 
 .titulo-contador-final {
-
     font-family:
         Georgia,
         serif
         !important;
 
-
     font-style:
         normal
         !important;
 
-
     font-size:
-        clamp(
-            20px,
-            5vw,
-            27px
-        );
+        clamp(20px, 5vw, 27px);
 
-
-    font-weight:
-        normal;
-
+    font-weight: normal;
 
     color:
         var(--dorado);
-
 
     margin:
         0
         0
         12px;
 
-
-    text-align:
-        center;
-
+    text-align: center;
 
     text-shadow:
         0 2px 8px
-        rgba(
-            0,
-            0,
-            0,
-            0.75
-        );
+        rgba(0, 0, 0, 0.75);
 }
 
 
 .contador-final
 .contador {
-
-    margin-top:
-        0;
+    margin-top: 0;
 }
-
 
 
 /* =========================================================
@@ -3139,31 +1784,35 @@ h2 {
    320px - 375px
 ========================================================= */
 
-@media
-(max-width: 375px) {
+@media (max-width: 375px) {
 
     :root {
-
-        --espacio-vertical:
-            72px;
-
-
-        --tam-muesca:
-            72px;
+        --tam-muesca: 72px;
     }
 
 
     .contenido-portada,
     .contenido-seccion,
     .grupo-final {
+        width: 91vw;
+    }
 
-        width:
-            91vw;
+
+    .seccion {
+        padding:
+            max(
+                52px,
+                env(safe-area-inset-top)
+            )
+            12px
+            max(
+                72px,
+                env(safe-area-inset-bottom)
+            );
     }
 
 
     .portada h1 {
-
         font-size:
             clamp(
                 54px,
@@ -3174,27 +1823,20 @@ h2 {
 
 
     .fecha-portada {
-
-        font-size:
-            19px;
+        font-size: 19px;
     }
 
 
     .contenido-seccion
     >
     p:not(.mini-titulo):not(.final-xv) {
+        font-size: 19px;
 
-        font-size:
-            19px;
-
-
-        line-height:
-            1.24;
+        line-height: 1.24;
     }
 
 
     .seccion h2 {
-
         font-size:
             clamp(
                 29px,
@@ -3205,7 +1847,6 @@ h2 {
 
 
     .foto-principal {
-
         width:
             clamp(
                 155px,
@@ -3216,29 +1857,22 @@ h2 {
 
 
     .imagen-pin {
-
-        width:
-            82px;
+        width: 82px;
     }
 
 
     .imagen-dresscode,
     .imagen-gift {
-
-        width:
-            110px;
+        width: 110px;
     }
 
 
     .tarjeta-dato {
-
-        min-height:
-            112px;
+        min-height: 112px;
     }
 
 
     .numero {
-
         font-size:
             clamp(
                 36px,
@@ -3251,19 +1885,15 @@ h2 {
     .tarjeta-dato
     >
     span:not(.numero) {
-
-        font-size:
-            16px;
+        font-size: 16px;
     }
 
 
     .boton,
     .boton-principal {
-
         font-size:
             19px
             !important;
-
 
         padding:
             9px
@@ -3274,17 +1904,12 @@ h2 {
     .final
     .final-mensaje
     h2 {
-
-        font-size:
-            48px;
+        font-size: 48px;
     }
 
 
     .inicio {
-
-        font-size:
-            9px;
-
+        font-size: 9px;
 
         padding:
             20px
@@ -3293,7 +1918,6 @@ h2 {
             18px;
     }
 }
-
 
 
 /* =========================================================
@@ -3307,49 +1931,46 @@ and
 (orientation: portrait) {
 
     :root {
+        --tam-muesca: 68px;
+    }
 
-        --espacio-vertical:
-            62px;
 
-
-        --tam-muesca:
-            68px;
+    .seccion {
+        padding:
+            max(
+                44px,
+                env(safe-area-inset-top)
+            )
+            12px
+            max(
+                64px,
+                env(safe-area-inset-bottom)
+            );
     }
 
 
     .contenido-portada {
+        padding-top: 22px;
 
-        padding-top:
-            22px;
-
-
-        padding-bottom:
-            22px;
+        padding-bottom: 22px;
     }
 
 
     .contenido-seccion {
+        padding-top: 15px;
 
-        padding-top:
-            15px;
-
-
-        padding-bottom:
-            15px;
+        padding-bottom: 15px;
     }
 
 
     .seccion h2 {
-
-        margin-bottom:
-            10px;
+        margin-bottom: 10px;
     }
 
 
     .contenido-seccion
     >
     p:not(.mini-titulo):not(.final-xv) {
-
         font-size:
             clamp(
                 18px,
@@ -3357,14 +1978,11 @@ and
                 21px
             );
 
-
-        line-height:
-            1.20;
+        line-height: 1.20;
     }
 
 
     .foto-principal {
-
         width:
             clamp(
                 135px,
@@ -3372,14 +1990,11 @@ and
                 170px
             );
 
-
-        margin-bottom:
-            11px;
+        margin-bottom: 11px;
     }
 
 
     .imagen-pin {
-
         width:
             clamp(
                 70px,
@@ -3387,15 +2002,12 @@ and
                 90px
             );
 
-
-        margin-bottom:
-            7px;
+        margin-bottom: 7px;
     }
 
 
     .imagen-dresscode,
     .imagen-gift {
-
         width:
             clamp(
                 95px,
@@ -3403,24 +2015,17 @@ and
                 125px
             );
 
-
-        margin-bottom:
-            8px;
+        margin-bottom: 8px;
     }
 
 
     .datos {
-
-        margin-top:
-            12px;
+        margin-top: 12px;
     }
 
 
     .tarjeta-dato {
-
-        min-height:
-            100px;
-
+        min-height: 100px;
 
         padding:
             12px
@@ -3429,7 +2034,6 @@ and
 
 
     .numero {
-
         font-size:
             clamp(
                 34px,
@@ -3442,7 +2046,6 @@ and
     .tarjeta-dato
     >
     span:not(.numero) {
-
         font-size:
             clamp(
                 15px,
@@ -3453,14 +2056,11 @@ and
 
 
     .grupo-final {
-
-        gap:
-            9px;
+        gap: 9px;
     }
 
 
     .final-mensaje {
-
         padding:
             14px
             13px;
@@ -3470,7 +2070,6 @@ and
     .final
     .final-mensaje
     h2 {
-
         font-size:
             clamp(
                 44px,
@@ -3478,18 +2077,13 @@ and
                 54px
             );
 
+        margin-top: 6px;
 
-        margin-top:
-            6px;
-
-
-        margin-bottom:
-            3px;
+        margin-bottom: 3px;
     }
 
 
     .contador-final {
-
         padding:
             10px
             7px
@@ -3498,25 +2092,19 @@ and
 
 
     .titulo-contador-final {
+        font-size: 19px;
 
-        font-size:
-            19px;
-
-
-        margin-bottom:
-            8px;
+        margin-bottom: 8px;
     }
 
 
     .contador-final
     .contador div {
-
         padding:
             8px
             1px;
     }
 }
-
 
 
 /* =========================================================
@@ -3528,104 +2116,46 @@ and
 and
 (max-width: 699px) {
 
-    :root {
-
-        --espacio-vertical:
-            clamp(
-                78px,
-                16vw,
-                94px
-            );
-    }
-
-
-    .contenido-seccion {
-
-        padding-top:
-            clamp(
-                24px,
-                6vw,
-                32px
-            );
-
-
-        padding-bottom:
-            clamp(
-                24px,
-                6vw,
-                32px
-            );
-    }
-}
-
-
-
-/* =========================================================
-   CELULARES EN HORIZONTAL
-========================================================= */
-
-@media
-(max-height: 550px)
-and
-(orientation: landscape) {
-
-    :root {
-
-        --espacio-vertical:
-            52px;
-
-
-        --tam-muesca:
-            62px;
-    }
-
-
-    /*
-       En horizontal dejamos una altura mínima
-       mayor para evitar que el contenido se corte.
-    */
-
-    .portada,
     .seccion {
+        padding-top:
+            max(
+                70px,
+                env(safe-area-inset-top)
+            );
 
-        height:
-            100dvh;
-
-
-        min-height:
-            100dvh;
+        padding-bottom:
+            max(
+                86px,
+                env(safe-area-inset-bottom)
+            );
     }
 
 
     .contenido-seccion {
-
         padding-top:
-            12px;
-
+            clamp(
+                24px,
+                6vw,
+                32px
+            );
 
         padding-bottom:
-            12px;
+            clamp(
+                24px,
+                6vw,
+                32px
+            );
     }
 }
-
 
 
 /* =========================================================
    TABLETS Y PC
 ========================================================= */
 
-@media
-(min-width: 700px) {
-
-    :root {
-
-        --espacio-vertical:
-            92px;
-    }
-
+@media (min-width: 700px) {
 
     .contenido-portada {
-
         width:
             min(
                 90%,
@@ -3636,7 +2166,6 @@ and
 
     .contenido-seccion,
     .grupo-final {
-
         width:
             min(
                 90%,
@@ -3646,66 +2175,50 @@ and
 
 
     .seccion p {
-
-        max-width:
-            520px;
+        max-width: 520px;
     }
 
 
     .contenido-seccion
     >
     p:not(.mini-titulo):not(.final-xv) {
-
-        font-size:
-            25px;
+        font-size: 25px;
     }
 
 
     .foto-principal {
-
-        max-width:
-            270px;
+        max-width: 270px;
     }
 
 
     .imagen-pin {
-
-        max-width:
-            125px;
+        max-width: 125px;
     }
 
 
     .imagen-dresscode,
     .imagen-gift {
-
-        max-width:
-            185px;
+        max-width: 185px;
     }
 
 
     .datos {
-
-        max-width:
-            420px;
+        max-width: 420px;
     }
 
 
     .contador {
-
-        max-width:
-            450px;
+        max-width: 450px;
     }
 
 
     .boton,
     .boton-principal {
-
         font-size:
             23px
             !important;
     }
 }
-
 
 
 /* =========================================================
@@ -3718,16 +2231,13 @@ and
     *,
     *::before,
     *::after {
-
         animation-duration:
             0.01ms
             !important;
 
-
         animation-iteration-count:
             1
             !important;
-
 
         transition-duration:
             0.01ms

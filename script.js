@@ -1,106 +1,4 @@
 /* =========================================================
-   BLOQUEAR DESPLAZAMIENTO MANUAL
-
-   EL USUARIO SOLO PODRÁ CAMBIAR DE ESCENA
-   UTILIZANDO LAS MUESCAS.
-========================================================= */
-
-
-/*
-   Evita el movimiento mediante
-   rueda del mouse / trackpad.
-*/
-
-window.addEventListener(
-
-    "wheel",
-
-    function (evento) {
-
-        evento.preventDefault();
-
-    },
-
-    {
-        passive:
-            false
-    }
-
-);
-
-
-
-/*
-   Evita arrastrar la página
-   con el dedo en celular.
-*/
-
-window.addEventListener(
-
-    "touchmove",
-
-    function (evento) {
-
-        evento.preventDefault();
-
-    },
-
-    {
-        passive:
-            false
-    }
-
-);
-
-
-
-/*
-   Evita teclas que normalmente
-   desplazan una página.
-*/
-
-window.addEventListener(
-
-    "keydown",
-
-    function (evento) {
-
-        const teclasBloqueadas = [
-
-            "ArrowUp",
-
-            "ArrowDown",
-
-            "PageUp",
-
-            "PageDown",
-
-            "Home",
-
-            "End",
-
-            " "
-
-        ];
-
-
-        if (
-            teclasBloqueadas.includes(
-                evento.key
-            )
-        ) {
-
-            evento.preventDefault();
-
-        }
-
-    }
-
-);
-
-
-
-/* =========================================================
    ABRIR INVITACIÓN
 ========================================================= */
 
@@ -112,15 +10,15 @@ function abrirInvitacion() {
         );
 
 
-    /* =====================================================
-       MÚSICA
-    ===================================================== */
-
     const musica =
         document.getElementById(
             "musicaFondo"
         );
 
+
+    /* =====================================================
+       MÚSICA DE FONDO
+    ===================================================== */
 
     if (musica) {
 
@@ -133,8 +31,8 @@ function abrirInvitacion() {
 
 
         /*
-           Si ya está sonando no
-           volvemos a iniciarla.
+           SOLO INICIAR SI
+           TODAVÍA NO ESTÁ SONANDO
         */
 
         if (musica.paused) {
@@ -142,11 +40,6 @@ function abrirInvitacion() {
             const reproduccion =
                 musica.play();
 
-
-            /*
-               Algunos navegadores devuelven
-               una Promise en play().
-            */
 
             if (
                 reproduccion !== undefined
@@ -172,9 +65,10 @@ function abrirInvitacion() {
     }
 
 
-    /* =====================================================
-       MOSTRAR INVITACIÓN
-    ===================================================== */
+    /*
+       MOSTRAR EL CONTENEDOR
+       DE LA INVITACIÓN
+    */
 
     invitacion.classList.remove(
         "oculto"
@@ -182,20 +76,15 @@ function abrirInvitacion() {
 
 
     /*
-       Esperamos un momento para permitir
-       que el navegador calcule correctamente
-       las dimensiones del contenido.
+       PASAR DE LA PORTADA
+       A LA PRIMERA ESCENA
     */
 
-    setTimeout(() => {
-
-        cambiarSeccion(
-            "seccion1",
-            "avanzar",
-            null
-        );
-
-    }, 120);
+    cambiarSeccion(
+        "seccion1",
+        "avanzar",
+        null
+    );
 
 }
 
@@ -210,19 +99,12 @@ function abrirInvitacion() {
 
 const fechaEvento =
     new Date(
-
         2026,
-
         8,
-
         26,
-
         18,
-
         0,
-
         0
-
     );
 
 
@@ -243,9 +125,8 @@ function actualizarContador() {
         ahora.getTime();
 
 
-
     /* =====================================================
-       SI YA LLEGÓ LA FECHA
+       SI EL EVENTO YA LLEGÓ
     ===================================================== */
 
     if (
@@ -291,7 +172,7 @@ function actualizarContador() {
 
 
     /* =====================================================
-       DÍAS
+       CALCULAR DÍAS
     ===================================================== */
 
     const dias =
@@ -314,7 +195,7 @@ function actualizarContador() {
 
 
     /* =====================================================
-       HORAS
+       CALCULAR HORAS
     ===================================================== */
 
     const horas =
@@ -337,7 +218,7 @@ function actualizarContador() {
 
 
     /* =====================================================
-       MINUTOS
+       CALCULAR MINUTOS
     ===================================================== */
 
     const minutos =
@@ -358,7 +239,7 @@ function actualizarContador() {
 
 
     /* =====================================================
-       SEGUNDOS
+       CALCULAR SEGUNDOS
     ===================================================== */
 
     const segundos =
@@ -436,21 +317,19 @@ actualizarContador();
 
 
 setInterval(
-
     actualizarContador,
-
     1000
-
 );
 
 
 
 /* =========================================================
-   CONTROL DE CAMBIO DE ESCENAS
+   CONTROL DE NAVEGACIÓN
 ========================================================= */
 
 let cambiando =
     false;
+
 
 
 function cambiarSeccion(
@@ -460,8 +339,8 @@ function cambiarSeccion(
 ) {
 
     /*
-       Evitar doble toque mientras
-       se realiza la transición.
+       EVITAR DOBLE CLICK
+       DURANTE LA TRANSICIÓN
     */
 
     if (
@@ -480,10 +359,6 @@ function cambiarSeccion(
 
     /* =====================================================
        DESTELLOS
-
-       AVANZAR
-       VOLVER
-       INICIO
     ===================================================== */
 
     if (
@@ -499,7 +374,7 @@ function cambiarSeccion(
 
 
     /* =====================================================
-       TRANSICIÓN DE ONDA
+       INICIAR ONDA
     ===================================================== */
 
     iniciarTransicion();
@@ -507,10 +382,93 @@ function cambiarSeccion(
 
 
     /* =====================================================
-       CAMBIAR ESCENA
+       CAMBIAR DE ESCENA
+       CUANDO LA ONDA CUBRA LA PANTALLA
     ===================================================== */
 
     setTimeout(() => {
+
+        const portada =
+            document.getElementById(
+                "portada"
+            );
+
+
+        const invitacion =
+            document.getElementById(
+                "invitacion"
+            );
+
+
+        /*
+           QUITAMOS LA ESCENA ACTIVA
+           ANTERIOR.
+        */
+
+        const secciones =
+            document.querySelectorAll(
+                ".seccion"
+            );
+
+
+        secciones.forEach(
+
+            function (seccion) {
+
+                seccion.classList.remove(
+                    "activa"
+                );
+
+
+                seccion.classList.remove(
+                    "animar-entrada"
+                );
+
+            }
+
+        );
+
+
+
+        /* =================================================
+           SI EL DESTINO ES LA PORTADA
+        ================================================= */
+
+        if (
+            destinoId === "portada"
+        ) {
+
+            /*
+               OCULTAR LAS ESCENAS
+            */
+
+            invitacion.classList.add(
+                "oculto"
+            );
+
+
+            /*
+               MOSTRAR PORTADA
+            */
+
+            portada.classList.remove(
+                "portada-oculta"
+            );
+
+
+            cambiando =
+                false;
+
+
+            return;
+
+        }
+
+
+
+        /* =================================================
+           SI EL DESTINO ES UNA ESCENA
+        ================================================= */
 
         const destino =
             document.getElementById(
@@ -533,74 +491,40 @@ function cambiarSeccion(
 
 
         /*
-           CALCULAMOS LA POSICIÓN EXACTA
-           DE LA ESCENA.
-
-           Esto es más preciso que depender
-           únicamente de scrollIntoView()
-           en algunos navegadores móviles.
+           OCULTAR PORTADA
         */
 
-        const posicionDestino =
-            destino.getBoundingClientRect().top
-            +
-            window.scrollY;
+        portada.classList.add(
+            "portada-oculta"
+        );
 
 
 
         /*
-           EL SCROLL MANUAL ESTÁ BLOQUEADO,
-           PERO JAVASCRIPT SÍ PUEDE MOVERLO.
+           ASEGURAR QUE EL MAIN
+           ESTÉ VISIBLE
         */
 
-        window.scrollTo({
-
-            top:
-                posicionDestino,
-
-            left:
-                0,
-
-            behavior:
-                "auto"
-
-        });
+        invitacion.classList.remove(
+            "oculto"
+        );
 
 
 
         /*
-           Segundo ajuste después de que
-           el navegador haya recalculado
-           el viewport móvil.
-
-           Esto evita quedar unos píxeles
-           entre dos escenas.
+           MOSTRAR SOLO
+           LA ESCENA DESTINO
         */
 
-        requestAnimationFrame(() => {
-
-            const ajuste =
-                destino.getBoundingClientRect().top
-                +
-                window.scrollY;
+        destino.classList.add(
+            "activa"
+        );
 
 
-            window.scrollTo({
 
-                top:
-                    ajuste,
-
-                left:
-                    0,
-
-                behavior:
-                    "auto"
-
-            });
-
-        });
-
-
+        /*
+           ANIMAR CONTENIDO
+        */
 
         animarContenido(
             destino
@@ -612,7 +536,7 @@ function cambiarSeccion(
 
 
     /* =====================================================
-       HABILITAR SIGUIENTE CLICK
+       PERMITIR NUEVO CLICK
     ===================================================== */
 
     setTimeout(() => {
@@ -638,14 +562,23 @@ function iniciarTransicion() {
         );
 
 
+    if (
+        !transicion
+    ) {
+
+        return;
+
+    }
+
+
     transicion.classList.remove(
         "activo"
     );
 
 
     /*
-       Fuerza el reinicio de
-       la animación CSS.
+       FORZAR REINICIO
+       DE LA ANIMACIÓN
     */
 
     void transicion.offsetWidth;
@@ -676,15 +609,8 @@ function animarContenido(
     seccion
 ) {
 
-    /*
-       La portada no utiliza
-       class="seccion".
-    */
-
     if (
-        !seccion.classList.contains(
-            "seccion"
-        )
+        !seccion
     ) {
 
         return;
@@ -698,7 +624,7 @@ function animarContenido(
 
 
     /*
-       Reiniciar animación.
+       REINICIAR ANIMACIÓN
     */
 
     void seccion.offsetWidth;
@@ -735,9 +661,21 @@ function crearDestellos(
         );
 
 
-    /*
-       Posición del botón.
-    */
+    if (
+        !contenedor
+        ||
+        !boton
+    ) {
+
+        return;
+
+    }
+
+
+
+    /* =====================================================
+       POSICIÓN DEL BOTÓN
+    ===================================================== */
 
     const rect =
         boton.getBoundingClientRect();
@@ -760,10 +698,9 @@ function crearDestellos(
 
 
 
-    /*
-       Menos partículas en
-       celulares pequeños.
-    */
+    /* =====================================================
+       CANTIDAD DE PARTÍCULAS
+    ===================================================== */
 
     const cantidad =
         window.innerWidth < 380
@@ -795,7 +732,7 @@ function crearDestellos(
 
 
         /*
-           Alternar estrellas.
+           DOS TIPOS DE ESTRELLA
         */
 
         elemento.textContent =
@@ -808,7 +745,7 @@ function crearDestellos(
 
 
         /*
-           Ángulo aleatorio.
+           ÁNGULO ALEATORIO
         */
 
         const angulo =
@@ -821,7 +758,7 @@ function crearDestellos(
 
 
         /*
-           Distancia aleatoria.
+           DISTANCIA
         */
 
         const distancia =
@@ -833,9 +770,9 @@ function crearDestellos(
 
 
 
-        /* =================================================
+        /*
            POSICIÓN INICIAL
-        ================================================= */
+        */
 
         elemento.style.left =
             centroX
@@ -850,9 +787,9 @@ function crearDestellos(
 
 
 
-        /* =================================================
+        /*
            TAMAÑO
-        ================================================= */
+        */
 
         elemento.style.fontSize =
             (
@@ -867,9 +804,9 @@ function crearDestellos(
 
 
 
-        /* =================================================
+        /*
            MOVIMIENTO X
-        ================================================= */
+        */
 
         elemento.style.setProperty(
 
@@ -887,9 +824,9 @@ function crearDestellos(
 
 
 
-        /* =================================================
+        /*
            MOVIMIENTO Y
-        ================================================= */
+        */
 
         elemento.style.setProperty(
 
@@ -907,9 +844,9 @@ function crearDestellos(
 
 
 
-        /* =================================================
+        /*
            AGREGAR
-        ================================================= */
+        */
 
         contenedor.appendChild(
             elemento
@@ -917,9 +854,10 @@ function crearDestellos(
 
 
 
-        /* =================================================
+        /*
            ELIMINAR DESPUÉS
-        ================================================= */
+           DE LA ANIMACIÓN
+        */
 
         setTimeout(() => {
 
@@ -934,7 +872,8 @@ function crearDestellos(
 
 
 /* =========================================================
-   EVITAR GESTOS DE ARRASTRE DEL NAVEGADOR
+   EVITAR MENÚS / GESTOS DE DESPLAZAMIENTO
+   INNECESARIOS EN CELULAR
 ========================================================= */
 
 document.addEventListener(
